@@ -1,0 +1,108 @@
+  <nav style="float: left;">
+    <div class="col-md-11">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+        <a type="submit" class="enlace" (click)="cargar()">
+          <p> <i style="color:rgb(255, 43, 43) ;" class="fa-solid fa-suitcase-medical"></i>
+            <strong style="font-weight: 800 !important ; color: white;"> TuSalud</strong> 
+          </p>
+        </a>
+    <ul>
+  
+      <li>
+        <form autocomplete="off" class="en" (ngSubmit)="buscar(f)" #f="ngForm">
+          <input class="me-10 input1" 
+                  type="search" 
+                  placeholder="Search" 
+                  name="busqueda"
+                  #busqueda="ngModel"
+                  ngModel
+                  required
+                  [class.is-invalid]="busqueda.invalid && busqueda.touched"
+                  >
+          <a type="submit" class="iconoBuscar" (click)="buscar(f)">
+              <i class="fa-solid fa-magnifying-glass mt-2"></i>
+          </a>
+        </form>
+      </li>
+      <li class="d">
+        <a routerLink="nuevo" > <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="fa-solid fa-house"></i></small> </a>
+      <li >
+        <a routerLink="like" type="submit" > <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="fa-regular fa-heart "></i></small> </a>
+      <li >
+         <a routerLink="compartir" type="submit" > <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="fa-regular fa-paper-plane "></i></small> </a>
+      <li >
+        <a routerLink="publicar" type="submit" > <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="fa-regular fa-square-plus "></i></small> </a>
+      <li >
+        <a routerLink="publicar" type="submit" *ngIf="!cargado"> <small  style="color: rgb(203, 203, 203); font-size:0px;">
+          <app-loading style="font-size: 7px ;" ></app-loading> 
+        </small> </a>        
+        <li [matMenuTriggerFor]="menu" type="submit" >
+                <a *ngIf="
+                            'A' === de || 'a' === de ||
+                            'B' === de || 'b' === de ||
+                            'C' === de || 'c' === de ||
+                            'D' === de || 'd' === de ||
+                            'E' === de || 'e' === de ||
+                            'F' === de || 'f' === de ||
+                            'G' === de || 'g' === de ||
+                            'H' === de || 'h' === de ||
+                            'K' === de || 'k' === de ||
+                            'L' === de || 'l' === de ||
+                            'N' === de || 'n' === de ||
+                            'O' === de || 'o' === de ||
+                            'R' === de || 'r' === de ||
+                            'P' === de || 'p' === de ||
+                            'S' === de || 's' === de ||
+                            'U' === de || 'u' === de ||
+                            'V' === de || 'v' === de ||
+                            'X' === de || 'x' === de ||
+                            'Y' === de || 'y' === de ||
+                            'Z' === de || 'z' === de     "  class="espacio1Letra">
+                   <label> <small> {{de}}</small> </label>
+                  </a>
+                  <a *ngIf="'M' === de || 'm' === de " class="espacio3Letra">       
+                  <label> <small>{{de}}</small> </label>
+                  </a>
+                  <a *ngIf="
+                            'I' === de || 'i' === de ||
+                            'J' === de || 'j' === de    " class="espacio2Letra">
+                      <label> <small>{{de}}</small> </label>
+                </a>
+                  <a *ngIf="
+                          'T' === de || 't' === de 
+                            " class="espacio4Letra">
+                      <label> <small>{{de}}</small> </label>
+              </a>
+  
+  <!--  -->
+  
+  
+              
+  
+          <mat-menu #menu="matMenu" >
+            <button mat-menu-item (click)="perfil()">
+              <i class="far fa-user"></i>
+              <span> Perfil</span>
+            </button>
+            <button mat-menu-item (click)="modificarPerfil()">
+              <i class="fas fa-user-edit"></i>
+              <span> Modificar Perfil</span>
+            </button>
+            <button mat-menu-item (click)="salir()">
+              <i class="fa-solid fa-power-off"></i>
+              <span> Salir</span>
+            </button>
+          </mat-menu>
+        <!-- </div>   -->
+    </li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+    </ul>
+  </div>
+  </nav>

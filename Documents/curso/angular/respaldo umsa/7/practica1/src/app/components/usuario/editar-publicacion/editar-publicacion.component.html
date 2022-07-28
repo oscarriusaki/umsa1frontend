@@ -1,0 +1,68 @@
+<div class="row bordeTexto2 mb-3">
+    <form autocomplete="off" (ngSubmit)="enviar(f)" #f="ngForm" class="mb-5">
+        <div class="row">
+
+          <div class="col-md-12"> <a (click)="back()" type="submit" style="color: black; padding-right: 5px;"><i class="fas fa-angle-left "></i></a> 
+          <strong style="font-size: 25px; color: rgb(102, 102, 102); margin-left: 10px;" class="mt-5">Modificar publicación</strong></div>
+        </div>
+          <hr >  
+          <div class="row mb-2">
+          <label class="espacioLabel">Pregunta</label>
+          <br>
+          <input class="estiloImput " 
+          placeholder="¿Cuáles es su pregunta?"
+                  name="descripcion"
+                  #descripcion="ngModel"
+                  ngModel
+                  required
+                  [class.is-invalid]="descripcion.invalid && descripcion.touched"
+                  [ngModel]="publicacion.descripcion"
+                  > 
+          </div>
+          <br>
+  
+          <div class="row mb-2">
+          <label class="espacioLabel">Descripción de la pregunta</label>
+          <br>
+          <input class="estiloImput" 
+          placeholder="Ingrese la descripción"
+          name="contenido"
+          #contenido="ngModel"
+                  ngModel
+                  required
+                  [class.is-invalid]="contenido.invalid && contenido.touched"
+                  [ngModel]="publicacion.contenido"
+                  >
+          </div>
+          <br>
+          <div class="row mt-3">
+            <label class="espacioLabel">Elija alguna enfermedad</label>
+            <div class="col-md-10">
+              <select
+                  class="formEditar"
+                  aria-label="Default select  example"
+                  name="tipoEnfermedad"
+                  #tipoEnfermedad="ngModel"
+                  ngModel
+                  required
+                  [ngModel]="publicacion.tipoEnfermedad"
+                >
+                <option selected hidden>{{publicacion.tipoEnfermedad}}</option>
+                <option value="0">Tos</option>
+                <option value="1">Cancer de colon</option>
+                <option value="2">Diabetes</option>
+                <option value="3">Cancer de mama</option>
+                <option value="4">Cancer de piel</option>
+                <option value="5">Resfrio</option>
+                <option value="6">Sinusitis</option>
+                <option value="7">Gonorea</option>
+                <option value="8">Senfalitis</option>
+                <option value="9">Meningitis</option>
+              </select>
+            </div>
+            <div class="col-md-2 mt-1" >
+              <button class="btn  estiloBoton">Publicar</button>
+            </div>
+           </div>
+    </form>
+  </div>

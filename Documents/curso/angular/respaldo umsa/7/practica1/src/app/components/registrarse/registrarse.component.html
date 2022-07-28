@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+        <form action="off" #forma="ngForm" class="formulario" (ngSubmit)="registrar(forma)">
+            <!-- <p style="font-size: 20px; text-align: center;">Registrar</p> -->
+            <div class="col-md-12 mt-3 mb-3" style="text-align: center;"> <strong style="font-size: 25px; color: rgb(29, 29, 29); text-align: center  !important;" >Registrar</strong></div>
+                <label class= "" style="font-size: 13px; color:rgb(0, 0, 0);">nombre</label>
+            
+                <div class="col-12">
+                    <input class="form-control formEditar"
+                           type="text"
+                           name="nombre"
+                           minlength="3"
+                           placeholder="Nombre"
+                           ngModel
+                           #nombre="ngModel"
+                           required
+                           [class.is-invalid]="nombre.invalid && nombre.touched"
+                           >
+                </div>
+                <!-- <span class="col-8" *ngIf="nombre.invalid && nombre.touched">{{mensajeError2}</span> -->
+                <label class=" "  style="font-size: 13px; color:rgb(0, 0, 0);">Apellido Paterno</label>
+              
+                <div class="col-12">
+                    <input class="form-control formEditar"
+                            type="text"
+                            placeholder="Apellido paterno"
+                            name="apellidoPaterno"
+                            #apellidoPaterno='ngModel'
+                            ngModel
+                            required
+                            minlength="3"
+                            [class.is-invalid]="apellidoPaterno.invalid && apellidoPaterno.touched"
+                            >
+                </div>
+           <!--      <span class="col-7" *ngIf="apellidoPaterno.invalid && apellidoPaterno.touched">El apellido paterno es obligatorio</span> -->
+                <label class=" "  style="font-size: 13px; color:rgb(0, 0, 0);">Apellido materno </label>
+         
+                
+                <div class="col-12">
+                    <input class="form-control formEditar"
+                            type="text"
+                            placeholder="Apellido Materno"
+                            name=apellidoMaterno
+                            #apellidoMaterno="ngModel"
+                            ngModel
+                            required
+                            minlength="3"
+                            [class.is-invalid]="apellidoMaterno.invalid && apellidoMaterno.touched"
+                            >
+                </div>
+                <!-- <span class="col-7" *ngIf="apellidoMaterno.invalid && apellidoMaterno.touched"> El apellido materno es obligatorio</span> -->
+                <label class=" "  style="font-size: 13px; color:rgb(0, 0, 0);">Email</label>
+             
+                <div class="col-12">
+                    <input class="form-control formEditar" 
+                            type="email"
+                            placeholder="Correo"
+                            name="correo"
+                            ngModel
+                            #email="ngModel"
+                            required
+                            email
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+                            [class.is-invalid]="email.invalid && email.touched"
+                            >
+                </div>
+        <!--         <span class="col-7" *ngIf="email.invalid && email.touched">El email es obligatorio </span> -->
+                <label class=" "  style="font-size: 13px; color:rgb(0, 0, 0);">password</label>
+
+                 <div class="col-12">
+                    <input class = "form-control formEditar"
+                            type="password"
+                            placeholder="Password"
+                            name="password"
+                            ngModel
+                            #password="ngModel"
+                            minlength="9"
+                            [class.is-invalid]="password.invalid && password.touched"
+                            required
+                            >
+                </div>
+               <!--  <span class="col-7" *ngIf="password.invalid && password.touched">El pasword es requerido</span> -->
+            <span class="col-8 text-danger" *ngIf="mensajeError2!==''">{{mensajeError2}}</span>
+            <small *ngIf="email.invalid && email.touched"
+                            class="class-form text-danger">El correo no es valido</small> <br>
+            <small *ngIf="password.invalid && password.touched"
+                            class="class-form text-danger">El password debe tener mas de 9 caracteres</small> 
+            <div class="form-group">
+                <label class="col-12 col-form-label">&nbsp;</label>
+                <div class="row">
+                    <button type="submit" class="botonEstilo">Registrarse</button>
+                </div> 
+                <div class="col-md-12 mt-3" style="text-align: center; color: rgb(0, 0, 0);">
+                    Ya tienes una cuenta 
+                    <a type="submit" class="letra" (click)="login()">Login</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>

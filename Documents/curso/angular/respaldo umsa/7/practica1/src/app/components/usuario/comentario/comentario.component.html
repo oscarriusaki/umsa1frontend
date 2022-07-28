@@ -1,0 +1,304 @@
+<app-loading *ngIf="!loading"></app-loading>
+<div class="row negro" *ngIf="loading">
+    <div class="bordeTexto2">
+    <div class="row">
+        <div class="col-md-1 mt-3"> 
+            <a type="submit" (click)="back()"> 
+                <i class="fas fa-chevron-left fs2x" style="color: black;"></i>
+            </a>
+        </div>
+        <div class="col-md-3 mt-3"> <strong style="font-size: 25px; color: rgb(102, 102, 102);" > <label> Publicacion </label></strong></div>
+        <div class="col-md-8 mt-3"></div>
+    </div>
+   <hr style="background-color: rgb(68, 68, 68);">
+   <div class="row">
+        <app-loading *ngIf="cargar"></app-loading>
+        <div class="col-md-12">
+            <body class="espacioTarjeta">
+                <div class="row">
+                    <div class="col-md-1 estiloPerfil44">
+                        <p *ngIf="
+                                  'A' === nombre.charAt(0) ||  'a' === nombre.charAt(0) || 
+                                  'B' === nombre.charAt(0) ||  'b' === nombre.charAt(0) || 
+                                  'C' === nombre.charAt(0) ||  'c' === nombre.charAt(0) || 
+                                  'D' === nombre.charAt(0) ||  'd' === nombre.charAt(0) || 
+                                  'E' === nombre.charAt(0) ||  'e' === nombre.charAt(0) || 
+                                  'F' === nombre.charAt(0) ||  'f' === nombre.charAt(0) || 
+                                  'G' === nombre.charAt(0) ||  'g' === nombre.charAt(0) || 
+                                  'H' === nombre.charAt(0) ||  'h' === nombre.charAt(0) || 
+                                  'K' === nombre.charAt(0) ||  'k' === nombre.charAt(0) || 
+                                  'L' === nombre.charAt(0) ||  'l' === nombre.charAt(0) || 
+                                  'N' === nombre.charAt(0) ||  'n' === nombre.charAt(0) || 
+                                  'O' === nombre.charAt(0) ||  'o' === nombre.charAt(0) || 
+                                  'R' === nombre.charAt(0) ||  'r' === nombre.charAt(0) || 
+                                  'P' === nombre.charAt(0) ||  'p' === nombre.charAt(0) || 
+                                  'S' === nombre.charAt(0) ||  's' === nombre.charAt(0) || 
+                                  'U' === nombre.charAt(0) ||  'u' === nombre.charAt(0) || 
+                                  'V' === nombre.charAt(0) ||  'v' === nombre.charAt(0) || 
+                                  'X' === nombre.charAt(0) ||  'x' === nombre.charAt(0) || 
+                                  'Y' === nombre.charAt(0) ||  'y' === nombre.charAt(0) || 
+                                  'Z' === nombre.charAt(0) ||  'z' === nombre.charAt(0)   " class="espacio1Letra">
+                        <label> {{nombre.charAt(0)|uppercase | slice:0:1}}</label>
+                        </p>
+                        <p *ngIf="'M' === nombre.charAt(0) || 'M' === nombre.charAt(0)" class="espacio3Letra">       
+                        <label> {{nombre.charAt(0)|uppercase | slice:0:1}}</label>
+                        </p>
+                        <p *ngIf="
+                                  'I' === nombre.charAt(0) || 'i' === nombre.charAt(0) ||
+                                  'J' === nombre.charAt(0) || 'j' === nombre.charAt(0)" class="espacio2Letra">
+                            <label> {{nombre.charAt(0)|uppercase | slice:0:1}}</label>
+                        </p>
+                        <p *ngIf="
+                                'T' === nombre.charAt(0) || 't' === nombre.charAt(0) 
+                                  " class="espacio4Letra">
+                            <label> {{nombre.charAt(0)|uppercase | slice:0:1}}</label>
+                        </p>
+                    </div>
+                    <div class="col-md-11">
+                        <p class="card-text mr-5 mb-1 ml-5"> <a type="submit"  (click)="buscarusuario(publicacion.usuario)" class="linea">{{nombre  | pipes:false}} {{apellidoPaterno | pipes:false}} {{apellidoMaterno  | pipes:false}} 
+                           </a>  
+                           <small style="color: rgb(80, 80, 80); font-size: 15px;">  <label style="padding-left: 2px;padding-right: 2px;">  &#183;    {{fecha | capitalizado}}</label> 
+                           </small>
+                             <br>
+                             <small style="color:  rgb(132, 132, 132) !important; font-size: 15px;">
+                            <label> {{ tipoEnfermedad | pipes:true}}</label>
+                             </small>
+                        </p>
+                     
+                        <div class="bordeTexto estiloContenidoC mt-1">
+                             <a type="submit" class="textoDescripcion">{{descripcion | pipes:false}}</a><br>
+                                <p> <strong style="font-size: 15px; font-weight: 400; color: black;"> <label> {{contenido2 | pipes:false}}</label> </strong></p>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-4">
+                                <a  class="colorIcono1" type="submit" *ngIf="!likee" (click)="likePublicacion(publicacion)"> 
+                                    <div *ngIf="cantidadLikes!==0">
+                                    <i class="far fa-heart "></i>
+                                    {{cantidadLikes}}
+                                    </div>
+                                    <i class="far fa-heart" *ngIf="cantidadLikes===0" > </i>
+                                </a> 
+                                <a  class="colorIcono11" type="submit" *ngIf="likee" (click)="likePublicacion(publicacion)"> 
+                                    <i class="fas fa-heart "></i>
+                                    {{cantidadLikes}}
+                                </a> 
+                            </div>
+                            <div class="col-md-4 mb-2" >
+                                <a *ngIf="cantidadComentarios === 0" class="colorIcono2" type="submit" >
+                                    <i class="far fa-comment"></i>
+                                </a>
+                                <a *ngIf="cantidadComentarios !== 0" class="colorIcono2" type="submit" >
+                                    <i class="far fa-comment" ></i>
+                                    {{ cantidadComentarios}}
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a type="submit" *ngIf="!compartirr" (click)="compartir(publicacion)" class="colorIcono3">
+                                    <div  *ngIf="cantidadCompartidos!==0">
+                                        <i class="fa-regular fa-paper-plane"></i> {{cantidadCompartidos}}
+                                    </div>
+                                    <i class="fa-regular fa-paper-plane" *ngIf="cantidadCompartidos===0"></i> 
+                                </a>
+                                <a type="submit" *ngIf="compartirr" (click)="compartir(publicacion)" class="colorIcono33">
+                                    <i class="fas fa-paper-plane"></i> {{cantidadCompartidos}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <hr style="background-color: rgb(68, 68, 68);"> -->
+                
+            </body>
+        </div>
+    </div>
+    </div>
+        <br>
+        <br>
+        <!-- <hr style="background-color: rgb(68, 68, 68);"> -->
+        <form autocomplete="off" class="form-module bordeTexto2" #f="ngForm" (ngSubmit)="crearComentario(f)">
+            <div class="row">
+                <div class="col-md-1 mt-2">
+                    <div class=" estiloPerfil44">
+                        <p *ngIf="
+                                  'A' === usuarioActualNombre.charAt(0) ||  'a' === usuarioActualNombre.charAt(0) ||
+                                  'B' === usuarioActualNombre.charAt(0) ||  'b' === usuarioActualNombre.charAt(0) ||
+                                  'C' === usuarioActualNombre.charAt(0) ||  'c' === usuarioActualNombre.charAt(0) ||
+                                  'D' === usuarioActualNombre.charAt(0) ||  'd' === usuarioActualNombre.charAt(0) ||
+                                  'E' === usuarioActualNombre.charAt(0) ||  'e' === usuarioActualNombre.charAt(0) ||
+                                  'F' === usuarioActualNombre.charAt(0) ||  'f' === usuarioActualNombre.charAt(0) ||
+                                  'G' === usuarioActualNombre.charAt(0) ||  'g' === usuarioActualNombre.charAt(0) ||
+                                  'H' === usuarioActualNombre.charAt(0) ||  'h' === usuarioActualNombre.charAt(0) ||
+                                  'K' === usuarioActualNombre.charAt(0) ||  'k' === usuarioActualNombre.charAt(0) ||
+                                  'L' === usuarioActualNombre.charAt(0) ||  'l' === usuarioActualNombre.charAt(0) ||
+                                  'N' === usuarioActualNombre.charAt(0) ||  'n' === usuarioActualNombre.charAt(0) ||
+                                  'O' === usuarioActualNombre.charAt(0) ||  'o' === usuarioActualNombre.charAt(0) ||
+                                  'R' === usuarioActualNombre.charAt(0) ||  'r' === usuarioActualNombre.charAt(0) ||
+                                  'P' === usuarioActualNombre.charAt(0) ||  'p' === usuarioActualNombre.charAt(0) ||
+                                  'S' === usuarioActualNombre.charAt(0) ||  's' === usuarioActualNombre.charAt(0) ||
+                                  'U' === usuarioActualNombre.charAt(0) ||  'u' === usuarioActualNombre.charAt(0) ||
+                                  'V' === usuarioActualNombre.charAt(0) ||  'v' === usuarioActualNombre.charAt(0) ||
+                                  'X' === usuarioActualNombre.charAt(0) ||  'x' === usuarioActualNombre.charAt(0) ||
+                                  'Y' === usuarioActualNombre.charAt(0) ||  'y' === usuarioActualNombre.charAt(0) ||
+                                  'Z' === usuarioActualNombre.charAt(0) ||  'z' === usuarioActualNombre.charAt(0)   " class="espacio1Letra">
+                        <label> {{usuarioActualNombre.charAt(0)|uppercase | slice:0:1}}</label>
+                        
+                        </p>
+                        <p *ngIf="'M' === usuarioActualNombre.charAt(0) || 'm' === usuarioActualNombre.charAt(0)" class="espacio3Letra">       
+                        <label> {{usuarioActualNombre.charAt(0)|uppercase | slice:0:1}}</label>
+                        </p>
+                        <p *ngIf="
+                                  'I' === usuarioActualNombre.charAt(0) || 'i' === usuarioActualNombre.charAt(0) ||
+                                  'J' === usuarioActualNombre.charAt(0) || 'j' === usuarioActualNombre.charAt(0)" class="espacio2Letra">
+                            <label> {{usuarioActualNombre.charAt(0)|uppercase | slice:0:1}}</label>
+                        </p>
+                        <p *ngIf="
+                                'T' === usuarioActualNombre.charAt(0)  || 't' === usuarioActualNombre.charAt(0) 
+                                  " class="espacio4Letra">
+                            <label> {{usuarioActualNombre.charAt(0)|uppercase | slice:0:1}}</label>
+                        </p>
+                    </div>
+                <br>
+                </div>
+                <div class="col-md-10 mt-2" style="padding-top: 5px;">
+                    <input type="text" 
+                            placeholder="Escribir un comentario"
+                            class="usuarioComentar"
+                            #contenido="ngModel"
+                            name="contenido"
+                            ngModel
+                            id="prueba"
+                            [class.is-invalid]="contenido.invalid && contenido.touched"
+                            [ngModel]="usuario.contenido"
+                            required
+                    >
+                </div>
+                <div class="col-md-1">
+                    <button class="col-md-1 iconoEnviar" type="submit" (mouseleave)="aux=false" *ngIf="aux==true">
+                        <i class="fas fa-paper-plane" style="padding-top:10px; padding-bottom: 5px;"></i>
+                    </button>
+                    <button class="col-md-1 iconoEnviar"  style="padding-top:10px; padding-bottom: 5px;" (mouseover)="aux = true" *ngIf="aux==false">
+                        <i class="far fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <br>
+        <!-- <hr style=" color: rgb(68, 68, 68);"> -->
+        <app-loading *ngIf="!loading2"></app-loading>
+        <div *ngIf="loading2">
+        <div class="row bordeTexto2 mb-1" *ngFor="let usuarioComentario of comentariosPublicacionX; let i = index">
+            <div class="col-md-1 mt-2" >
+               <!--  <div class=" botonFoto1">
+                    <p class="nombreInicial"> {{(usuarioComentario.usuario.nombre +'')|slice:0:1 | uppercase}} </p>
+                </div> -->
+                <div class="col-md-1 estiloPerfil44">
+                    <p *ngIf="
+                              'A' === usuarioComentario.usuario.nombre.charAt(0)  ||  'a' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'B' === usuarioComentario.usuario.nombre.charAt(0)  ||  'b' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'C' === usuarioComentario.usuario.nombre.charAt(0)  ||  'c' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'D' === usuarioComentario.usuario.nombre.charAt(0)  ||  'd' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'E' === usuarioComentario.usuario.nombre.charAt(0)  ||  'e' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'F' === usuarioComentario.usuario.nombre.charAt(0)  ||  'f' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'G' === usuarioComentario.usuario.nombre.charAt(0)  ||  'g' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'H' === usuarioComentario.usuario.nombre.charAt(0)  ||  'h' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'K' === usuarioComentario.usuario.nombre.charAt(0)  ||  'k' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'L' === usuarioComentario.usuario.nombre.charAt(0)  ||  'l' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'N' === usuarioComentario.usuario.nombre.charAt(0)  ||  'n' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'O' === usuarioComentario.usuario.nombre.charAt(0)  ||  'o' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'R' === usuarioComentario.usuario.nombre.charAt(0)  ||  'r' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'P' === usuarioComentario.usuario.nombre.charAt(0)  ||  'p' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'S' === usuarioComentario.usuario.nombre.charAt(0)  ||  's' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'U' === usuarioComentario.usuario.nombre.charAt(0)  ||  'u' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'V' === usuarioComentario.usuario.nombre.charAt(0)  ||  'v' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'X' === usuarioComentario.usuario.nombre.charAt(0)  ||  'x' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'Y' === usuarioComentario.usuario.nombre.charAt(0)  ||  'y' === usuarioComentario.usuario.nombre.charAt(0) ||
+                              'Z' === usuarioComentario.usuario.nombre.charAt(0)  ||  'z' === usuarioComentario.usuario.nombre.charAt(0)    " class="espacio1Letra">
+                    <label> {{usuarioComentario.usuario.nombre|uppercase | slice:0:1}}</label>
+                    </p>
+                    <p *ngIf="'M' === usuarioComentario.usuario.nombre.charAt(0) || 'm' === usuarioComentario.usuario.nombre.charAt(0)" class="espacio3Letra">       
+                    <label> {{usuarioComentario.usuario.nombre|uppercase | slice:0:1}}</label>
+                    </p>
+                    <p *ngIf="
+                              'I' === usuarioComentario.usuario.nombre.charAt(0) || 'i' === usuarioComentario.usuario.nombre.charAt(0)  ||
+                              'J' === usuarioComentario.usuario.nombre.charAt(0) || 'j' === usuarioComentario.usuario.nombre.charAt(0)   " class="espacio2Letra">
+                        <label> {{usuarioComentario.usuario.nombre|uppercase | slice:0:1}}</label>
+                    </p>
+                    <p *ngIf="'T' === usuarioComentario.usuario.nombre.charAt(0)  ||  't' === usuarioComentario.usuario.nombre.charAt(0) 
+                              " class="espacio4Letra">
+                       <label>  {{usuarioComentario.usuario.nombre|uppercase | slice:0:1}}</label>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-11 mt-2 mb-2">
+                    <div class="row">
+                        <div class="col-md-11">
+                            <!-- <div> -->
+                                <p *ngIf="editarF !== usuarioComentario.uid" class="card-text mb-1 "> 
+                                    <a  type="submit" class="linea" (click)="buscarusuario(usuarioComentario.usuario)"> {{usuarioComentario.usuario.nombre  | pipes:false}} {{usuarioComentario.usuario.apellidoPaterno | pipes:false}} {{usuarioComentario.usuario.apellidoMaterno  | pipes:false}} </a><br>
+                                        <label (click)="mensaje(usuarioComentario)"> <small class="estiloContenidoC"> {{usuarioComentario.contenido | pipes:false}} </small></label>
+                                </p>
+                            <!-- </div> -->
+                                <div *ngIf="editarF === usuarioComentario.uid"  class="col">
+
+                                    <form autocomplete="off" class="form-module" [formGroup]="forma" (ngSubmit)="modificarComentario(usuarioComentario)">
+                                        
+                                        <input type="text"
+                                                class="modificado"
+                                                name="comentarioM"
+                                                formControlName="con"
+                                        >
+                                        
+                                    </form>
+                                    <small *ngIf="editarF === usuarioComentario.uid"  (click)="cancelar()"><label> <a type="submit" style="color: blue;"> cancelar</a></label></small>
+                                </div>
+                        </div>
+                        <div class="col-md-1">
+                            <a type="submit" [matMenuTriggerFor]="menu" style="color: black;"> 
+                                <i class="fas fa-ellipsis-v"></i>
+                            </a>
+                            <mat-menu #menu="matMenu"  xPosition="before">
+                                <div *ngIf="idLogueado !== usuarioComentario.usuario._id">
+
+                                    <button *ngIf="!usuarioComentario.reportar" mat-menu-item (click)="reportar(usuarioComentario)" >
+                                        <i class="far fa-flag" ></i>
+                                        <span> Reportar</span>
+                                    </button>
+                                    <button *ngIf="usuarioComentario.reportar" mat-menu-item (click)="reportar(usuarioComentario)" >
+                                        <a class="colorIcono"> <i class="far fa-flag" ></i></a>
+                                        <span> No Reportar</span>
+                                    </button>
+                                </div>
+                                <button *ngIf="idLogueado === usuarioComentario.usuario._id" mat-menu-item (click)="editarComentario(usuarioComentario)" >
+                                    <i class="far fa-edit"></i>
+                                    <span> editar</span>
+                                </button>
+                                <button *ngIf="idLogueado === usuarioComentario.usuario._id" mat-menu-item (click)="eliminarComentario(usuarioComentario)" >
+                                    <i class="far fa-trash-alt"></i>
+                                    <span> eliminar</span>
+                                </button>
+                            </mat-menu>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <a  class="colorIcono1" type="submit" *ngIf="!usuarioComentario.like" (click)="likeComentario(usuarioComentario)"> 
+                                <div *ngIf="usuarioComentario.cantidadLikes!==0">
+                                <i class="far fa-heart "></i>
+                                    {{usuarioComentario.cantidadLikes}}
+                                </div>
+                                <i class="far fa-heart " *ngIf="usuarioComentario.cantidadLikes===0"></i>
+                            </a> 
+                            <a  class="colorIcono11" type="submit" *ngIf="usuarioComentario.like" (click)="likeComentario(usuarioComentario)"> <i class="far fa-heart "></i>
+                                {{usuarioComentario.cantidadLikes}}
+                            </a> 
+                        </div>
+                        <div class="col-4">
+                        </div>
+                        <div class="col-4">
+                            <label> <small style="color: rgb(80, 80, 80); font-size: 15px;">{{usuarioComentario.fecha | capitalizado}}</small></label>
+                        </div>
+                    </div>
+            </div>  
+        </div>
+        </div>
+</div>

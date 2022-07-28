@@ -1,0 +1,175 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: 0;
+    list-style: none;
+    /* los elementos no se salgan de nuestro contenedor  */
+    box-sizing: border-box;
+}
+nav{
+    background-color: black;
+    height: 70px;
+    width: 100%;
+}
+.enlace{
+    position: absolute;
+    padding: 20px 50px;
+    font-size: 25px;
+    margin-left: 140px;
+}
+.en{
+    padding: 10px 1px;
+}
+.logo{
+    height: 30px;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+ 
+nav ul li{
+    display: inline-block;
+    line-height:40px; /* elementos de ALTO DEL NAVBAR */
+    margin:0px 5px;
+}
+
+nav ul li a{  /*  aqui */
+    color: white;
+    font-size: 18px;
+    padding: 5px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+ 
+/* li a.active, li a:hover{
+    background:blue ;
+    transition: .5s;
+} */
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+.checkbtn2{
+    height: 30px;
+}
+#check{
+    /* para ocultar es esto */
+    display: none;
+}
+section{
+    
+}
+@media(max-width:952px){
+    .en{
+        display: none;
+    }
+    .enlace{
+         position: absolute;
+        padding-left: 20px;
+        font-size: 25px;
+          margin-left: 70px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+@media(max-width:600px){
+    .checkbtn{
+        /* para mostrar icono o algo */
+        display: block;
+    }
+    .enlace{
+         position: absolute;
+        padding-left: 0px;
+        font-size: 25px;
+          margin-left: 10px;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: blue;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+        
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height:40px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    li a:hover, li a.active{
+        background: none;
+        color: red;
+    }
+    #check:checked~ul{
+        left: 0;
+
+    }
+    .esconder{
+        display: none;
+    }
+    
+}
+.espacio1Letra{
+    padding-left: 2px;
+    padding-top: 80px;
+    padding-bottom: 5px;
+    margin-bottom: 0px !important ;
+    color: white;
+    border: 2px solid rgb(201, 201, 201);
+    border-radius: 100px !important;
+}
+.espacio2Letra{
+    padding-left: 5px;
+    padding-top:  1px;
+    border: 2px solid rgb(201, 201, 201);
+    color: rgb(255, 255, 255);
+    border-radius: 100px !important;
+    margin-bottom: 10px !important ;
+}
+.espacio3Letra{
+    border: 2px solid rgb(201, 201, 201);
+    padding-top: 1px;
+    padding-right: 10px;
+    color: white;
+    border-radius: 100px !important;
+    margin-bottom: 10px !important ;
+}
+.input1{
+    width: 300px;
+    outline: none;
+    border:0px solid ;
+    border-color: rgb(34, 34, 34);
+    margin-left: -50px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 9px;
+    background: rgb(44, 44, 44);
+    color: rgb(215, 215, 215);
+}
+.input1:focus{
+    outline: none;
+    border: 0px solid rgb(65, 116, 255);
+    padding-left: 9px;
+    background: rgb(44, 44, 44);
+    color:rgb(215, 215, 215);
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}

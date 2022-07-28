@@ -1,0 +1,67 @@
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form action="off" #form="ngForm" class="formulario" (ngSubmit)="login(form)">
+            <!-- <p style="font-size: 20px; text-align: center; color: white;">Login In Your Account</p> -->
+            <div class="col-md-12 mt-3 mb-3" style="text-align: center;"> <strong style="font-size: 25px; color: rgb(46, 46, 46); text-align: center  !important;" >Iniciar Session</strong></div>
+                <label class="col-2 col-form-label"  style="color: rgb(0, 0, 0);"><small> Correo</small></label>
+                <div class="row">
+                    <div class="col-1 mt-3">
+                            <i class="fas fa-user" style="color: rgb(0, 0, 0);"></i>
+                    </div>
+                    <div class="col-11">
+                        <input class="estiloIniciarSession" 
+                        type="email" 
+                        name="email"
+                        placeholder="Correo"
+                        [ngModel]="usuario.email"
+                        #email="ngModel"
+                        required
+                        email
+                        [class.is-invalid]="email.invalid && email.touched"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" 
+                        >
+                    </div> 
+                     <div>
+                    </div>
+                    </div>
+                <label class="col-2 col-form-label"  style="color: rgb(0, 0, 0);"> <small> Password</small></label><br>
+                <div class="row">
+                    <div class="col-1 mt-3">
+                        <i class="fas fa-lock" style="color: rgb(49, 49, 49);"></i>
+                    </div>
+                    <div class="col-11">
+                        <input class="estiloIniciarSession"
+                                type="password"
+                                placeholder="Ingrese Password"
+                                name="password"
+                                [ngModel]="usuario.password"
+                                #password="ngModel"
+                                required
+                                [class.is-invalid]="password.invalid && password.touched"
+                                (mousedown)="borrarCampo()"
+                                >
+                            </div>
+                 </div>
+           <!-- </div> -->
+            <!-- <span *ngIf="swError">{{mensajeError}}</span> -->
+            <span class="text-danger" *ngIf="erroe1!==''">{{erroe1}}</span>
+            <span class="text-danger" *ngIf="erroe2!==''">{{erroe2}}</span>
+            <small *ngIf="email.invalid && email.touched"
+                            class="class-form text-danger">El correo no es valido</small>
+            <div class="form-group" >
+                <label class="col-12 col-form-label">&nbsp;</label>
+                <div class="row">
+                    <button type="submit" href="#" class=" botonEstilo">Login</button>
+                </div>
+                <div class="col-md-12 mt-3" style="text-align: center; color: rgb(29, 29, 29);">
+                    no tienes cuenta? 
+                    <a type="submit" class="letra" (click)="registrarse()">Registrarse</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+    
+</div>

@@ -1,0 +1,59 @@
+.spacio{
+    padding-top: 180px;
+}
+.letra{
+    text-decoration: underline;
+}
+.formulario{
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    margin-top: 200px;
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: 20px;
+}
+.estiloIniciarSession{
+    border: 0px solid rgb(182, 182, 182) ;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 50px;
+   /*  padding-left: 20px; */
+    font-weight: 400;
+    font-size: 20px;
+    border-radius: 3px;
+    color: rgb(0, 0, 0);
+}
+.estiloIniciarSession:focus{
+    outline: none;
+    background-color: rgb(255, 255, 255);
+}
+/* input{
+    background-color: black;
+}
+input::selection{
+    background-color:black
+} */
+.borderTotal{
+    border: 1px solid rgb(37, 37, 37);
+    margin-left: 10px;
+}
+.mm{
+    margin-top: 7px;
+   padding: 10px;
+}
+.botonEstilo{
+    background-color: rgb(39, 39, 39);
+    border: none;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+}
+.botonEstilo:hover{
+    border: none;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgb(46, 45, 45);
+    color: white;
+}
+
