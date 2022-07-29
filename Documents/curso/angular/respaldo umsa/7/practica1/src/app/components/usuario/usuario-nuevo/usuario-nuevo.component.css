@@ -7,13 +7,14 @@
     border-radius: 10px;
 }
 input{
-    outline: none
+    outline: none;
+    background: white;
 }
 input::placeholder{
     font-size: 20px;
 }
 input:focus{
-    border: 2px solid  rgb(211, 211, 211);
+    border: 2px solid  rgb(255, 255, 255);
 }
 .estiloBoton{
     border-radius: 20px;
