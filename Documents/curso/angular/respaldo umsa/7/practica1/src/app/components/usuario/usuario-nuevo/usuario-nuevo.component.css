@@ -12,9 +12,10 @@ input{
 }
 input::placeholder{
     font-size: 20px;
+    color: rgb(191, 191, 191);;
 }
 input:focus{
-    border: 2px solid  rgb(255, 255, 255);
+    border: 2px solid  rgb(231, 231, 231);
 }
 .estiloBoton{
     border-radius: 20px;

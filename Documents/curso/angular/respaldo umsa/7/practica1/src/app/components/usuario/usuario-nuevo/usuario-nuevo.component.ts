@@ -84,7 +84,7 @@ export class UsuarioNuevoComponent implements OnInit {
       .subscribe((resp:any) =>{
         if(resp.msg === 'expiro'){
           localStorage.clear();
-          this.loading=false
+          this.loading=false;
           window.location.reload();
         }else{
           this.publicaciones = resp.objAux;
@@ -94,7 +94,7 @@ export class UsuarioNuevoComponent implements OnInit {
           this.usuarioActual();
         }
       },(err) => {
-        this.loading=false
+        this.loading=false;
       })
   }
   actualizar(q:any){

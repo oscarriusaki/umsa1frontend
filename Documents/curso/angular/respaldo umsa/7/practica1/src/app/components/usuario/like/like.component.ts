@@ -21,6 +21,7 @@ export class LikeComponent implements OnInit {
 
   ngOnInit(): void {
     this.mostrar();
+    this.usuarioActual();
   }
   openSnackBar2(dato:any) {
     let mensaje='Compartido'
@@ -56,7 +57,7 @@ export class LikeComponent implements OnInit {
         }else{
           this.publicaciones=resp.axumostrar;
           this.loading=true;
-          this.cantidad=resp.count2
+          this.cantidad=resp.count2;
           this.usuarioActual();
         }
       })

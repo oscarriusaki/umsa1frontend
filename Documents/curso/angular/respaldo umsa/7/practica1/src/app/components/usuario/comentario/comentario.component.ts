@@ -26,7 +26,7 @@ export class ComentarioComponent implements OnInit {
   cantidadCompartidos:any;
   usuarioActualNombre:any='';
   contenido2:any
-
+  cargarContenido:boolean=false;
   id:any
   publicacion:any;
   aux:any=false;
@@ -114,6 +114,7 @@ export class ComentarioComponent implements OnInit {
       this.compartirr=this.publicacion.compartir;
       this.cargar=false;
       this.loading=true;
+      this.cargarContenido = true;
     })
     this.servicio.obtenerUsuarioActual()
         .subscribe((resp:any) =>{

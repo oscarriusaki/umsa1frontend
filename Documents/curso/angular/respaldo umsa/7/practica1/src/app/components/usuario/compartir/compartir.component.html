@@ -8,8 +8,8 @@
             <div class="alert alert-primary" *ngIf="cantidad===0">Ningun Compartido</div>
         </div>
 
-        <!-- <div class="container"> -->
-            <div class="row row-cols-12 animated fadeIn bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones">
+        <div class="loading">
+            <div class="row row-cols-12  bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones">
                 <div class="col-md-1 estiloPerfil4">
                     <p *ngIf="
                               'A' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'a' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
@@ -54,6 +54,10 @@
                         <div class="col-md-11">
                             <a class="estiloNombre" type="submit"  (click)="buscarusuario(publicacion.usuario)"> {{publicacion.usuario.nombre | pipes:true}} {{publicacion.usuario.apellidoPaterno | pipes:true}} {{publicacion.usuario.apellidoMaterno | pipes:true}} </a>  <label style="padding-left: 2px;padding-right: 2px;">  &#183;   </label>  
                             <small style="color: rgb(80, 80, 80); font-size: 15px;"><label>{{publicacion.fecha | capitalizado}}</label></small> 
+                            <br>
+                            <label>
+                                <small class="text-muted" style="font-size: 15px;color:  rgb(132, 132, 132) !important;"><label> {{publicacion.tipoEnfermedad| pipes:true}}</label></small> 
+                            </label>
                         </div>
                         <div class="col-md-1" >
                             <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 
@@ -85,8 +89,7 @@
                      </mat-menu>
                         </div>
                             
-                        <br>
-                        <small class="text-muted" style="font-size: 15px;color:  rgb(132, 132, 132) !important;"><label> {{publicacion.tipoEnfermedad| pipes:true}}</label></small> 
+
                         
                         <p class="mt-2 estiloUno">
                             <a class="estiloDesripcion" type="submit" (click)="comentar(publicacion)"> {{publicacion.descripcion | textoCorto:false}} </a> <br>
@@ -138,7 +141,7 @@
                 </div>
                 <!-- <hr style="background-color: rgb(158, 158, 158);"> -->
             </div>
-            <!-- </div> -->
+            </div>
         
 
 

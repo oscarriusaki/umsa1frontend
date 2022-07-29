@@ -9,7 +9,7 @@
 <div *ngIf="loading">
 
     
-    <div class="row row-cols-12  animated fadeIn bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones">
+    <div class="row row-cols-12 bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones">
         
         <div class="col-md-1 estiloPerfil4">
             <p *ngIf="
@@ -55,23 +55,15 @@
                 <div class="col-md-11">
                     <a class="estiloNombre" type="submit"  (click)="buscarusuario(publicacion.usuario)"> {{publicacion.usuario.nombre | pipes:true}} {{publicacion.usuario.apellidoPaterno | pipes:true}} {{publicacion.usuario.apellidoMaterno | pipes:true}} </a>  <label style="padding-left: 2px;padding-right: 2px;">  &#183;   </label>  
                     <small style="color: rgb(80, 80, 80); font-size: 15px;"><label>{{publicacion.fecha | capitalizado}}</label></small> 
+                    <br>
+                    <label> <small class="text-muted" style="font-size: 15px;color:  rgb(132, 132, 132) !important;">{{publicacion.tipoEnfermedad | pipes:true}}</small> </label>
+                    
                 </div>
                 <div class="col-md-1" >
                     <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 
                         <i class="fas fa-ellipsis-v"></i>
                     </a>
-<!--     
-                    <mat-menu #menu="matMenu">
-                        <button *ngIf="!publicacion.reportar" mat-menu-item (click)="reportar(publicacion)" >
-                            <i class="far fa-flag" ></i>
-                            <span> Reportar</span>
-                        </button>
-                        <button *ngIf="publicacion.reportar" mat-menu-item (click)="reportar(publicacion)" >
-                            <a class="colorIcono"> <i class="far fa-flag" ></i></a>
-                            <span> No Reportar</span>
-                        </button>
-                    </mat-menu> -->
-
+                    
                     <mat-menu #menu="matMenu"  xPosition="before">
                         <div *ngIf="idBuscar !== publicacion.usuario._id">
                            <button *ngIf="!publicacion.reportar" mat-menu-item (click)="reportar(publicacion)" >
@@ -96,9 +88,7 @@
                      </mat-menu>
                 </div>
                     
-                <br>
-                <label> <small class="text-muted" style="font-size: 15px;color:  rgb(132, 132, 132) !important;">{{publicacion.tipoEnfermedad | pipes:true}}</small> </label>
-                
+               
                 <p class="mt-2 estiloUnoc">
                     <a class="estiloDesripcion" type="submit" (click)="comentar(publicacion)"> {{publicacion.descripcion | textoCorto:false}} </a> <br>
                      <label> {{publicacion.contenido | textoLargo:false}} </label>

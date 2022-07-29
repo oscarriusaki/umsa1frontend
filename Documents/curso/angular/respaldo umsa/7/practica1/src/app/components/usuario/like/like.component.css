@@ -171,6 +171,12 @@
     -webkit-hyphens: auto;
     hyphens: auto;
 }
+.con{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
 .d{
     background-color: rgb(255, 255, 255);
     padding: 7px;
