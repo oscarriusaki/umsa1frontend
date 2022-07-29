@@ -15,6 +15,8 @@
         <span  *ngIf="contador === 1 || contador === 0"> pregunta</span> <span *ngIf="contador >1"> preguntas</span> 
     </label>
 
+    <app-loading *ngIf="!cargar"></app-loading>
+
     <hr style="background-color: rgb(158, 158, 158);">
         <div class="row row-cols-12 animated fadeIn bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones;let i=index" >
             <div class="col-md-1 estiloPerfil4">
@@ -63,7 +65,7 @@
                         <small style="color: rgb(80, 80, 80); font-size: 15px;"><label>{{publicacion.fecha | capitalizado}}</label></small> 
                     </div>
                     <div class="col-md-1" >
-                        <a type="submit" [matMenuTriggerFor]="menu" style="color: black;"> 
+                        <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 
                             <i class="fas fa-ellipsis-v"></i>
                         </a>
         

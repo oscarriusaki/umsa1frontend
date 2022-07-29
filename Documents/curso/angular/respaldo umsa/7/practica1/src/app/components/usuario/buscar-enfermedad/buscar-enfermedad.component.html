@@ -1,10 +1,11 @@
+
 <div class="negro">
     <div class="row row-cols-12">
         <div class="col-md-1"> <a type="submit" (click)="back()"><i class="fas fa-angle-left mt-3"></i></a> </div>
         <div class="col-md-11 mt-3 mb-3"> <strong style="font-size: 25px; color: rgb(102, 102, 102);"> <label> {{parametro|pipes:false}}</label></strong></div>
     </div>
+    <app-loading *ngIf='!cargar'></app-loading>
 <hr style="background-color: rgb(158, 158, 158);">
-
 <div class="row row-cols-12  animated fadeIn bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones">
     <div class="col-md-1 estiloPerfil4">
         <p *ngIf="
@@ -52,7 +53,7 @@
                 <small style="color: rgb(80, 80, 80); font-size: 15px;"><label>{{publicacion.fecha | capitalizado}}</label></small> 
             </div>
             <div class="col-md-1" >
-                <a type="submit" [matMenuTriggerFor]="menu" style="color: black;"> 
+                <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 
                     <i class="fas fa-ellipsis-v"></i>
                 </a>
 

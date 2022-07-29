@@ -551,7 +551,7 @@ p {
     border-radius: 20px;
     border: 0px solid #b3b3b3 ;
     /* border-color: #6e6d6d; */
-    padding: 20px;
+    padding: 0px;
     /* margin:10px; */
    }
 .estiloUno{
@@ -564,4 +564,8 @@ p {
     -moz-hyphens: auto;         /*  depende de lang en <html>      */
     -webkit-hyphens: auto;
     hyphens: auto;
+}
+.d{
+    background-color: rgb(255, 255, 255);
+    padding: 7px;
 }

@@ -49,5 +49,6 @@ export class NavbarComponent implements OnInit {
   }
   cargar(){
     this.router.navigate(['usuario/nuevo'])
+    // window.location.reload();
   }
 }

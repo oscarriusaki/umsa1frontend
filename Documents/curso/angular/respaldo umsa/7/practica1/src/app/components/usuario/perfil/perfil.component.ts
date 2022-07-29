@@ -10,7 +10,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class PerfilComponent implements OnInit {
 
-  
   nombre:any;
   de:any;
   apellidoPaterno:any;
@@ -35,6 +34,7 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.mostrarUsuario();
+  
   }
   openSnackBar2(dato:any) {
     let mensaje='Compartido'

@@ -10,11 +10,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class BuscarComponent implements OnInit {
 
-
   publicaciones:any;
   parametro:any='';
   contador:any=0;
   idBuscar:any='';
+  cargar:boolean=false;
+
   constructor(private servicio:ServiceService,
               private activatedRoute:ActivatedRoute,
               private router:Router,
@@ -36,6 +37,8 @@ export class BuscarComponent implements OnInit {
                 this.publicaciones=resp.objAux3
                 this.contador=resp.contadorAuxiliar
                 this.usuarioActual();
+                this.cargar = true;
+                
               })
         })
   }

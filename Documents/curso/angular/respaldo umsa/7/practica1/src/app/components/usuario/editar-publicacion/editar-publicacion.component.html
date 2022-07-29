@@ -2,15 +2,17 @@
     <form autocomplete="off" (ngSubmit)="enviar(f)" #f="ngForm" class="mb-5">
         <div class="row">
 
-          <div class="col-md-12"> <a (click)="back()" type="submit" style="color: black; padding-right: 5px;"><i class="fas fa-angle-left "></i></a> 
+          <div class="col-md-12 mt-3"> <a (click)="back()" type="submit" style="color: black; padding-right: 5px;"><i class="fas fa-angle-left mb-1"></i></a> 
           <strong style="font-size: 25px; color: rgb(102, 102, 102); margin-left: 10px;" class="mt-5">Modificar publicación</strong></div>
         </div>
+        <app-loading *ngIf="!cargar"></app-loading>
+
           <hr >  
           <div class="row mb-2">
           <label class="espacioLabel">Pregunta</label>
           <br>
           <input class="estiloImput " 
-          placeholder="¿Cuáles es su pregunta?"
+                  placeholder="¿Cuáles es su pregunta?"
                   name="descripcion"
                   #descripcion="ngModel"
                   ngModel
@@ -34,9 +36,9 @@
                   [ngModel]="publicacion.contenido"
                   >
           </div>
-          <br>
+          <!-- <br> -->
           <div class="row mt-3">
-            <label class="espacioLabel">Elija alguna enfermedad</label>
+            <label class="espacioLabel" style="padding-left: 15px;">Elija alguna enfermedad</label>
             <div class="col-md-10">
               <select
                   class="formEditar"

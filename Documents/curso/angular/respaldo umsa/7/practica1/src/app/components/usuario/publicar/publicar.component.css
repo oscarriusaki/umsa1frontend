@@ -1,5 +1,5 @@
 .estiloImput{
-    border: 2px solid  rgb(231, 231, 231);
+    border: 1px solid  rgb(152, 152, 152);
     outline: none;
     width: 100%;
     height: 50px;
@@ -8,7 +8,7 @@
     border-radius: 5px;
 }
 input::placeholder{
-    padding-left: 2px;
+    padding-left: 0px;
     font-weight: 300;
     font-size: 20px;
     color: rgb(102, 102, 102);
@@ -22,7 +22,7 @@ input{
     font-size: 20px;
 }
 .formEditar{
-    border: 2px solid  rgb(231, 231, 231);
+    border: 1px solid  rgb(152, 152, 152);
     width: 100%;
     height: 40px;
     background-color:rgb(255, 255, 255);
@@ -31,7 +31,7 @@ input{
     border-radius: 10px;
 }
 .formEditar:focus{
-    border: 2px solid  rgb(221, 221, 221);
+    border: 1px solid  rgb(152, 152, 152);
     outline: none;
     width: 100%;
     height: 40px;
@@ -64,7 +64,7 @@ input{
 }
  
 .espacioLabel{
-    padding-left: 25px;
+    padding-left: 7px;
     font-size: 11px;
     color: rgb(115, 115, 115);
 }

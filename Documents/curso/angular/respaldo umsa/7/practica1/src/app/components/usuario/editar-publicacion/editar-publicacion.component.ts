@@ -11,13 +11,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditarPublicacionComponent implements OnInit {
 
-
   parametro:any
   publicacion:any={
     descripcion:'',
     contenido:'',
     tipoEnfermedad:'',
   }
+  cargar:boolean = false;
+
   enfermedades:any=[
     'Tos',
     'Cancer de colon',
@@ -30,6 +31,7 @@ export class EditarPublicacionComponent implements OnInit {
     'Senfalitis',
     'Meningitis',
   ]
+
   constructor(private router:Router,
               private activateRoute:ActivatedRoute,
               private servicio:ServiceService,
@@ -43,11 +45,9 @@ export class EditarPublicacionComponent implements OnInit {
                         this.publicacion.descripcion=resp.usuario.descripcion.substring(0,1)+resp.usuario.descripcion.substring(1).toLowerCase();;
                         this.publicacion.contenido=resp.usuario.contenido.substring(0,1)+resp.usuario.contenido.substring(1).toLowerCase();;
                         this.publicacion.tipoEnfermedad=resp.usuario.tipoEnfermedad.substring(0,1)+resp.usuario.tipoEnfermedad.substring(1).toLowerCase();
+                        this.cargar = true;
                       })
-            
-
                }
-
   ngOnInit(): void {
   }
   openSnackBar() {

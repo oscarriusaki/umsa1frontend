@@ -10,22 +10,27 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class BuscarEnfermedadComponent implements OnInit {
 
-
   publicaciones:any;
   parametro:any;
   idBuscar:any='';
+  cargar:boolean = false;
+
   constructor(private activatedRouter:ActivatedRoute,
               private servicio:ServiceService,
               private router:Router,
               private _snackBar:MatSnackBar) {
       this.mostrar();
-  }
+    }
+    
   mostrar(){
+    this.cargar = false;
     this.activatedRouter.params
       .subscribe(resp =>{
+        console.log('hola mundo')
         this.parametro=resp['id'];
         this.buscarEnfermedadX(this.parametro);
         this.usuarioActual();
+        this.cargar = true;
     })
   }
   openSnackBar2(dato:any) {

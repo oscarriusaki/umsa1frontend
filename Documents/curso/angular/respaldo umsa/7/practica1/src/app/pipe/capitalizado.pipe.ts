@@ -22,20 +22,44 @@ export class CapitalizadoPipe implements PipeTransform {
     let dia2=this.fechaActual.getDate();
     let hora2=this.fechaActual.getHours()-4;
     let minuto2=this.fechaActual.getMinutes()+3;
-    let segundo2=this.fechaActual.getSeconds()+30;
+    let segundo2=this.fechaActual.getSeconds();
+    
+    if(minuto < 0){
+      minuto = Number(minuto) * (-1);
+    }
+    if(minuto2 < 0){
+      minuto2 = Number(minuto2) * (-1);
+    }
+    if(segundo < 0){
+      segundo = Number(segundo) * (-1);
+    }
+    if(segundo2 < 0){
+      segundo2 = Number(segundo2) * (-1);
+    }
+    if(hora < 0){
+      hora = Number(hora) * (-1);
+    }
+    if(hora2 < 0){
+      hora2 = Number(hora2) * (-1);
+    }
+ 
     if(anio===anio2){
         if(mes===mes2){
             if(dia===dia2){
               if(hora===hora2){
-                if(minuto===minuto2){
-                    parametro=(segundo2-segundo)+' s'
-                }else{
-                  parametro=''+(minuto2-minuto);
-                  if(Number(parametro)===1){
-                    parametro=`hace ${parametro} minuto`;
+                if(Number(minuto)===Number(minuto2)){
+                  if((Number(segundo2)-Number(segundo))<0){
+                    parametro = 'hace algunos instantes';
                   }else{
-                    parametro=`hace ${parametro} minutos`;
+                    parametro=(segundo2-segundo)+' s';
                   }
+                }else{
+                    parametro=''+(minuto2-minuto);
+                    if(Number(parametro)===1){
+                      parametro=`hace ${parametro} minuto`;
+                    }else{
+                      parametro=`hace ${parametro} minutos`;
+                    }
                 }
               }else{
                 parametro=``+(hora2-hora);
@@ -69,9 +93,6 @@ export class CapitalizadoPipe implements PipeTransform {
         parametro=dia2+`/`+mes2+`/`+anio;
       }
     }
-    return parametro
-   
- 
+    return parametro;
   }
-
 }

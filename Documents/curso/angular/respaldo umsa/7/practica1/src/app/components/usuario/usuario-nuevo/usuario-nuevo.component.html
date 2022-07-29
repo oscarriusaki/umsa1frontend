@@ -1,5 +1,5 @@
 <div class="negro">
-    <div *ngIf="sw" class="mb-3 mt-3">
+    <div *ngIf="sw" class="mb-3 mt-4">
         <label><h1 style="font-weight:800; color: rgb(102, 102, 102)"> Publicar</h1></label>
         <div class="text-dark">
             <div class="container">
@@ -127,10 +127,12 @@
     <div *ngIf="loading">
      
         <div class="bordeTexto2" *ngFor="let publicacion of publicaciones;let i=index" >
+            
             <div class="container">
                 <div class="con">
              
             <div class="col-md-1 estiloPerfil4">
+                
                  <p *ngIf="
                               'A' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'a' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                               'B' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'b' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
@@ -186,11 +188,11 @@
                         </p>
                         </div>
                     <div class="col-md-0" >
-                         <a type="submit" [matMenuTriggerFor]="menu" style="color: black;"> 
+                         <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 
                             <i class="fas fa-ellipsis-v"></i>
                         </a>
  
-
+                        <div class="">
                          <mat-menu #menu="matMenu"  xPosition="before">
                              <div *ngIf="idBuscar !== publicacion.usuario._id">
                                 <button *ngIf="!publicacion.reportar" mat-menu-item (click)="reportar(publicacion)" >
@@ -213,6 +215,7 @@
                                 </button>
                             </div>
                           </mat-menu>
+                        </div>
                     </div>
                 </div>  
                     

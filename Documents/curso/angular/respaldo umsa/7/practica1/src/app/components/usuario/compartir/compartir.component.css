@@ -175,3 +175,7 @@
     -webkit-hyphens: auto;
     hyphens: auto;
 }
+.d{
+    background-color: rgb(255, 255, 255);
+    padding: 7px;
+}

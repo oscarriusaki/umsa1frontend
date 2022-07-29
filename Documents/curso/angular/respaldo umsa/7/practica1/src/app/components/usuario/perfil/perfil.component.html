@@ -1,5 +1,9 @@
 <app-loading *ngIf="!cargarContenido"></app-loading>
 <div class="row mb-5 negro" *ngIf="cargarContenido">
+    <!-- <div class="container"> -->
+    <div class="container">
+    <div class="">
+    <div class="row">
     <div class="col-md-2 mt-3">
       <div class="col-md-1 estiloPerfil4">
         <p *ngIf="
@@ -52,6 +56,10 @@
     <div class="col-md-3 ml-2 mt-3">
      <button type="button" class="btn bordeBoton" (click)="editarPerfil()"> <small style="font-size:10px ;"> Editar perfil</small></button>  
     </div>
+    </div>
+    </div>
+    </div>
+    <!-- </div> -->
     <div class="col-md-12 mt-3">
         <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
             <mat-tab label="Publicaciones">
@@ -105,7 +113,7 @@
                                         <label> <small style="color: rgb(80, 80, 80); font-size: 15px;">{{publicacion.fecha | capitalizado}}</small> </label>
                                     </div>
                                     <div class="col-md-1" >
-                                        <a type="submit" [matMenuTriggerFor]="menu" style="color: black;"> 
+                                        <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                         
@@ -193,7 +201,7 @@
                     
                     <div class="alert alert-primary  mt-2" *ngIf="cantidadLike === 0 ">Ningun Like</div>
 
-                    <div class="container" *ngIf="loading">
+                    <div class="container">
                         <div class="row row-cols-12 animated  fadeIn bordeTexto2 mb-1" *ngFor="let publicacion of likesU">
                             <div class="col-md-1 estiloPerfil55">
                                 <p *ngIf="
@@ -241,7 +249,7 @@
                                         <label> <small style="color: rgb(80, 80, 80); font-size: 15px;">{{publicacion.fecha | capitalizado}}</small> </label>
                                     </div>
                                     <div class="col-md-1" >
-                                        <a type="submit" [matMenuTriggerFor]="menu" style="color: black;"> 
+                                        <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                         
@@ -326,7 +334,7 @@
                 <mat-tab label="Compartidos">
                     <div class="alert alert-primary mt-2" *ngIf="cantidadCompartido === 0"> Ningun Compartido </div>
                     
-                    <div class="container" *ngIf="loading">  
+                    <div class="container">  
                         <div class="row row-cols-12 animated  fadeIn bordeTexto2 mb-1" *ngFor="let publicacion of compartidos">
                             <div class="col-md-1 estiloPerfil55">
                                 <p *ngIf="
@@ -374,7 +382,7 @@
                                         <label > <small style="color: rgb(80, 80, 80); font-size: 15px;">{{publicacion.fecha | capitalizado}}</small> </label>
                                     </div>
                                     <div class="col-md-1" >
-                                        <a type="submit" [matMenuTriggerFor]="menu" style="color: black;"> 
+                                        <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                         
