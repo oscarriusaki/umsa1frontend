@@ -26,6 +26,12 @@ export class PerfilComponent implements OnInit {
   usuarioActualId:any='';
   cargarContenido:boolean=false;
   
+  idBuscar:any='';
+  cargarContenido1=false;
+  cargarContenido2=false;
+  cargarContenido3=false;
+
+
   constructor(private servicio:ServiceService,
               private router:Router,
               private _snackBar:MatSnackBar) { 
@@ -95,7 +101,7 @@ export class PerfilComponent implements OnInit {
         .subscribe((resp:any) =>{
           this.cantidadLike=resp.count2;
           this.likesU=resp.axumostrar;
-          this.loading=true;
+          this.cargarContenido2=true;
         })
   }
   buscarCompartidosUsuarioX(){
@@ -103,7 +109,7 @@ export class PerfilComponent implements OnInit {
         .subscribe((resp:any) =>{
           this.cantidadCompartido=resp.count2;
           this.compartidos=resp.contenido;
-          this.loading=true;
+          this.cargarContenido3=true;
         })
   }
   publicacionesUsuarioX(){
@@ -112,7 +118,7 @@ export class PerfilComponent implements OnInit {
           this.cantidadPublicacion=resp.count;
           this.msg=resp.msg
           this.publicaciones=resp.objAux2
-          this.loading=true
+          this.cargarContenido1=true;
         } )
   }
   like(dato:any){
@@ -164,7 +170,7 @@ export class PerfilComponent implements OnInit {
   usuarioActual(){
     this.servicio.usuarioActual()
       .subscribe((resp:any) =>{
-        this.usuarioActual=resp.usuario1.uid;
+        this.idBuscar=resp.usuario1.uid;
         console.log(this.usuarioActual)
       })
   }

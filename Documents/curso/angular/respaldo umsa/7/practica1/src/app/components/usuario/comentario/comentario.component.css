@@ -361,7 +361,7 @@ input::placeholder{
     padding-top:    10px;
     padding-bottom: 10px;
     padding-left: 10px;
-    border-radius: 20px;
+    border-radius: 5px;
     font-size: 18px;
 }
 .usuarioComentar:focus{

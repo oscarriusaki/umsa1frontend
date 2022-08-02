@@ -51,7 +51,8 @@ export class ModificarPerfilComponent implements OnInit {
       })
   }
   back(){
-    // window.history.back();
-    this.router.navigate(['usuario/perfil'])
+    window.history.back();
+    //this.router.navigate(['usuario/perfil'])
   }
+  
 }

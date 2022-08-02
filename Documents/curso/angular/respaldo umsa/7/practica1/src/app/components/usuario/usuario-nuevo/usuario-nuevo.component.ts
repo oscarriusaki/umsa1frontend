@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ServiceService } from '../../../services/service.service';
@@ -34,18 +34,21 @@ export class UsuarioNuevoComponent implements OnInit {
   index:any=0;
   cantidad:any=0;
   idBuscar:any='';
+  swVerificar:boolean = false;
+  form:any;
 
   @Output() ato:EventEmitter<any>=new EventEmitter();
   constructor(private servicio:ServiceService, 
               private _snackBar:MatSnackBar,
-              private router:Router) { }
+              private router:Router,
+              private fb:FormBuilder) { }
   ngOnInit(): void {
     this.servicio.obtenerUsuarioActual()
       .subscribe((resp:any) =>{
         this.de=resp.usuario1.nombre.toUpperCase().charAt(0);
       })
     this.mostrar();
-    this.usuarioActual();
+    // this.usuarioActual();
   }
   openSnackBar() {
     this._snackBar.open('Publicado', '',{  
@@ -88,10 +91,12 @@ export class UsuarioNuevoComponent implements OnInit {
           window.location.reload();
         }else{
           this.publicaciones = resp.objAux;
+          console.log(this.publicaciones)
           this.loading=true;
           this.cantidad=resp.count;
           this.idBuscar='';
           this.usuarioActual();
+          // this.sw=true;
         }
       },(err) => {
         this.loading=false;
@@ -100,22 +105,36 @@ export class UsuarioNuevoComponent implements OnInit {
   actualizar(q:any){
     this.mostrar();
   }
+  verifica(i:NgForm){
+    console.log(i)
+ /*    this.form = this.fb.group({
+      i: ['',Validators.required, Validators.minLength(1)]
+    }) */
+    // console.log(i);
+    // this.form.get(i).valueChanges.subscribe(console.log);
+   
+  }
   envia(f:NgForm){
+    this.loading=false;
     if(f.invalid){
       return ;
     }
     this.servicio.publicar(f.form.value.descripcion,f.form.value.contenido,this.enfermedades[f.form.value.tipoEnfermedad])
       .subscribe(resp =>{
-        this.mostrar()
-        this.sw=true
         this.openSnackBar();
+        // this.loading=true;  
+        this.mostrar()
+        //  console.log(f,'Formulario')
+        //  f.form.controls.descripcion.value('hola')
+        f.reset({
+          tipoEnfermedad:this.data
+        })
       })
-      
   }
-
   like(dato:any){
     this.servicio.likePublicacion(dato.uid)
     .subscribe(resp =>{
+
       this.mostrar();
     });
   }
@@ -154,5 +173,17 @@ export class UsuarioNuevoComponent implements OnInit {
   }
   buscarusuario(usuario:any){
     this.router.navigate(['usuario/perfilAuxiliar',usuario._id+'']);
+  }
+  crearComentario(dato:NgForm,idd:String){
+      if(dato.invalid){
+          return;
+      }
+      console.log(dato)
+      this.servicio.comentarUnaPublicacion(idd, dato.form.value.termino)
+          .subscribe(resp=>{
+            console.log(resp)
+            this.mostrar()
+            dato.reset();
+          })
   }
 }

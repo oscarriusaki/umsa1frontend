@@ -61,19 +61,19 @@
                         </p>
                     </div>
                     <div class="col-md-11">
-                        <p class="card-text mr-5 mb-1 ml-5"> <a type="submit"  (click)="buscarusuario(publicacion.usuario)" class="linea">{{nombre  | pipes:false}} {{apellidoPaterno | pipes:false}} {{apellidoMaterno  | pipes:false}} 
+                        <p class="card-text mr-5 mb-1 ml-5"> <a type="submit"  (click)="buscarusuario(publicacion.usuario)" class="linea">{{nombre  | titlecase}} {{apellidoPaterno | titlecase}} {{apellidoMaterno  | titlecase}} 
                            </a>  
                            <small style="color: rgb(80, 80, 80); font-size: 15px;">  <label style="padding-left: 2px;padding-right: 2px;">  &#183;    {{fecha | capitalizado}}</label> 
                            </small>
                              <br>
                              <small style="color:  rgb(132, 132, 132) !important; font-size: 15px;">
-                            <label> {{ tipoEnfermedad | pipes:true}}</label>
+                            <label> {{ tipoEnfermedad | titlecase}}</label>
                              </small>
                         </p>
                      
                         <div class="bordeTexto estiloContenidoC mt-1">
-                             <a type="submit" class="textoDescripcion">{{descripcion | pipes:false}}</a><br>
-                                <p> <strong style="font-size: 15px; font-weight: 400; color: black;"> <label> {{contenido2 | pipes:false}}</label> </strong></p>
+                             <a type="submit" class="textoDescripcion">{{descripcion | lowercase}}</a><br>
+                                <p> <strong style="font-size: 15px; font-weight: 400; color: black;"> <label> {{contenido2 | lowercase}}</label> </strong></p>
                         </div>
                         <div class="row mt-3">
                             <div class="col-4">
@@ -167,7 +167,7 @@
                 </div>
                 <div class="col-md-10 mt-2" style="padding-top: 5px;">
                     <input type="text" 
-                            placeholder="Escribir un comentario"
+                            placeholder="Escribir un comentario..."
                             class="usuarioComentar"
                             #contenido="ngModel"
                             name="contenido"
@@ -238,12 +238,10 @@
             <div class="col-md-11 mt-2 mb-2">
                     <div class="row">
                         <div class="col-md-11">
-                            <!-- <div> -->
                                 <p *ngIf="editarF !== usuarioComentario.uid" class="card-text mb-1 "> 
-                                    <a  type="submit" class="linea" (click)="buscarusuario(usuarioComentario.usuario)"> {{usuarioComentario.usuario.nombre  | pipes:false}} {{usuarioComentario.usuario.apellidoPaterno | pipes:false}} {{usuarioComentario.usuario.apellidoMaterno  | pipes:false}} </a><br>
-                                        <label (click)="mensaje(usuarioComentario)"> <small class="estiloContenidoC"> {{usuarioComentario.contenido | pipes:false}} </small></label>
+                                    <a  type="submit" class="linea" (click)="buscarusuario(usuarioComentario.usuario)"> {{usuarioComentario.usuario.nombre  | titlecase}} {{usuarioComentario.usuario.apellidoPaterno | titlecase}} {{usuarioComentario.usuario.apellidoMaterno  | titlecase}} </a><br>
+                                        <label (click)="mensaje(usuarioComentario)"> <small class="estiloContenidoC"> {{usuarioComentario.contenido | lowercase}} </small></label>
                                 </p>
-                            <!-- </div> -->
                                 <div *ngIf="editarF === usuarioComentario.uid"  class="col">
 
                                     <form autocomplete="off" class="form-module" [formGroup]="forma" (ngSubmit)="modificarComentario(usuarioComentario)">

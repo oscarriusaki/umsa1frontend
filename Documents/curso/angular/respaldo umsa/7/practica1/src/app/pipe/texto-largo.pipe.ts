@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TextoLargoPipe implements PipeTransform {
 
   transform(value: string, todas:boolean=false ): string {
-    if(value){
+    if((value) && (value.length > 2)){
         value = value.toLocaleLowerCase();
         let data = value.split(' ');
         if(todas){

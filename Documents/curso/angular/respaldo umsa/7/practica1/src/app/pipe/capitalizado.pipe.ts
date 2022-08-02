@@ -24,12 +24,12 @@ export class CapitalizadoPipe implements PipeTransform {
     let minuto2=this.fechaActual.getMinutes()+3;
     let segundo2=this.fechaActual.getSeconds();
     
-    if(minuto < 0){
+/*     if(minuto < 0){
       minuto = Number(minuto) * (-1);
     }
     if(minuto2 < 0){
       minuto2 = Number(minuto2) * (-1);
-    }
+    } */
     if(segundo < 0){
       segundo = Number(segundo) * (-1);
     }

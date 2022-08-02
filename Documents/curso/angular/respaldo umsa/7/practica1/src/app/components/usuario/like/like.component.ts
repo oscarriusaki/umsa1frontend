@@ -104,5 +104,4 @@ export class LikeComponent implements OnInit {
   buscarusuario(usuario:any){
     this.router.navigate(['usuario/perfilAuxiliar',usuario._id+'']);
   }
-
 }

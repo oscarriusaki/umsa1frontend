@@ -1,149 +1,133 @@
-<div class="negro">
-    <!-- <div class="card-body"> -->
-        <div class="col-md-3 mt-3 mb-3"> <strong style="font-size: 25px; color: rgb(102, 102, 102);" ><label >Compartir</label> </strong></div>
-        <hr style="background-color: rgb(158, 158, 158);">
 
-        <app-loading *ngIf="!loading"></app-loading>
-        <div *ngIf="loading">
-            <div class="alert alert-primary" *ngIf="cantidad===0">Ningun Compartido</div>
+<div class="row">
+    <div class="col mt-3">
+        <div class="col-md-11 mt-3 mb-3"> 
+            <strong style="font-size: 25px; color: rgb(102, 102, 102);"> <label> Compartido</label></strong>
         </div>
+        <hr>
+        <app-loading *ngIf="!loading"></app-loading>
+    </div>
+</div>
 
-        <div class="loading">
-            <div class="row row-cols-12  bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones">
-                <div class="col-md-1 estiloPerfil4">
-                    <p *ngIf="
-                              'A' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'a' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'B' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'b' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'C' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'c' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'D' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'd' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'E' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'e' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'F' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'f' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'G' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'g' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'H' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'h' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'K' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'k' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'L' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'l' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'N' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'n' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'O' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'o' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'R' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'r' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'P' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'p' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'S' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 's' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'U' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'u' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'V' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'v' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'X' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'x' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'Y' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'y' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'Z' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'z' === publicacion.usuario.nombre.charAt(0).toUpperCase()    " class="espacio1Letra">
-                    <label> {{publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
-                    </p>
-                    <p *ngIf="'M' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'm' === publicacion.usuario.nombre.charAt(0).toUpperCase()  " class="espacio3Letra">       
+<div *ngIf="loading">
+    <div *ngIf="cantidad === 0">
+        <div class="alert alert-primary" *ngIf="cantidad===0">Ningun compartido</div>
+    </div>
+</div>
+
+<div class="bordeTexto2 mb-3" *ngFor="let publicacion of publicaciones;let i=index" >
+    <div class="con">
+            <div class="col-md-2 estiloPerfil4" >
+                <p *ngIf="
+                        'A' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'a' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'B' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'b' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'C' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'c' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'D' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'd' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'E' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'e' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'F' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'f' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'G' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'g' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'H' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'h' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'K' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'k' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'L' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'l' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'N' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'n' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'O' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'o' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'R' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'r' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'P' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'p' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'S' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  's' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'U' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'u' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'V' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'v' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'X' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'x' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'Y' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'y' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                        'Z' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'z' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio1Letra">
+                <label> {{publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
+                </p>
+                <p *ngIf="'M' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'm' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio3Letra">
+                <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
+                </p>
+                <p *ngIf="
+                            'I' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'i' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+                            'J' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'i' === publicacion.usuario.nombre.charAt(0).toUpperCase()    " class="espacio2Letra">
                     <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
-                    </p>
-                    <p *ngIf="
-                              'I' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'I' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                              'J' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'j' === publicacion.usuario.nombre.charAt(0).toUpperCase() " class="espacio2Letra">
-                        <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
-                    </p>
-                    <p *ngIf="
-                            'T' === publicacion.usuario.nombre.charAt(0).toUpperCase()  || 't' === publicacion.usuario.nombre.charAt(0).toUpperCase() 
-                              " class="espacio4Letra">
-                        <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
-                    </p>
-                </div>
-                <div class="col-md-11">
-                    
-                    <div class="row">
-                        <div class="col-md-11">
-                            <a class="estiloNombre" type="submit"  (click)="buscarusuario(publicacion.usuario)"> {{publicacion.usuario.nombre | pipes:true}} {{publicacion.usuario.apellidoPaterno | pipes:true}} {{publicacion.usuario.apellidoMaterno | pipes:true}} </a>  <label style="padding-left: 2px;padding-right: 2px;">  &#183;   </label>  
-                            <small style="color: rgb(80, 80, 80); font-size: 15px;"><label>{{publicacion.fecha | capitalizado}}</label></small> 
-                            <br>
-                            <label>
-                                <small class="text-muted" style="font-size: 15px;color:  rgb(132, 132, 132) !important;"><label> {{publicacion.tipoEnfermedad| pipes:true}}</label></small> 
-                            </label>
-                        </div>
-                        <div class="col-md-1" >
-                            <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 
-                                <i class="fas fa-ellipsis-v"></i>
-                            </a>
+                </p>
+                <p *ngIf="
+                        'T' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  't' === publicacion.usuario.nombre.charAt(0).toUpperCase() 
+                            " class="espacio4Letra">
+                    <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
+                </p>
+            </div>
+            <div class="col-md-10 mt-2" >
+                <a class="estiloNombre" (click)="buscarusuario(publicacion.usuario)" type="submit"> {{publicacion.usuario.nombre | titlecase}} {{publicacion.usuario.apellidoPaterno | titlecase}} {{publicacion.usuario.apellidoMaterno | titlecase}} </a>  <label style="padding-left: 2px;padding-right: 2px;">  &#183;   </label>  
+                <small style="color: rgb(80, 80, 80); font-size: 15px;"><label>{{publicacion.fecha|capitalizado}}</label></small> 
+            <br>
+            <small class="text-muted" style="font-size: 15px;color:  rgb(132, 132, 132) !important;"><label> {{publicacion.tipoEnfermedad | titlecase }}</label></small> 
+            </div>
+        <div class="col-md-0" >
+            <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 
+               <i class="fas fa-ellipsis-v"></i>
+           </a>
+            <mat-menu #menu="matMenu"  xPosition="before">
+                <div *ngIf="idBuscar !== publicacion.usuario._id">
+                   <button *ngIf="!publicacion.reportar" mat-menu-item (click)="reportar(publicacion)" >
+                       <i class="far fa-flag" ></i>
+                       <span> Reportar</span>
+                   </button>
+                   <button *ngIf="publicacion.reportar" mat-menu-item (click)="reportar(publicacion)" >
+                       <a class="colorIcono"> <i class="far fa-flag" ></i></a>
+                       <span> No Reportar</span>
+                   </button>
+               </div>
+               <div *ngIf="idBuscar === publicacion.usuario._id">
+                   <button mat-menu-item (click)="editarPublicacion(publicacion)">
+                       <i class="far fa-edit"></i>
+                     <span> Editar Publicacion</span>
+                   </button>
+                   <button mat-menu-item (click)="borrar(publicacion)">
+                       <i class="far fa-trash-alt"></i>
+                     <span> Borrar Publicacion</span>
+                   </button>
+               </div>
+             </mat-menu>
+       </div>
+       <div class="container m-1">
+    <div class="con">
+        <div class="col-md-12">
+            <p class="mt-2 estiloUno">
+                <a class="estiloDesripcion" type="submit" (click)="comentar(publicacion)"> {{publicacion.descripcion | lowercase}} </a> <br>
+                {{publicacion.contenido | lowercase}} 
+            </p>
+        </div>
+    </div>  
+    <div class="con">
+        <div class="col-md-4">
+
+            <div class="col-md-12" *ngIf="publicacion.CantidadLikes <= 1  && publicacion.CantidadLikes >0">
+                {{publicacion.CantidadLikes}} Me gusta
+            </div>
+            <div class="col-md-12" *ngIf="publicacion.CantidadLikes >1  && publicacion.CantidadLikes >0">
+                {{publicacion.CantidadLikes}} Me gustas
+            </div>
+
+        </div>
+        <div class="col-md-4">
             
-                     
-                    <mat-menu #menu="matMenu"  xPosition="before">
-                        <div *ngIf="idBuscar !== publicacion.usuario._id">
-                           <button *ngIf="!publicacion.reportar" mat-menu-item (click)="reportar(publicacion)" >
-                               <i class="far fa-flag" ></i>
-                               <span> Reportar</span>
-                           </button>
-                           <button *ngIf="publicacion.reportar" mat-menu-item (click)="reportar(publicacion)" >
-                               <a class="colorIcono"> <i class="far fa-flag" ></i></a>
-                               <span> No Reportar</span>
-                           </button>
-                       </div>
-                       <div *ngIf="idBuscar === publicacion.usuario._id">
-                           <button mat-menu-item (click)="editarPublicacion(publicacion)">
-                               <i class="far fa-edit"></i>
-                             <span> Editar Publicacion</span>
-                           </button>
-                           <button mat-menu-item (click)="borrar(publicacion)">
-                               <i class="far fa-trash-alt"></i>
-                             <span> Borrar Publicacion</span>
-                           </button>
-                       </div>
-                     </mat-menu>
-                        </div>
-                            
-
                         
-                        <p class="mt-2 estiloUno">
-                            <a class="estiloDesripcion" type="submit" (click)="comentar(publicacion)"> {{publicacion.descripcion | textoCorto:false}} </a> <br>
-                             <label> {{publicacion.contenido | textoLargo:false}} </label>
-                        </p>
-                    </div>
-                         
-                    <div class="row me-auto mb-3 mb-lg-0">
-                        <div class="col-md-4 mb-2">
-                            <a *ngIf="publicacion.like" type="submit"  class="colorCorazon1" (click)="like(publicacion)">
-                                    <i  class="fas fa-heart "></i>
-                                    {{publicacion.CantidadLikes}} 
-                            </a>
-                            <a *ngIf="!publicacion.like" type="submit"  class="colorCorazon" (click)="like(publicacion)">
-                                <div *ngIf="publicacion.CantidadLikes !== 0">
-                                    <i class="far fa-heart"></i>
-                                    {{publicacion.CantidadLikes}} 
-                                </div>
-                                <div *ngIf="publicacion.CantidadLikes === 0">
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </a>
+                        <div class="col-md-12" *ngIf="publicacion.CantidadComentarios <= 1 && publicacion.CantidadComentarios >0">
+                            {{publicacion.CantidadComentarios}} comentario
                         </div>
-                    <div class="col-md-4 mb-2">
-                        <a *ngIf="publicacion.CantidadComentarios === 0" class="colorComentario" type="submit"  (click)="comentar(publicacion)">
-                            <i class="far fa-comment"></i>
-                        </a>
-                        <a *ngIf="publicacion.CantidadComentarios !== 0" class="colorComentario" type="submit"  (click)="comentar(publicacion)">
-                            <i class="far fa-comment"></i>
-                            {{publicacion.CantidadComentarios}}
-                        </a>
-                    </div>
-                    <div class="col-md-4 mb-2" >
-                        <a *ngIf="publicacion.compartir" type="submit" class="colorCompartir3" (click)="compartir(publicacion)">
-                                <i *ngIf="publicacion.compartir"  class="fas fa-paper-plane" ></i>
-                                {{publicacion.CantidadCompartidos}}
-                        </a>  
-                        <a *ngIf="!publicacion.compartir" type="submit" class="colorCompartir" (click)="compartir(publicacion)">
-                            <div *ngIf="publicacion.CantidadCompartidos!==0" >
-                                <i *ngIf="!publicacion.compartir"  class="fa-regular fa-paper-plane" ></i>
-                                {{publicacion.CantidadCompartidos}}
-                            </div>
-                            <div *ngIf="publicacion.CantidadCompartidos===0">
-                                <i *ngIf="!publicacion.compartir"  class="fa-regular fa-paper-plane" ></i>
-                            </div>
-                        </a>
-                    </div>
-                    </div>
-                </div>
-                <!-- <hr style="background-color: rgb(158, 158, 158);"> -->
-            </div>
-            </div>
-        
+                        <div class="col-md-12" *ngIf="publicacion.CantidadComentarios >1 && publicacion.CantidadComentarios >0">
+                            {{publicacion.CantidadComentarios}} comentarios
+                        </div>
 
-
-    <!-- </div> -->
+        </div>
+        <div class="col-md-4">
+    <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos <= 1 && publicacion.CantidadCompartidos >0">
+        {{publicacion.CantidadCompartidos}} compartido
+    </div>
+    <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos >1 && publicacion.CantidadCompartidos >0">
+        {{publicacion.CantidadCompartidos}} compartidos
+    </div>
+        </div>
+    </div>
+    </div>
+</div>
 </div>
