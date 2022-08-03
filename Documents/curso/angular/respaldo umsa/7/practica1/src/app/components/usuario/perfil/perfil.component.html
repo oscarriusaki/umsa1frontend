@@ -38,7 +38,7 @@
         <p *ngIf="
                   'I' === de ||
                   'J' === de" class="espacio2Letrap">
-            <label>  {{ de|uppercase | slice:0:1}}</label>
+            <label>I</label>
         </p>
         <p *ngIf="'T' === de " class="espacio44Letrap">
             <label>  {{ de|uppercase | slice:0:1}}</label>
@@ -65,19 +65,18 @@
     <div class="col-md-12 mt-3">
         <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
             <mat-tab label="Publicaciones">
-                <hr style="background-color: rgb(158, 158, 158);">
+            <hr style="background-color: rgb(158, 158, 158);">
 
-
-
-                <app-loading *ngIf="!cargarContenido1"></app-loading>
+            <div class="con">
+                <app-loading *ngIf="!cargarContenido1" class="bordeTexto2"></app-loading>
+            </div>
         <div *ngIf="cargarContenido1">
             <div *ngIf="cantidadPublicacion === 0" >
                 <div class="alert alert-primary" *ngIf="cantidadPublicacion===0">Ningun Publicacion</div>
             </div>
         </div>
-        
-                     
-<div class="bordeTexto2 mb-3" *ngFor="let publicacion of publicaciones;let i=index" >
+     
+<div class="bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones;let i=index" >
     <div class="con">
             <div class="col-md-2 estiloPerfil4" >
                 <p *ngIf="
@@ -161,50 +160,47 @@
     <div class="con">
         <div class="col-md-4">
             <div class="col-md-12" *ngIf="publicacion.CantidadLikes <= 1  && publicacion.CantidadLikes >0">
-                {{publicacion.CantidadLikes}} Me gusta
+                <label>{{publicacion.CantidadLikes}} me gusta</label>
             </div>
             <div class="col-md-12" *ngIf="publicacion.CantidadLikes >1  && publicacion.CantidadLikes >0">
-                {{publicacion.CantidadLikes}} Me gustas
+                <label>{{publicacion.CantidadLikes}} me gustas</label>
             </div>
         </div>
         <div class="col-md-4">
-            
-                        
                         <div class="col-md-12" *ngIf="publicacion.CantidadComentarios <= 1 && publicacion.CantidadComentarios >0">
-                            {{publicacion.CantidadComentarios}} comentario
+                            <label>{{publicacion.CantidadComentarios}} comentario</label>
                         </div>
                         <div class="col-md-12" *ngIf="publicacion.CantidadComentarios >1 && publicacion.CantidadComentarios >0">
-                            {{publicacion.CantidadComentarios}} comentarios
+                            <label>{{publicacion.CantidadComentarios}} comentarios</label>
                         </div>
-
         </div>
         <div class="col-md-4">
     <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos <= 1 && publicacion.CantidadCompartidos >0">
-        {{publicacion.CantidadCompartidos}} compartido
+        <label>{{publicacion.CantidadCompartidos}} compartido</label>
     </div>
     <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos >1 && publicacion.CantidadCompartidos >0">
-        {{publicacion.CantidadCompartidos}} compartidos
+        <label>{{publicacion.CantidadCompartidos}} compartidos</label>
     </div>
         </div>
     </div>
     </div>
 </div>
 </div>
-
                 </mat-tab>
                 <mat-tab label="Likes">
                     <hr style="background-color: rgb(158, 158, 158);">
                        
 
-                    <app-loading *ngIf="!cargarContenido2"></app-loading>
+                    <div class="con">
+                        <app-loading *ngIf="!cargarContenido2" class="bordeTexto2"></app-loading>
+                        <!-- <app-loading *ngIf="!"></app-loading> -->
+                    </div>
                     <div *ngIf="cargarContenido2">
                         <div *ngIf="cantidadLike === 0" >
                             <div class="alert alert-primary" *ngIf="cantidadLike===0">Ningun Like</div>
                         </div>
                     </div>
-
-
-                    <div class="bordeTexto2 mb-3" *ngFor="let publicacion of likesU;let i=index" >
+                    <div class="bordeTexto2 mb-1" *ngFor="let publicacion of likesU;let i=index" >
                             <div class="con">
                                     <div class="col-md-2 estiloPerfil4" >
                                         <p *ngIf="
@@ -290,10 +286,10 @@
                                 <div class="col-md-4">
                 
                                     <div class="col-md-12" *ngIf="publicacion.CantidadLikes <= 1  && publicacion.CantidadLikes >0">
-                                        {{publicacion.CantidadLikes}} Me gusta
+                                        <label>{{publicacion.CantidadLikes}} me gusta</label>
                                     </div>
                                     <div class="col-md-12" *ngIf="publicacion.CantidadLikes >1  && publicacion.CantidadLikes >0">
-                                        {{publicacion.CantidadLikes}} Me gustas
+                                        <label>{{publicacion.CantidadLikes}} me gustas</label>
                                     </div>
                 
                                 </div>
@@ -301,19 +297,19 @@
                                     
                                                 
                                                 <div class="col-md-12" *ngIf="publicacion.CantidadComentarios <= 1 && publicacion.CantidadComentarios >0">
-                                                    {{publicacion.CantidadComentarios}} comentario
+                                                    <label>{{publicacion.CantidadComentarios}} comentario</label>
                                                 </div>
                                                 <div class="col-md-12" *ngIf="publicacion.CantidadComentarios >1 && publicacion.CantidadComentarios >0">
-                                                    {{publicacion.CantidadComentarios}} comentarios
+                                                    <label>{{publicacion.CantidadComentarios}} comentarios</label>
                                                 </div>
                 
                                 </div>
                                 <div class="col-md-4">
                             <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos <= 1 && publicacion.CantidadCompartidos >0">
-                                {{publicacion.CantidadCompartidos}} compartido
+                               <label>{{publicacion.CantidadCompartidos}} compartido</label>
                             </div>
                             <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos >1 && publicacion.CantidadCompartidos >0">
-                                {{publicacion.CantidadCompartidos}} compartidos
+                               <label>{{publicacion.CantidadCompartidos}} compartidos</label>
                             </div>
                                 </div>
                             </div>
@@ -327,7 +323,9 @@
                     <hr style="background-color: rgb(158, 158, 158);">
                     
 
-                    <app-loading *ngIf="!cargarContenido3"></app-loading>
+                    <div class="con">
+                        <app-loading *ngIf="!cargarContenido3" class="bordeTexto2"></app-loading>
+                    </div>
                     <div *ngIf="cargarContenido3">
                         <div *ngIf="cantidadCompartido === 0" >
                             <div class="alert alert-primary" *ngIf="cantidadCompartido===0">Ningun Compartido</div>
@@ -335,7 +333,7 @@
                     </div>
 
 
-                        <div class="bordeTexto2 mb-3" *ngFor="let publicacion of compartidos" >
+                        <div class="bordeTexto2 mb-1" *ngFor="let publicacion of compartidos" >
                             <div class="con">
                                     <div class="col-md-2 estiloPerfil4" >
                                         <p *ngIf="
@@ -421,10 +419,10 @@
                                 <div class="col-md-4">
                 
                                     <div class="col-md-12" *ngIf="publicacion.CantidadLikes <= 1  && publicacion.CantidadLikes >0">
-                                        {{publicacion.CantidadLikes}} Me gusta
+                                        <label>{{publicacion.CantidadLikes}} me gusta</label>
                                     </div>
                                     <div class="col-md-12" *ngIf="publicacion.CantidadLikes >1  && publicacion.CantidadLikes >0">
-                                        {{publicacion.CantidadLikes}} Me gustas
+                                        <label>{{publicacion.CantidadLikes}} me gustas</label>
                                     </div>
                 
                                 </div>
@@ -432,19 +430,19 @@
                                     
                                                 
                                                 <div class="col-md-12" *ngIf="publicacion.CantidadComentarios <= 1 && publicacion.CantidadComentarios >0">
-                                                    {{publicacion.CantidadComentarios}} comentario
+                                                    <label>{{publicacion.CantidadComentarios}} comentario</label>
                                                 </div>
                                                 <div class="col-md-12" *ngIf="publicacion.CantidadComentarios >1 && publicacion.CantidadComentarios >0">
-                                                    {{publicacion.CantidadComentarios}} comentarios
+                                                    <label>{{publicacion.CantidadComentarios}} comentarios</label>
                                                 </div>
                 
                                 </div>
                                 <div class="col-md-4">
                             <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos <= 1 && publicacion.CantidadCompartidos >0">
-                                {{publicacion.CantidadCompartidos}} compartido
+                                <label>{{publicacion.CantidadCompartidos}} compartido</label>
                             </div>
                             <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos >1 && publicacion.CantidadCompartidos >0">
-                                {{publicacion.CantidadCompartidos}} compartidos
+                                <label>{{publicacion.CantidadCompartidos}} compartidos</label>
                             </div>
                                 </div>
                             </div>

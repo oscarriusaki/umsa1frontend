@@ -11,10 +11,8 @@
             </div>
     </div>
     <div *ngIf="!sw" class="mb-3">
-        <div class="container">
-        <div class="row bordeTexto2">
-            <div class="col-md-2">
-                <div class="col-md-1 estiloPerfil55">
+        <div class="con bordeTexto2">
+                <div class="col-md-1 estiloPerfil4p">
                     <p *ngIf="
                               'A' === de || 'a' === de ||
                               'B' === de || 'b' === de ||
@@ -35,25 +33,23 @@
                               'V' === de || 'v' === de ||
                               'X' === de || 'x' === de ||
                               'Y' === de || 'y' === de ||
-                              'Z' === de || 'z' === de     "  class="espacio11Letra">
-                    <label> {{de|uppercase | slice:0:1}}</label>
+                              'Z' === de || 'z' === de   " class="espacio1Letrap">
+                    <label>{{ de|uppercase | slice:0:1}}</label>
                     </p>
-                    <p *ngIf="'M' === de || 'm' === de " class="espacio33Letra">       
-                    <label> {{de|uppercase | slice:0:1}}</label>
+                    <p *ngIf="'M' === de || 'm' === de" class="espacio3Letrap">       
+                    <label>  {{ de|uppercase | slice:0:1}}</label>
                     </p>
-                    <p *ngIf="
-                              'I' === de || 'i' === de ||
-                              'J' === de || 'j' === de    " class="espacio22Letra">
-                        <label> {{de|uppercase | slice:0:1}}</label>
+                    <p *ngIf="'I' === de || 'i' === de" class="espacio2Letrap">
+                        <label>{{ de|uppercase | slice:0:1}}</label>
                     </p>
-                    <p *ngIf="
-                            'T' === de || 't' === de 
-                              " class="espacio44Letra">
-                        <label> {{de|uppercase | slice:0:1}}</label>
+                    <p *ngIf="'J' === de || 'j' === de  " class="espacio2Letrap2">
+                        <label>{{ de|uppercase | slice:0:1}}</label>
+                    </p>
+                    <p *ngIf="'T' === de || 't' === de " class="espacio44Letrap">
+                        <label>  {{ de|uppercase | slice:0:1}}</label>
                     </p>
                 </div>
-            </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                     <form autocomplete="off" (ngSubmit)="envia(f)" #f="ngForm" class="m-2">
                         <label><small style="color: rgb(95, 95, 95);font-size: 10px;">Ingrese una pregunta</small></label>
                         <input class="estiloImput" 
@@ -111,15 +107,12 @@
                 <a class="botonInicio" type="submit" (click)="sw=true"> <i class="fas fa-angle-left "></i></a>  
             </div>
         </div>
-        </div>
     </div>
-    <app-loading *ngIf="!loading"></app-loading>
-    
-<!--     
-    <div *ngIf="loading">
-        <div class="alert alert-primary" *ngIf="cantidad===0">Ningun Compartido</div>
-    </div> -->
-    <div class="bordeTexto2 mb-3" *ngFor="let publicacion of publicaciones;let i=index" >
+    <div class="mb-2">
+        <app-loading *ngIf="!loading"></app-loading>
+    </div>
+ 
+    <div class="bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones;let i=index" >
             <div class="con">
                     <div class="col-md-2 estiloPerfil4" >
                         <p *ngIf="
@@ -205,10 +198,10 @@
                 <div class="col-md-4">
 
                     <div class="col-md-12" *ngIf="publicacion.CantidadLikes <= 1  && publicacion.CantidadLikes >0">
-                        {{publicacion.CantidadLikes}} Me gusta
+                        <label>{{publicacion.CantidadLikes}} me gusta</label>
                     </div>
                     <div class="col-md-12" *ngIf="publicacion.CantidadLikes >1  && publicacion.CantidadLikes >0">
-                        {{publicacion.CantidadLikes}} Me gustas
+                        <label>{{publicacion.CantidadLikes}} me gustas</label>
                     </div>
 
                 </div>
@@ -216,19 +209,19 @@
                     
                                 
                                 <div class="col-md-12" *ngIf="publicacion.CantidadComentarios <= 1 && publicacion.CantidadComentarios >0">
-                                    {{publicacion.CantidadComentarios}} comentario
+                                    <label>{{publicacion.CantidadComentarios}} comentario</label>
                                 </div>
                                 <div class="col-md-12" *ngIf="publicacion.CantidadComentarios >1 && publicacion.CantidadComentarios >0">
-                                    {{publicacion.CantidadComentarios}} comentarios
+                                    <label>{{publicacion.CantidadComentarios}} comentarios</label>
                                 </div>
 
                 </div>
                 <div class="col-md-4">
             <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos <= 1 && publicacion.CantidadCompartidos >0">
-                {{publicacion.CantidadCompartidos}} compartido
+                <label>{{publicacion.CantidadCompartidos}} compartido</label>
             </div>
             <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos >1 && publicacion.CantidadCompartidos >0">
-                {{publicacion.CantidadCompartidos}} compartidos
+                <label>{{publicacion.CantidadCompartidos}} compartidos</label>
             </div>
                 </div>
             </div>

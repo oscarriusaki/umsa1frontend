@@ -41,6 +41,13 @@ export class PublicarComponent implements OnInit {
     });
   }
   enviar(f:NgForm){
+    if((f.form.value.descripcion === '') || 
+      (f.form.value.contenido === '') || 
+      (f.form.value.tipoEnfermedad === "Seleccione una opcion")){
+        return ;
+    }
+    console.log(f.form.value.tipoEnfermedad)
+    
     if(f.invalid){
       return ;
     }

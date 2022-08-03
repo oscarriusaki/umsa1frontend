@@ -26,7 +26,9 @@ export class RegistrarseComponent implements OnInit {
               }
 
   ngOnInit(): void {
-    
+    if(localStorage.getItem('token')){
+      this.router.navigate(['/login'])  
+    }
   }
 
   registrar(form:NgForm){
@@ -35,14 +37,16 @@ export class RegistrarseComponent implements OnInit {
     }
     this.servicio.registrarUsuario(form.form.value.nombre,form.form.value.apellidoPaterno,form.form.value.apellidoMaterno,form.form.value.correo,form.form.value.password,'USER_ROL',this.motivo)
         .subscribe(resp =>{
-          // console.log(resp);
+          console.log(resp);
+          
+          window.location.reload()
         },(err) =>{
           // console.log(err.error.msg,'esete es el error');
           // console.log(err,'esete es el error');
           this.mensajeError2=err.error.msg
         })
     if(localStorage.getItem('token')){
-      this.router.navigate(['/main'])
+      this.router.navigate(['/login'])  
     }
     
   }

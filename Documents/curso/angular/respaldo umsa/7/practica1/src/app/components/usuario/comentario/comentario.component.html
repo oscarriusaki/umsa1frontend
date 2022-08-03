@@ -3,9 +3,7 @@
         <app-loading *ngIf="!loading"></app-loading>
     </div>
 </div>
-
-
-<div class="row negro" *ngIf="loading">
+<div class="row" *ngIf="loading">
     <div class="bordeTexto2">
     <div class="row">
         <div class="col-md-1 mt-3"> 
@@ -17,11 +15,8 @@
         <div class="col-md-8 mt-3"></div>
     </div>
    <hr style="background-color: rgb(68, 68, 68);">
-   <div class="row">
         <app-loading *ngIf="cargar"></app-loading>
-        <div class="col-md-12">
-            <body class="espacioTarjeta">
-                <div class="row">
+                <div class="con">
                     <div class="col-md-1 estiloPerfil44">
                         <p *ngIf="
                                   'A' === nombre.charAt(0) ||  'a' === nombre.charAt(0) || 
@@ -60,22 +55,20 @@
                             <label> {{nombre.charAt(0)|uppercase | slice:0:1}}</label>
                         </p>
                     </div>
-                    <div class="col-md-11">
-                        <p class="card-text mr-5 mb-1 ml-5"> <a type="submit"  (click)="buscarusuario(publicacion.usuario)" class="linea">{{nombre  | titlecase}} {{apellidoPaterno | titlecase}} {{apellidoMaterno  | titlecase}} 
-                           </a>  
-                           <small style="color: rgb(80, 80, 80); font-size: 15px;">  <label style="padding-left: 2px;padding-right: 2px;">  &#183;    {{fecha | capitalizado}}</label> 
-                           </small>
-                             <br>
-                             <small style="color:  rgb(132, 132, 132) !important; font-size: 15px;">
-                            <label> {{ tipoEnfermedad | titlecase}}</label>
-                             </small>
-                        </p>
-                     
+                    <div class="col-md-11 mt-2">
+                        <div class="container">
+                            <a class="estiloNombre" (click)="buscarusuario(publicacion.usuario)" type="submit"> {{nombre | titlecase}} {{apellidoPaterno | titlecase}} {{apellidoMaterno | titlecase}} </a>  <label style="padding-left: 2px;padding-right: 2px;">  &#183;   </label>  
+                            <small style="color: rgb(80, 80, 80); font-size: 15px;"><label>{{fecha|capitalizado}}</label></small> 
+                            <br>
+                            <small class="text-muted" style="font-size: 15px;color:  rgb(132, 132, 132) !important;"><label> {{tipoEnfermedad | titlecase }}</label></small> 
+                        </div>
+                    </div>
+                     <div class="col-md-12 mt-2">
                         <div class="bordeTexto estiloContenidoC mt-1">
                              <a type="submit" class="textoDescripcion">{{descripcion | lowercase}}</a><br>
                                 <p> <strong style="font-size: 15px; font-weight: 400; color: black;"> <label> {{contenido2 | lowercase}}</label> </strong></p>
                         </div>
-                        <div class="row mt-3">
+                        <div class="con mt-3">
                             <div class="col-4">
                                 <a  class="colorIcono1" type="submit" *ngIf="!likee" (click)="likePublicacion(publicacion)"> 
                                     <div *ngIf="cantidadLikes!==0">
@@ -112,17 +105,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- <hr style="background-color: rgb(68, 68, 68);"> -->
-                
-            </body>
-        </div>
-    </div>
     </div>
         <br>
         <br>
-        <!-- <hr style="background-color: rgb(68, 68, 68);"> -->
         <form autocomplete="off" class="form-module bordeTexto2 mb-1 mt-1" #f="ngForm" (ngSubmit)="crearComentario(f)">
-            <div class="row">
+            <div class="con">
                 <div class="col-md-1 mt-2">
                     <div class=" estiloPerfil44">
                         <p *ngIf="
@@ -165,7 +152,10 @@
                     </div>
                 <br>
                 </div>
-                <div class="col-md-10 mt-2" style="padding-top: 5px;">
+                <div class="col-md-11">
+                <div class="container">
+                    <div class="con">
+                <div class="col-md-11 mt-2" style="padding-top: 5px;">
                     <input type="text" 
                             placeholder="Escribir un comentario..."
                             class="usuarioComentar"
@@ -187,16 +177,16 @@
                     </button>
                 </div>
             </div>
+        </div>
+        </div>
+    </div>
         </form>
         <br>
-        <!-- <hr style=" color: rgb(68, 68, 68);"> -->
         <app-loading *ngIf="!loading2"></app-loading>
         <div *ngIf="loading2">
         <div class="row bordeTexto2 mb-1" *ngFor="let usuarioComentario of comentariosPublicacionX; let i = index">
-            <div class="col-md-1 mt-2" >
-               <!--  <div class=" botonFoto1">
-                    <p class="nombreInicial"> {{(usuarioComentario.usuario.nombre +'')|slice:0:1 | uppercase}} </p>
-                </div> -->
+            <!-- <div class="col-md-1 mt-2"> -->
+                <div class="con">
                 <div class="col-md-1 estiloPerfil44">
                     <p *ngIf="
                               'A' === usuarioComentario.usuario.nombre.charAt(0)  ||  'a' === usuarioComentario.usuario.nombre.charAt(0) ||
@@ -234,9 +224,10 @@
                        <label>  {{usuarioComentario.usuario.nombre|uppercase | slice:0:1}}</label>
                     </p>
                 </div>
-            </div>
+            <!-- </div> -->
             <div class="col-md-11 mt-2 mb-2">
-                    <div class="row">
+                <div class="container">
+                    <div class="con">
                         <div class="col-md-11">
                                 <p *ngIf="editarF !== usuarioComentario.uid" class="card-text mb-1 "> 
                                     <a  type="submit" class="linea" (click)="buscarusuario(usuarioComentario.usuario)"> {{usuarioComentario.usuario.nombre  | titlecase}} {{usuarioComentario.usuario.apellidoPaterno | titlecase}} {{usuarioComentario.usuario.apellidoMaterno  | titlecase}} </a><br>
@@ -284,7 +275,7 @@
                             </mat-menu>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="con">
                         <div class="col-4">
                             <a  class="colorIcono1" type="submit" *ngIf="!usuarioComentario.like" (click)="likeComentario(usuarioComentario)"> 
                                 <div *ngIf="usuarioComentario.cantidadLikes!==0">
@@ -304,6 +295,8 @@
                         </div>
                     </div>
             </div>  
+        </div>
+        </div>
         </div>
         </div>
 </div>
