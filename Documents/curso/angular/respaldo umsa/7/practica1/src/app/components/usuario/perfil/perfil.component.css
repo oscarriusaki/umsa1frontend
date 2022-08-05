@@ -1,17 +1,17 @@
-
-
 .bordeBoton{
     border-radius: 50px;
     background-color:  rgb(240, 239, 239);
     color: rgb(0, 0, 0);/*  SE QUEDA /........................................................................s */
     margin-left: 50px;
     padding-bottom: 10px;
+    border: none;
 }
 .bordeBoton:hover{
     border-radius: 50px;
     background-color:  rgb(227, 226, 226);
     color: rgb(0, 0, 0);/*  SE QUEDA /........................................................................s */
     margin-left: 50px;
+    border: none;
 }  
 .estacioCostado{
     padding-left: 40px;   /* SE QUEDA /.................................................................................     */
@@ -345,6 +345,13 @@ input:focus{
     hyphens: auto;
 }
 .con{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
+.con2{
+    border: none !important ;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

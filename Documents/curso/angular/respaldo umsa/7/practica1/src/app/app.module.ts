@@ -34,6 +34,7 @@ import { PublicarComponent } from './components/usuario/publicar/publicar.compon
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { PerfilAuxiliarComponent } from './components/usuario/perfil-auxiliar/perfil-auxiliar.component';
+import { ObjArrayPipe } from './pipe/obj-array.pipe';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { PerfilAuxiliarComponent } from './components/usuario/perfil-auxiliar/pe
     PublicarComponent,
     PerfilComponent,
     PerfilAuxiliarComponent,
+    ObjArrayPipe
   ],
   imports: [
     BrowserModule,

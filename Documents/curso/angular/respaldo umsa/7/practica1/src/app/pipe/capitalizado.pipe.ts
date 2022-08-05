@@ -21,15 +21,15 @@ export class CapitalizadoPipe implements PipeTransform {
     let mes2=this.fechaActual.getMonth()+1;
     let dia2=this.fechaActual.getDate();
     let hora2=this.fechaActual.getHours()-4;
-    let minuto2=this.fechaActual.getMinutes()+3;
+    let minuto2=this.fechaActual.getMinutes()+4;
     let segundo2=this.fechaActual.getSeconds();
     
-/*     if(minuto < 0){
+    if(minuto < 0){
       minuto = Number(minuto) * (-1);
     }
     if(minuto2 < 0){
       minuto2 = Number(minuto2) * (-1);
-    } */
+    }
     if(segundo < 0){
       segundo = Number(segundo) * (-1);
     }
@@ -55,6 +55,9 @@ export class CapitalizadoPipe implements PipeTransform {
                   }
                 }else{
                     parametro=''+(minuto2-minuto);
+                    if(Number(parametro)<0)
+                    parametro = ''+(Number(parametro) * -1);
+
                     if(Number(parametro)===1){
                       parametro=`hace ${parametro} minuto`;
                     }else{

@@ -17,17 +17,53 @@ export class UsuarioNuevoComponent implements OnInit {
     nombre:'Seleccione una opcion'
   }
   enfermedades:any=[
-    'Tos',
-    'Cancer de colon',
-    'Diabetes',
-    'Cancer de mama',
-    'Cancer de piel',
-    'Resfrio',
-    'Sinusitis',
-    'Gonorea',
-    'Senfalitis',
-    'Meningitis',
-  ]
+              'Ántrax',
+              'Asma',
+              'Autismo',
+              'Artritis',
+              'Cáncer',
+              'Clamidia',
+              'Culebrilla (herpes zóster)',
+              'Déficit de atención e hiperactividad',
+              'Diabetes',
+              'Ébola',
+              'Embarazo y ETS',
+              'Enfermedades de transmisión sexual (ETS)',
+              'Enfermedad inflamatoria pélvica (EIP)',
+              'Enfermedad pulmonar obstructiva crónica',
+              'Epilepsia',
+              'Escarlatina',
+              'Estreptococo del grupo B',
+              'Gonorrhea',
+              'Haemophilus influenzae tipo b (Hib)',
+              'Hemofilia',
+              'Herpes genital',
+              'Infeccíon genital por VPH',
+              'Influenza (gripe)',
+              'La Salud Mental de los Niños (Children’s Mental Health)',
+              'Listeria (Listeriosis)',
+              'Meningitis',
+              'Neumonía',
+              'Paperas',
+              'Poliomielitis',
+              'Rabia',
+              'Reumatismo',
+              'Rotavirus',
+              'Shigella – Shigellosis',
+              'Sífilis',
+              'Silicosis',
+              'Síndrome alcohólico fetal',
+              'Síndrome de fatiga crónica (SFC)',
+              'Síndrome de Tourette',
+              'Tabaquismo',
+              'Tosferina',
+              'Tricomoniasis',
+              'Tuberculosis (TB)',
+              'Vaginosis bacteriana',
+              'VIH/Sida',
+              'Zika',
+              '#otro',
+              ]
   actual:any='M'
   sw:boolean=true;
   de:any;
@@ -36,8 +72,11 @@ export class UsuarioNuevoComponent implements OnInit {
   idBuscar:any='';
   swVerificar:boolean = false;
   form:any;
+  enfermeades:any;
+  contadorGeneral:any;
+  contadorData:any=[];
+  salto:any=1;
 
-  @Output() ato:EventEmitter<any>=new EventEmitter();
   constructor(private servicio:ServiceService, 
               private _snackBar:MatSnackBar,
               private router:Router,
@@ -48,6 +87,7 @@ export class UsuarioNuevoComponent implements OnInit {
         this.de=resp.usuario1.nombre.toUpperCase().charAt(0);
       })
     this.mostrar();
+    
     // this.usuarioActual();
   }
   openSnackBar() {
@@ -91,16 +131,23 @@ export class UsuarioNuevoComponent implements OnInit {
           window.location.reload();
         }else{
           this.publicaciones = resp.objAux;
-          console.log(this.publicaciones)
+          console.log(resp)
           this.loading=true;
           this.cantidad=resp.count;
           this.idBuscar='';
           this.usuarioActual();
-          // this.sw=true;
+          this.contarEnfermeades();
+          this.contadorGeneral = resp.count;
+        }
+        for(let i = 0; i<=this.contadorGeneral/20; i++){
+          this.contadorData[i+1]=i+1;
         }
       },(err) => {
         this.loading=false;
       })
+  }
+  paginacion(i:any){
+    console.log(i)
   }
   actualizar(q:any){
     this.mostrar();
@@ -120,7 +167,7 @@ export class UsuarioNuevoComponent implements OnInit {
     (f.form.value.tipoEnfermedad === "Seleccione una opcion")){
       return ;
   }
-  console.log(f.form.value.tipoEnfermedad)
+  // console.log(f.form.value.tipoEnfermedad)
   
   if(f.invalid){
     return ;
@@ -129,10 +176,7 @@ export class UsuarioNuevoComponent implements OnInit {
     this.servicio.publicar(f.form.value.descripcion,f.form.value.contenido,this.enfermedades[f.form.value.tipoEnfermedad])
       .subscribe(resp =>{
         this.openSnackBar();
-        // this.loading=true;  
         this.mostrar()
-        //  console.log(f,'Formulario')
-        //  f.form.controls.descripcion.value('hola')
         f.reset({
           tipoEnfermedad:this.data
         })
@@ -166,7 +210,7 @@ export class UsuarioNuevoComponent implements OnInit {
     this.servicio.usuarioActual()
       .subscribe((resp:any) =>{
         this.idBuscar = resp.usuario1.uid;
-        console.log(this.idBuscar)
+        // console.log(this.idBuscar)
       })
   }
   editarPublicacion(dato:any){
@@ -185,12 +229,21 @@ export class UsuarioNuevoComponent implements OnInit {
       if(dato.invalid){
           return;
       }
-      console.log(dato)
+      // console.log(dato)
       this.servicio.comentarUnaPublicacion(idd, dato.form.value.termino)
           .subscribe(resp=>{
-            console.log(resp)
+            // console.log(resp)
             this.mostrar()
             dato.reset();
           })
+  }
+  contarEnfermeades(){
+    this.servicio.contarEnfermedades()
+        .subscribe((resp:any) =>{
+          this.enfermeades=resp.data;
+        })
+  }
+  buscarEnfermedad(dato:any){
+    this.router.navigate(['usuario/buscarEnfermedad',dato._id])
   }
 }

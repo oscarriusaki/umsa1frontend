@@ -189,6 +189,28 @@ export class PerfilAuxiliarComponent implements OnInit {
   }
   buscarusuario(usuario:any){
     this.router.navigate(['usuario/perfilAuxiliar',usuario._id+'']);
+      this.servicio.obtenerUsuarioActual1(usuario._id)
+          .subscribe((resp:any )=>{
+            if(resp.msg === 'expiro'){
+              localStorage.clear();
+              window.location.reload();
+              this.cargarContenido=false;
+              // this.idBuscar=usuario._id;
+            }else{
+              this.nombre=resp.usuarioExiste.nombre;
+              this.de=resp.usuarioExiste.nombre.toUpperCase().charAt(0);
+              this.apellidoPaterno=resp.usuarioExiste.apellidoPaterno;
+              this.apellidoMaterno=resp.usuarioExiste.apellidoMaterno;
+              this.loading=resp.usuarioExiste.loading;
+              this.fecha=resp.usuarioExiste.fecha;
+              this.cargarContenido=true;
+              this.buscarLikeUsuarioX(  this.idBuscar);
+              this.buscarCompartidosUsuarioX(  this.idBuscar);
+              this.publicacionesUsuarioX(  this.idBuscar);
+              this.usuarioActual(  this.idBuscar); 
+              this.usuarioActual2( ); 
+            }
+          })
   }
   nuevobuscar(id:any){
     this.idBuscar = id;

@@ -53,7 +53,7 @@
     </div>
     <div class="col-md-7 estacioCostado mt-3">
         <label>
-        <strong> <h1  style="font-weight: 500; color: rgb(56, 55, 55);">{{nombre| titlecase}}  {{apellidoPaterno| titlecase }} {{apellidoMaterno| titlecase }}</h1></strong>  
+        <strong> <h1 style="font-weight: 500; color: rgb(56, 55, 55);">{{nombre| titlecase}}  {{apellidoPaterno| titlecase }} {{apellidoMaterno| titlecase }}</h1></strong>  
         <small><i class="far fa-calendar-alt"></i><strong> se unió en: </strong>{{ fecha | date:'yyyy-MM-dd' }}</small> <br>
         <small><i class="fas fa-plus"></i> <strong> {{cantidadPublicacion}} </strong> publicaciones</small> <br>
         <small><i class="fas fa-heart"></i> <strong> {{cantidadLike}} </strong> likes</small> <br>
@@ -61,25 +61,20 @@
         </label>
     </div>
     <div class="col-md-3 ml-2 mt-3">
-        
      <button *ngIf="usuarioActual11===usuarioActual33" type="button" class="btn btn-dark bordeBoton" (click)="editarPerfil()"> <small style="font-size:10px;"> Editar Perfil</small></button>  
     </div>
     <div class="col-md-12 mt-3">
         <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
             <mat-tab label="Publicaciones" style="background-color: red;">
                 <hr style="background-color: rgb(158, 158, 158);">
-                <div class="alert alert-primary" *ngIf="cantidadPublicacion === 0 ">Ninguna Publicacion</div>
-                        
-                <div class="con">
-                    <app-loading *ngIf="!cargarContenido1" class="bordeTexto2"></app-loading>
+                <div class="con2">
+                    <app-loading *ngIf="!cargarContenido1"></app-loading>
                 </div>
                 <div *ngIf="cargarContenido1">
                     <div *ngIf="cantidadPublicacion === 0" >
                         <div class="alert alert-primary" *ngIf="cantidadPublicacion===0">Ningun Publicacion</div>
                     </div>
                 </div>
-                
-
                         <div class="bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones;let i=index" >
                             <div class="con">
                                     <div class="col-md-2 estiloPerfil4" >
@@ -198,19 +193,15 @@
                 </mat-tab>
                 <mat-tab label="Likes" >
                     <hr style="background-color: rgb(158, 158, 158);">
-                    <div class="alert alert-primary" *ngIf="cantidadLike === 0 ">Ningun Like</div>
-
-
-                    
+                    <!-- <div class="alert alert-primary" *ngIf="cantidadLike === 0 ">Ningun Like</div> -->
                     <div class="con">
-                        <app-loading *ngIf="!cargarContenido2" class="bordeTexto2"></app-loading>
+                        <app-loading *ngIf="!cargarContenido2"></app-loading>
                     </div>
                     <div *ngIf="cargarContenido2">
                         <div *ngIf="cantidadLike === 0" >
                             <div class="alert alert-primary" *ngIf="cantidadLike===0">Ningun Like</div>
                         </div>
                     </div>
-
                         <div class="bordeTexto2 mb-1" *ngFor="let publicacion of likesU;let i=index" >
                             <div class="con">
                                     <div class="col-md-2 estiloPerfil4" >
@@ -327,14 +318,10 @@
                             </div>
                         </div>
                         </div>
-
-
                 </mat-tab>
                 <mat-tab label="Compartidos">
                     <hr style="background-color: rgb(158, 158, 158);">
-                    <div class="alert alert-primary" *ngIf="cantidadCompartido === 0"> Ningun Compartido </div>
-                    
-
+                    <!-- <div class="alert alert-primary" *ngIf="cantidadCompartido === 0"> Ningun Compartido </div> -->
                     <div class="con">
                         <app-loading *ngIf="!cargarContenido3" class="bordeTexto2"></app-loading>
                     </div>
@@ -387,8 +374,8 @@
                                 <div class="col-md-10 mt-2" >
                                     <a class="estiloNombre" (click)="buscarusuario(publicacion.usuario)" type="submit"> {{publicacion.usuario.nombre | titlecase}} {{publicacion.usuario.apellidoPaterno | titlecase}} {{publicacion.usuario.apellidoMaterno | titlecase}} </a>  <label style="padding-left: 2px;padding-right: 2px;">  &#183;   </label>  
                                     <small style="color: rgb(80, 80, 80); font-size: 15px;"><label>{{publicacion.fecha|capitalizado}}</label></small> 
-                                <br>
-                                <small class="text-muted" style="font-size: 15px;color:  rgb(132, 132, 132) !important;"><label> {{publicacion.tipoEnfermedad | titlecase }}</label></small> 
+                                    <br>
+                                    <small class="text-muted" style="font-size: 15px;color:  rgb(132, 132, 132) !important;"><label> {{publicacion.tipoEnfermedad | titlecase }}</label></small> 
                                 </div>
                             <div class="col-md-0" >
                                 <a type="submit" class="d" [matMenuTriggerFor]="menu" style="color: black;"> 

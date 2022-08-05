@@ -403,3 +403,10 @@ input:focus{
 .estiloFrente{
     font-size: 30px;
 }
+.con2{
+    border: none !important ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}
