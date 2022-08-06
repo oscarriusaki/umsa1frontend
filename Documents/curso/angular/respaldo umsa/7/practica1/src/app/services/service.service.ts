@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ServiceService {
-  url:String = 'https://umsa-1.herokuapp.com';
+  url:String = 'https://umsa-original-3.herokuapp.com';
   token:string = '';
 
   constructor(private http:HttpClient) { }
@@ -71,12 +71,12 @@ export class ServiceService {
       })
     )
   }
-  getPublicaciones(){
+  getPublicaciones(numb:any){
     let datoF=localStorage.getItem('token');
     const headers = new HttpHeaders({
       'x-token':datoF+''
     })
-    let parametro = this.getQuery('api/buscar/mostrarTodasLasPublicaciones/0');
+    let parametro = this.getQuery(`api/buscar/mostrarTodasLasPublicaciones/${numb}`);
     return this.http.get(parametro,{headers});
   }
   publicar(descripcion:any,contenido:any,tipoEnfermedad:any){ // auiq publicar

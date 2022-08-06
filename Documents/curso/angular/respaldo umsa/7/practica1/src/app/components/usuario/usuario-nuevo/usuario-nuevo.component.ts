@@ -121,9 +121,11 @@ export class UsuarioNuevoComponent implements OnInit {
       duration: 2 * 1000,
     });
   }
-
   mostrar(){
-    this.servicio.getPublicaciones()
+    if(localStorage.getItem('paginacion')){
+      this.salto = localStorage.getItem('paginacion');
+    }
+    this.servicio.getPublicaciones(this.salto)
       .subscribe((resp:any) =>{
         if(resp.msg === 'expiro'){
           localStorage.clear();
@@ -136,8 +138,7 @@ export class UsuarioNuevoComponent implements OnInit {
           this.cantidad=resp.count;
           this.idBuscar='';
           this.usuarioActual();
-          this.contarEnfermeades();
-          this.contadorGeneral = resp.count;
+          this.contadorGeneral = resp.countTotal;
         }
         for(let i = 0; i<=this.contadorGeneral/20; i++){
           this.contadorData[i+1]=i+1;
@@ -146,9 +147,29 @@ export class UsuarioNuevoComponent implements OnInit {
         this.loading=false;
       })
   }
-  paginacion(i:any){
-    console.log(i)
+  paginacion(numb:any){
+    this.salto=numb;
+    localStorage.setItem('paginacion',this.salto)
+    this.servicio.getPublicaciones(this.salto)
+      .subscribe((resp:any) =>{
+        if(resp.msg === 'expiro'){
+          localStorage.clear();
+          this.loading=false;
+          window.location.reload();
+        }else{
+          this.publicaciones = resp.objAux;
+          console.log(resp)
+          this.loading=true;
+          this.cantidad=resp.count;
+          this.idBuscar='';
+          this.usuarioActual();
+          this.contadorGeneral = resp.countTotal;
+        }
+      },(err) => {
+        this.loading=false;
+      })
   }
+  
   actualizar(q:any){
     this.mostrar();
   }
@@ -164,11 +185,11 @@ export class UsuarioNuevoComponent implements OnInit {
   envia(f:NgForm){
     if((f.form.value.descripcion === '') || 
     (f.form.value.contenido === '') || 
-    (f.form.value.tipoEnfermedad === "Seleccione una opcion")){
+    (f.form.value.tipoEnfermedad.nombre === "Seleccione una opcion")||
+    (f.form.value.tipoEnfermedad === "Seleccione una opcion")||
+    (f.form.value.tipoEnfermedad === undefined )){
       return ;
   }
-  // console.log(f.form.value.tipoEnfermedad)
-  
   if(f.invalid){
     return ;
   }
@@ -237,12 +258,12 @@ export class UsuarioNuevoComponent implements OnInit {
             dato.reset();
           })
   }
-  contarEnfermeades(){
+/*   contarEnfermeades(){
     this.servicio.contarEnfermedades()
         .subscribe((resp:any) =>{
           this.enfermeades=resp.data;
         })
-  }
+  } */
   buscarEnfermedad(dato:any){
     this.router.navigate(['usuario/buscarEnfermedad',dato._id])
   }

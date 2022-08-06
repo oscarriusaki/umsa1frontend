@@ -42,15 +42,15 @@ export class PublicarComponent implements OnInit {
   }
   enviar(f:NgForm){
     if((f.form.value.descripcion === '') || 
-      (f.form.value.contenido === '') || 
-      (f.form.value.tipoEnfermedad === "Seleccione una opcion")){
-        return ;
-    }
-    console.log(f.form.value.tipoEnfermedad)
-    
-    if(f.invalid){
+    (f.form.value.contenido === '') || 
+    (f.form.value.tipoEnfermedad.nombre === "Seleccione una opcion")||
+    (f.form.value.tipoEnfermedad === "Seleccione una opcion")||
+    (f.form.value.tipoEnfermedad === undefined )){
       return ;
-    }
+  }
+  if(f.invalid){
+    return ;
+  }
     this.servicio.publicar(f.form.value.descripcion,f.form.value.contenido,this.enfermedades[f.form.value.tipoEnfermedad])
       .subscribe((resp:any) =>{
         if(resp.msg === 'expiro'){
