@@ -111,18 +111,14 @@
             <div class="col-md-12" *ngIf="publicacion.CantidadLikes >1  && publicacion.CantidadLikes >0">
                 <label> {{publicacion.CantidadLikes}} me gustas</label>
             </div>
-
         </div>
-        <div class="col-md-4">
-            
-                        
-                        <div class="col-md-12" *ngIf="publicacion.CantidadComentarios <= 1 && publicacion.CantidadComentarios >0">
-                            <label>{{publicacion.CantidadComentarios}} comentario</label>
-                        </div>
-                        <div class="col-md-12" *ngIf="publicacion.CantidadComentarios >1 && publicacion.CantidadComentarios >0">
-                            <label>{{publicacion.CantidadComentarios}} comentarios</label>
-                        </div>
-
+        <div class="col-md-4">          
+        <div class="col-md-12" *ngIf="publicacion.CantidadComentarios <= 1 && publicacion.CantidadComentarios >0">
+            <label>{{publicacion.CantidadComentarios}} comentario</label>
+        </div>
+        <div class="col-md-12" *ngIf="publicacion.CantidadComentarios >1 && publicacion.CantidadComentarios >0">
+            <label>{{publicacion.CantidadComentarios}} comentarios</label>
+        </div>
         </div>
         <div class="col-md-4">
     <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos <= 1 && publicacion.CantidadCompartidos >0">
@@ -136,5 +132,6 @@
     </div>
 </div>
 </div>
+
 </div>
 

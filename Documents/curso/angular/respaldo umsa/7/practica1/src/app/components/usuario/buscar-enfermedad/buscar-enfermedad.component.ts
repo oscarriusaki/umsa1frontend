@@ -14,6 +14,8 @@ export class BuscarEnfermedadComponent implements OnInit {
   parametro:any;
   idBuscar:any='';
   cargar:boolean = false;
+ 
+  parametroBuscar:any='';
 
   constructor(private activatedRouter:ActivatedRoute,
               private servicio:ServiceService,
@@ -76,12 +78,15 @@ export class BuscarEnfermedadComponent implements OnInit {
       })
   }
   buscarEnfermedadX(id:any){
-    this.servicio.buscarEnfermedadX(id)
+    this.parametroBuscar = id;
+    this.servicio.buscarEnfermedadX(this.parametroBuscar)
         .subscribe((resp:any) =>{
           console.log(resp)
           this.publicaciones = resp.objAux3;
+ 
         })
   }
+
   comentar(data:any){
     this.router.navigate(['usuario/comentario',data.uid])
   }

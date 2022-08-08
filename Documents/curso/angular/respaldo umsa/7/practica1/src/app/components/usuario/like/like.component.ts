@@ -15,6 +15,7 @@ export class LikeComponent implements OnInit {
   loading:any=false;
   cantidad:any=0;
   idBuscar:any='';
+
   constructor(private servicio:ServiceService,
               private router:Router,
               private _snackBar:MatSnackBar) { }

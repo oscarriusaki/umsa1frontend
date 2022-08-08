@@ -15,6 +15,10 @@ export class CompartirComponent implements OnInit {
   loading:any=false;
   cantidad:any=0;
   idBuscar:any='';
+  salto:any=1;
+  contadorGeneral:any;
+  contadorData:any=[];
+
   constructor(public servicio:ServiceService,
               private router:Router,
               private _snackBar:MatSnackBar) { }
@@ -42,7 +46,7 @@ export class CompartirComponent implements OnInit {
       verticalPosition:'bottom',
       duration: 2 * 1000,
     });
-  }
+  } 
   mostrar(){
     this.servicio.buscarCompartidosUsuarioX()
       .subscribe((resp:any) =>{
@@ -55,6 +59,10 @@ export class CompartirComponent implements OnInit {
           this.loading=true;
           this.cantidad=resp.count2;
           this.usuarioActual();
+          this.contadorGeneral=resp.countTotal;
+          for(let i = 0; i<=this.contadorGeneral/20; i++){
+            this.contadorData[i+1]=i+1;
+          }
         }
       })
   }

@@ -33,6 +33,7 @@ export class PerfilAuxiliarComponent implements OnInit {
   cargarContenido2=false;
   cargarContenido3=false;
 
+
   constructor(private servicio:ServiceService,
               private router:Router,
               private _snackBar:MatSnackBar,

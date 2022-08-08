@@ -76,7 +76,7 @@ export class ServiceService {
     const headers = new HttpHeaders({
       'x-token':datoF+''
     })
-    let parametro = this.getQuery(`api/buscar/mostrarTodasLasPublicaciones/${numb}`);
+    let parametro = this.getQuery(`api/buscar/mostrarTodasLasPublicaciones/${numb}`); //..............
     return this.http.get(parametro,{headers});
   }
   publicar(descripcion:any,contenido:any,tipoEnfermedad:any){ // auiq publicar
@@ -119,18 +119,16 @@ export class ServiceService {
     const headers = new HttpHeaders({
       "x-token":datoF+''
     })
-    const parametro = this.getQuery('api/buscar/buscarLikeUsuariox/0');
+    const parametro = this.getQuery(`api/buscar/buscarLikeUsuariox/0`);//................
     return this.http.get(parametro,{headers});
-
   }
   buscarCompartidosUsuarioX(){ //3
     let datoF=localStorage.getItem('token');
     const headers = new HttpHeaders({
       "x-token":datoF+''
     })
-    const parametro = this.getQuery('api/buscar/buscarCompartirUsusriox/0');
+    const parametro = this.getQuery(`api/buscar/buscarCompartirUsusriox/0`);//........................
     return this.http.get(parametro, {headers});
-
   }  
   mostrarUsuarioX(){
     let datoF=localStorage.getItem('token');
@@ -186,7 +184,6 @@ export class ServiceService {
     const headers = new HttpHeaders({
       "x-token":datoF+''
     })
-    // api/buscar/usuarioActual/6242438f5893fe4b441b4f0f
     const parametro = this.getQuery(`api/buscar/usuarioActual/6287b393cd4bbe83fef91bee`);
     return this.http.get(parametro,{headers});
   }
@@ -195,24 +192,24 @@ export class ServiceService {
     const headers = new HttpHeaders({
       "x-token":datoF+''
     })
-    const parametro = this.getQuery(`api/buscar/mostrarPublicacionesDelUsuarioX/0`)
-    return this.http.get(parametro,{headers})
+    const parametro = this.getQuery(`api/buscar/mostrarPublicacionesDelUsuarioX/0`);//...................
+    return this.http.get(parametro,{headers});
   }
   contarEnfermedades(){
     let datoF=localStorage.getItem('token');
     const headers = new HttpHeaders({
       "x-token":datoF+''
     })
-    const parametro = this.getQuery(`api/buscar/buscarContarPorEnfermedad/0`)
-    return this.http.get(parametro,{headers})
+    const parametro = this.getQuery(`api/buscar/buscarContarPorEnfermedad/0`);
+    return this.http.get(parametro,{headers});
   }
-  buscarEnfermedadX(enfermedad:any){ // enfermedad
+  buscarEnfermedadX( enfermedad:any){ // enfermedad
     let datoF=localStorage.getItem('token');
     const headers = new HttpHeaders({
       "x-token":datoF+''
     })
-    const parametro = this.getQuery(`api/buscar/buscarPorTipoEnfermedad/${enfermedad}`)
-    return this.http.get(parametro,{headers})
+    const parametro = this.getQuery(`api/buscar/buscarPorTipoEnfermedad/${enfermedad}`);//.................
+    return this.http.get(parametro,{headers});
   }
   actualizarUsuario(id:any,nombre:any,apellidoPaterno:any,apellidoMaterno:any){
     const parametro = this.getQuery(`api/user/${id}`)
@@ -228,7 +225,6 @@ export class ServiceService {
       return this.http.get(parametro)
     }
     mostrarComentarioPublicacionX(id:any){
-      // api/buscar/buscarComentarioDePublicacionX/622517bbec3c7fd69ca82484
       let datoF=localStorage.getItem('token');
       const headers = new HttpHeaders({
         "x-token":datoF+''
@@ -248,26 +244,24 @@ export class ServiceService {
       },{headers})
     }
     mostrarUnaPublicacionAvanzada(id:any){
-      // api/buscar/mostrarUnaPublicacionX/623de52f3b3b60dbbb649e31
       let datoF=localStorage.getItem('token');
       const headers = new HttpHeaders({
         "x-token":datoF+''
       })
       const parametro = this.getQuery(`api/buscar/mostrarUnaPublicacionX/${id}`)
       return this.http.get(parametro,{headers})
-      
     }
     buscarPublicacionParametroX(dato:any){ // por descripcion
-      //api/buscar/buscarConParametroX/ESTO
       let datoF=localStorage.getItem('token');
       const headers = new HttpHeaders({
         "x-token":datoF+''
       })
-      const parametro = this.getQuery(`api/buscar/buscarConParametroX/${dato}`)
+      const parametro = this.getQuery(`api/buscar/buscarConParametroX/${dato}`)//......................
       return this.http.get(parametro,{headers})
     }
     salir(){
       localStorage.removeItem('token');
+      localStorage.removeItem('paginacion');
     }
     // reportarComentario(idC:number){
     //   const datoFF = localStorage.getItem('token');

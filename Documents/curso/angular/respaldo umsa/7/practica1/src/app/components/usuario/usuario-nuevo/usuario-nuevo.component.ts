@@ -123,7 +123,9 @@ export class UsuarioNuevoComponent implements OnInit {
   }
   mostrar(){
     if(localStorage.getItem('paginacion')){
-      this.salto = localStorage.getItem('paginacion');
+      this.salto = Number(localStorage.getItem('paginacion'));
+    }else{
+      this.salto = 1;
     }
     this.servicio.getPublicaciones(this.salto)
       .subscribe((resp:any) =>{
@@ -133,7 +135,6 @@ export class UsuarioNuevoComponent implements OnInit {
           window.location.reload();
         }else{
           this.publicaciones = resp.objAux;
-          console.log(resp)
           this.loading=true;
           this.cantidad=resp.count;
           this.idBuscar='';
@@ -149,7 +150,8 @@ export class UsuarioNuevoComponent implements OnInit {
   }
   paginacion(numb:any){
     this.salto=numb;
-    localStorage.setItem('paginacion',this.salto)
+    console.log('a'+`${this.salto}`+'a')
+    localStorage.setItem('paginacion',this.salto);
     this.servicio.getPublicaciones(this.salto)
       .subscribe((resp:any) =>{
         if(resp.msg === 'expiro'){
@@ -158,18 +160,20 @@ export class UsuarioNuevoComponent implements OnInit {
           window.location.reload();
         }else{
           this.publicaciones = resp.objAux;
-          console.log(resp)
           this.loading=true;
           this.cantidad=resp.count;
           this.idBuscar='';
           this.usuarioActual();
           this.contadorGeneral = resp.countTotal;
+          window.scroll({ 
+            top: 0, 
+            left: 0, 
+            // behavior: 'smooth' 
+          });
         }
-      },(err) => {
-        this.loading=false;
       })
   }
-  
+
   actualizar(q:any){
     this.mostrar();
   }

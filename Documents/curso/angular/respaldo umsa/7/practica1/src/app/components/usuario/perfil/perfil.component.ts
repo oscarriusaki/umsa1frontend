@@ -31,7 +31,6 @@ export class PerfilComponent implements OnInit {
   cargarContenido2=false;
   cargarContenido3=false;
 
-
   constructor(private servicio:ServiceService,
               private router:Router,
               private _snackBar:MatSnackBar) { 
@@ -96,6 +95,16 @@ export class PerfilComponent implements OnInit {
     this.publicacionesUsuarioX();
     this.usuarioActual(); 
   }
+  publicacionesUsuarioX(){
+    this.servicio.publicacionesUsuarioX()
+        .subscribe((resp:any) =>{
+          this.cantidadPublicacion=resp.count;
+          this.msg=resp.msg
+          this.publicaciones=resp.objAux2
+          this.cargarContenido1=true;
+        })
+  }
+
   buscarLikeUsuarioX(){
     this.servicio.buscarLikeUsuarioX()
         .subscribe((resp:any) =>{
@@ -104,6 +113,7 @@ export class PerfilComponent implements OnInit {
           this.cargarContenido2=true;
         })
   }
+
   buscarCompartidosUsuarioX(){
     this.servicio.buscarCompartidosUsuarioX()
         .subscribe((resp:any) =>{
@@ -112,15 +122,7 @@ export class PerfilComponent implements OnInit {
           this.cargarContenido3=true;
         })
   }
-  publicacionesUsuarioX(){
-    this.servicio.publicacionesUsuarioX()
-        .subscribe((resp:any) =>{
-          this.cantidadPublicacion=resp.count;
-          this.msg=resp.msg
-          this.publicaciones=resp.objAux2
-          this.cargarContenido1=true;
-        } )
-  }
+
   like(dato:any){
     this.servicio.likePublicacion(dato.uid)
     .subscribe(resp =>{

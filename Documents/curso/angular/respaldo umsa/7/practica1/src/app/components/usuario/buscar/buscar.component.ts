@@ -15,6 +15,7 @@ export class BuscarComponent implements OnInit {
   contador:any=0;
   idBuscar:any='';
   cargar:boolean=false;
+ 
 
   constructor(private servicio:ServiceService,
               private activatedRoute:ActivatedRoute,
@@ -38,10 +39,11 @@ export class BuscarComponent implements OnInit {
                 this.contador=resp.contadorAuxiliar
                 this.usuarioActual();
                 this.cargar = true;
-                
+          
               })
         })
   }
+
   openSnackBar2(dato:any) {
     let mensaje='Compartido'
     if(dato){

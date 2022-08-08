@@ -263,10 +263,15 @@
 
             </div>
         </div>
-    </div>
+    </div>  
     <div class="mt-5 mb-3" style="text-align: center;">
             <a class="paginacion" *ngFor="let i of contadorData" (click) = 'paginacion(i)' type="submit">
-                {{i}}
+                <div *ngIf="salto === i" style="color: black;">
+                    {{i}}
+                </div>
+                <div *ngIf="salto !== i">
+                    {{i}}
+                </div>
             </a>
     </div>
 </div>
