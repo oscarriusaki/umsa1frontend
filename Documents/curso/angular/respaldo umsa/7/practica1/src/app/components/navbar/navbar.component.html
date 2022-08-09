@@ -10,7 +10,6 @@
           </p>
         </a>
     <ul>
-  
       <li>
         <form autocomplete="off" class="en" (ngSubmit)="buscar(f)" #f="ngForm">
           <input class="me-10 input1" 
@@ -28,19 +27,14 @@
         </form>
       </li>
       <li class="d">
-        <a routerLink="nuevo" > <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="fa-solid fa-house"></i></small> </a>
+        <a routerLink="nuevo"> <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="fa-solid fa-house"></i></small> </a>
       <li >
-        <a routerLink="like" type="submit" > <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="fa-regular fa-heart "></i></small> </a>
+        <a routerLink="like" type="submit"> <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="fa-regular fa-heart "></i></small> </a>
       <li >
-         <a routerLink="compartir" type="submit" > <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="far fa-bookmark"></i></small> </a>
-      <li >
-        <a routerLink="publicar" type="submit" > <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="fa-regular fa-square-plus "></i></small> </a>
-      <li >
-        <a routerLink="publicar" type="submit" *ngIf="!cargado"> <small  style="color: rgb(203, 203, 203); font-size:0px;">
-          <app-loading style="font-size: 7px ;" ></app-loading> 
-        </small> </a>        
-        <li [matMenuTriggerFor]="menu" type="submit" >
-                <a *ngIf="
+         <a routerLink="compartir" type="submit"> <small  style="color: rgb(203, 203, 203); font-size: 23px;"><i class="far fa-bookmark"></i></small> </a>
+      <!-- <li > -->
+        <li [matMenuTriggerFor]="menu" type="submit">
+                <!-- <a *ngIf="
                             'A' === de || 'a' === de ||
                             'B' === de || 'b' === de ||
                             'C' === de || 'c' === de ||
@@ -75,13 +69,13 @@
                           'T' === de || 't' === de 
                             " class="espacio4Letra">
                       <label> <small>{{de}}</small> </label>
-              </a>
-  
-  <!--  -->
-  
-  
+              </a> -->
               
-  
+              <a>
+                <small style="color: rgb(203, 203, 203); font-size: 23px;">
+                  <i class="far fa-user-circle"></i>
+                </small>
+              </a>
           <mat-menu #menu="matMenu" >
             <button mat-menu-item (click)="perfil()">
               <i class="far fa-user"></i>

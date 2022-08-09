@@ -1,16 +1,14 @@
 <div class="row bordeTexto2 mb-3">
     <form autocomplete="off" (ngSubmit)="enviar(f)" #f="ngForm" class="mb-5">
-        <div class="row">
-
-          <div class="col-md-12 mt-3"> <a (click)="back()" type="submit" style="color: black; padding-right: 5px;"><i class="fas fa-angle-left mb-1"></i></a> 
-          <strong style="font-size: 25px; color: rgb(102, 102, 102); margin-left: 10px;" class="mt-5">Modificar publicación</strong></div>
+        <div class="row mt-3">
+        <div class="col-md-12"> <a (click)="back()" type="submit" style="color: black; padding-right: 5px;"><i class="fas fa-angle-left mb-1"></i></a> 
+        <strong style="font-size: 25px; color: rgb(102, 102, 102); margin-left: 10px;" class="mt-5">Modificar publicación</strong></div>
         </div>
         <app-loading *ngIf="!cargar"></app-loading>
 
           <hr >  
-          <div class="row mb-2">
+          <div class="row">
           <label class="espacioLabel">Pregunta</label>
-          <br>
           <input class="estiloImput " 
                   placeholder="¿Cuáles es su pregunta?"
                   name="descripcion"
@@ -21,23 +19,21 @@
                   [ngModel]="publicacion.descripcion"
                   > 
           </div>
-          <br>
-  
-          <div class="row mb-2">
+          <div class="row">
           <label class="espacioLabel">Descripción de la pregunta</label>
           <br>
           <input class="estiloImput" 
-          placeholder="Ingrese la descripción"
-          name="contenido"
-          #contenido="ngModel"
-                  ngModel
-                  required
-                  [class.is-invalid]="contenido.invalid && contenido.touched"
-                  [ngModel]="publicacion.contenido"
-                  >
+                 placeholder="Ingrese la descripción"
+                 name="contenido"
+                 #contenido="ngModel"
+                         ngModel
+                         required
+                         [class.is-invalid]="contenido.invalid && contenido.touched"
+                         [ngModel]="publicacion.contenido"
+                         >
           </div>
           <!-- <br> -->
-          <div class="row mt-3">
+          <div class="row">
             <label class="espacioLabel" style="padding-left: 15px;">Elija alguna enfermedad</label>
             <div class="col-md-10">
               <select
@@ -50,16 +46,53 @@
                   [ngModel]="publicacion.tipoEnfermedad"
                 >
                 <option selected hidden>{{publicacion.tipoEnfermedad}}</option>
-                <option value="0">Tos</option>
-                <option value="1">Cancer de colon</option>
-                <option value="2">Diabetes</option>
-                <option value="3">Cancer de mama</option>
-                <option value="4">Cancer de piel</option>
-                <option value="5">Resfrio</option>
-                <option value="6">Sinusitis</option>
-                <option value="7">Gonorea</option>
-                <option value="8">Senfalitis</option>
-                <option value="9">Meningitis</option>
+                <option value="0"> Alergia</option>
+                <option value="1"> Ántrax</option>
+                <option value="2"> Asma</option>
+                <option value="3"> Autismo</option>
+                <option value="4"> Artritis</option>
+                <option value="5"> Cáncer</option>
+                <option value="6"> Clamidia</option>
+                <option value="7"> Culebrilla (herpes zóster)</option>
+                <option value="8"> Déficit de atención e hiperactividad</option>
+                <option value="9"> Diabetes</option>
+                <option value="10"> Ébola</option>
+                <option value="11">Embarazo y ETS</option>
+                <option value="12">Enfermedades de transmisión sexual (ETS)</option>
+                <option value="13">Enfermedad inflamatoria pélvica (EIP)</option>
+                <option value="14">Enfermedad pulmonar obstructiva crónica</option>
+                <option value="15">Epilepsia</option>
+                <option value="16">Escarlatina</option>
+                <option value="17">Estreptococo del grupo B</option>
+                <option value="18">Gonorrhea</option>
+                <option value="19">Haemophilus influenzae tipo b (Hib)</option>
+                <option value="20">Hemofilia</option>
+                <option value="21">Herpes genital</option>
+                <option value="22">Infeccíon genital por VPH</option>
+                <option value="23">Influenza (gripe)</option>
+                <option value="24">La Salud Mental de los Niños (Children’s Mental Health)</option>
+                <option value="25">Listeria (Listeriosis)</option>
+                <option value="26">Meningitis</option>
+                <option value="27">Neumonía</option>
+                <option value="28">Paperas</option>
+                <option value="29">Poliomielitis</option>
+                <option value="30">Rabia</option>
+                <option value="31">Reumatismo</option>
+                <option value="32">Rotavirus</option>
+                <option value="33">Shigella – Shigellosis</option>
+                <option value="34">Sífilis</option>
+                <option value="35">Silicosis</option>
+                <option value="36">Síndrome alcohólico fetal</option>
+                <option value="37">Síndrome de fatiga crónica (SFC)</option>
+                <option value="38">Síndrome de Tourette</option>
+                <option value="39">Tabaquismo</option>
+                <option value="40">Tosferina</option>
+                <option value="41">Tricomoniasis</option>
+                <option value="42">Tuberculosis (TB)</option>
+                <option value="43">Vaginosis bacteriana</option>
+                <option value="44">VIH/Sida</option>
+                <option value="45">Zika</option>
+                <option value="46">#otro</option>
               </select>
             </div>
             <div class="col-md-2 mt-1" >

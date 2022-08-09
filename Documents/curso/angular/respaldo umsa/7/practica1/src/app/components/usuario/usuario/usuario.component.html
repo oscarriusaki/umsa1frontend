@@ -12,7 +12,7 @@
             <div class="contenedor2">
               <a class="list-group-item m-2" type="submit" aria-current="true" *ngFor="let publicacion of enfermeades" (click)="buscarEnfermedad(publicacion)">
                 <div class="d-flex justify-content-between">
-                  <small class="mb-1">{{publicacion._id}}</small>
+                  <small class="mb-1">{{publicacion._id | uppercase}}</small>
                   <small  class="text-muted" style="text-align: center;">{{publicacion.total}}<br> Publicaciones</small>
                 </div>
               </a>

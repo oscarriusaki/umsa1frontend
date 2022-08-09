@@ -17,6 +17,7 @@ export class UsuarioNuevoComponent implements OnInit {
     nombre:'Seleccione una opcion'
   }
   enfermedades:any=[
+              'Alergia',
               'Ántrax',
               'Asma',
               'Autismo',
@@ -81,6 +82,7 @@ export class UsuarioNuevoComponent implements OnInit {
               private _snackBar:MatSnackBar,
               private router:Router,
               private fb:FormBuilder) { }
+              
   ngOnInit(): void {
     this.servicio.obtenerUsuarioActual()
       .subscribe((resp:any) =>{
@@ -203,7 +205,6 @@ export class UsuarioNuevoComponent implements OnInit {
         this.openSnackBar();
         this.mostrar()
         f.reset({
-          tipoEnfermedad:this.data
         })
       })
   }

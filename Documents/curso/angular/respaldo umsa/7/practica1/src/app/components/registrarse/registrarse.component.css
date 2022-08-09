@@ -1,5 +1,5 @@
 .spacio{
-    padding-top: 180px;
+    padding-top: 100px;
 }
 .letra{
     text-decoration: underline;
@@ -7,7 +7,7 @@
 .formulario{
     background-color: rgb(255, 255, 255);
     padding: 15px;
-    margin-top: 200px;
+    margin-top: 130px;
     border: 1px solid rgb(170, 170, 170);
     border-radius: 20px;
 }

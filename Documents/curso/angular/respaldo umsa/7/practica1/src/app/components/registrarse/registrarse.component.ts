@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder, Validators } from '@angular/forms';
 import { ServiceService } from '../../services/service.service';
 
 @Component({
@@ -15,14 +15,17 @@ export class RegistrarseComponent implements OnInit {
   mensajeError:string='';
   motivo:any;
   mensajeError2:any=''
+  forma:any;
 
   constructor(private router:Router,
               private servicio:ServiceService,
-              private activatedRoute:ActivatedRoute) { 
+              private activatedRoute:ActivatedRoute, 
+              private fb:FormBuilder) { 
                 this.activatedRoute.params.
                     subscribe(resp =>{
                       this.motivo=resp['id']
                     })
+                    this.crearFormulario();
               }
 
   ngOnInit(): void {
@@ -30,25 +33,58 @@ export class RegistrarseComponent implements OnInit {
       this.router.navigate(['/login'])  
     }
   }
-
+  
+  get nombreNoValido(){
+    return this.forma.get('nombre').invalid && this.forma.get('nombre').touched;
+  }
+  get apellidoPaternoNoValido(){
+    return this.forma.get('apellidoPaterno').invalid && this.forma.get('apellidoPaterno').touched;
+  }
+  get apellidoMaternoNoValido(){
+    return this.forma.get('apellidoMaterno').invalid && this.forma.get('apellidoMaterno').touched;
+  }
+  get correoNoValido(){
+    return this.forma.get('correo').invalid && this.forma.get('correo').touched;
+  }
+  get passwordNoValido(){
+    return this.forma.get('password').invalid && this.forma.get('password').touched;
+  }
+  get password2NoValido(){
+    const pass1 = this.forma.get('password').value;
+    const pass2 = this.forma.get('password2').value;
+    return (pass1 === pass2) ? false: true;
+  }
+  crearFormulario(){
+    this.forma = this.fb.group({
+      nombre:['', [Validators.required, Validators.minLength(2)]], 
+      apellidoPaterno:['', [Validators.required, Validators.minLength(3)]],
+      apellidoMaterno:['', [Validators.required, Validators.minLength(3)]],
+      correo:['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      password:['',  [Validators.required, Validators.minLength(9)]],
+      password2:['', [Validators.required, Validators.minLength(9)]]
+    }, {
+      validators: this.servicio.validarPassword('password','password2')
+    })
+  }
   registrar(form:NgForm){
+    console.log(form)
     if(form.invalid){
+      Object.values(this.forma.controls).forEach((control:any) => {
+        control.markAsTouched();
+      })
       return
     }
-    this.servicio.registrarUsuario(form.form.value.nombre,form.form.value.apellidoPaterno,form.form.value.apellidoMaterno,form.form.value.correo,form.form.value.password,'USER_ROL',this.motivo)
+    this.servicio.registrarUsuario(form.value.nombre,form.value.apellidoPaterno,form.value.apellidoMaterno,form.value.correo,form.value.password,'USER_ROL',this.motivo)
         .subscribe(resp =>{
           console.log(resp);
           
           window.location.reload()
         },(err) =>{
-          // console.log(err.error.msg,'esete es el error');
-          // console.log(err,'esete es el error');
           this.mensajeError2=err.error.msg
         })
     if(localStorage.getItem('token')){
       this.router.navigate(['/login'])  
-    }
-    
+    }    
   }
   login(){
     this.router.navigate(['/login'])    

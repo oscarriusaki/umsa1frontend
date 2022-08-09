@@ -83,52 +83,53 @@
                                         [ngModel]="data.nombre"
                                     >
                                 <option selected hidden>{{data.nombre}}</option>
-                                <option value="0"> Ántrax</option>
-                                <option value="1"> Asma</option>
-                                <option value="2"> Autismo</option>
-                                <option value="3"> Artritis</option>
-                                <option value="4"> Cáncer</option>
-                                <option value="5"> Clamidia</option>
-                                <option value="6"> Culebrilla (herpes zóster)</option>
-                                <option value="7"> Déficit de atención e hiperactividad</option>
-                                <option value="8"> Diabetes</option>
-                                <option value="9"> Ébola</option>
-                                <option value="10">Embarazo y ETS</option>
-                                <option value="11">Enfermedades de transmisión sexual (ETS)</option>
-                                <option value="12">Enfermedad inflamatoria pélvica (EIP)</option>
-                                <option value="13">Enfermedad pulmonar obstructiva crónica</option>
-                                <option value="14">Epilepsia</option>
-                                <option value="15">Escarlatina</option>
-                                <option value="16">Estreptococo del grupo B</option>
-                                <option value="17">Gonorrhea</option>
-                                <option value="18">Haemophilus influenzae tipo b (Hib)</option>
-                                <option value="19">Hemofilia</option>
-                                <option value="20">Herpes genital</option>
-                                <option value="21">Infeccíon genital por VPH</option>
-                                <option value="22">Influenza (gripe)</option>
-                                <option value="23">La Salud Mental de los Niños (Children’s Mental Health)</option>
-                                <option value="24">Listeria (Listeriosis)</option>
-                                <option value="25">Meningitis</option>
-                                <option value="26">Neumonía</option>
-                                <option value="27">Paperas</option>
-                                <option value="28">Poliomielitis</option>
-                                <option value="29">Rabia</option>
-                                <option value="30">Reumatismo</option>
-                                <option value="31">Rotavirus</option>
-                                <option value="32">Shigella – Shigellosis</option>
-                                <option value="33">Sífilis</option>
-                                <option value="34">Silicosis</option>
-                                <option value="35">Síndrome alcohólico fetal</option>
-                                <option value="36">Síndrome de fatiga crónica (SFC)</option>
-                                <option value="37">Síndrome de Tourette</option>
-                                <option value="38">Tabaquismo</option>
-                                <option value="39">Tosferina</option>
-                                <option value="40">Tricomoniasis</option>
-                                <option value="41">Tuberculosis (TB)</option>
-                                <option value="42">Vaginosis bacteriana</option>
-                                <option value="43">VIH/Sida</option>
-                                <option value="44">Zika</option>
-                                <option value="45">#otro</option>
+                                <option value="0"> Alergia</option>
+                                <option value="1"> Ántrax</option>
+                                <option value="2"> Asma</option>
+                                <option value="3"> Autismo</option>
+                                <option value="4"> Artritis</option>
+                                <option value="5"> Cáncer</option>
+                                <option value="6"> Clamidia</option>
+                                <option value="7"> Culebrilla (herpes zóster)</option>
+                                <option value="8"> Déficit de atención e hiperactividad</option>
+                                <option value="9"> Diabetes</option>
+                                <option value="10"> Ébola</option>
+                                <option value="11">Embarazo y ETS</option>
+                                <option value="12">Enfermedades de transmisión sexual (ETS)</option>
+                                <option value="13">Enfermedad inflamatoria pélvica (EIP)</option>
+                                <option value="14">Enfermedad pulmonar obstructiva crónica</option>
+                                <option value="15">Epilepsia</option>
+                                <option value="16">Escarlatina</option>
+                                <option value="17">Estreptococo del grupo B</option>
+                                <option value="18">Gonorrhea</option>
+                                <option value="19">Haemophilus influenzae tipo b (Hib)</option>
+                                <option value="20">Hemofilia</option>
+                                <option value="21">Herpes genital</option>
+                                <option value="22">Infeccíon genital por VPH</option>
+                                <option value="23">Influenza (gripe)</option>
+                                <option value="24">La Salud Mental de los Niños (Children’s Mental Health)</option>
+                                <option value="25">Listeria (Listeriosis)</option>
+                                <option value="26">Meningitis</option>
+                                <option value="27">Neumonía</option>
+                                <option value="28">Paperas</option>
+                                <option value="29">Poliomielitis</option>
+                                <option value="30">Rabia</option>
+                                <option value="31">Reumatismo</option>
+                                <option value="32">Rotavirus</option>
+                                <option value="33">Shigella – Shigellosis</option>
+                                <option value="34">Sífilis</option>
+                                <option value="35">Silicosis</option>
+                                <option value="36">Síndrome alcohólico fetal</option>
+                                <option value="37">Síndrome de fatiga crónica (SFC)</option>
+                                <option value="38">Síndrome de Tourette</option>
+                                <option value="39">Tabaquismo</option>
+                                <option value="40">Tosferina</option>
+                                <option value="41">Tricomoniasis</option>
+                                <option value="42">Tuberculosis (TB)</option>
+                                <option value="43">Vaginosis bacteriana</option>
+                                <option value="44">VIH/Sida</option>
+                                <option value="45">Zika</option>
+                                <option value="46">#otro</option>
                               </select>
                             </div>
                             <div class="col-md-2" >
@@ -230,25 +231,20 @@
             </div>  
             <div class="con">
                 <div class="col-md-4">
-
                     <div class="col-md-12" *ngIf="publicacion.CantidadLikes <= 1  && publicacion.CantidadLikes >0">
                         <label>{{publicacion.CantidadLikes}} me gusta</label>
                     </div>
                     <div class="col-md-12" *ngIf="publicacion.CantidadLikes >1  && publicacion.CantidadLikes >0">
                         <label>{{publicacion.CantidadLikes}} me gustas</label>
                     </div>
-
                 </div>
                 <div class="col-md-4">
-                    
-                                
-                                <div class="col-md-12" *ngIf="publicacion.CantidadComentarios <= 1 && publicacion.CantidadComentarios >0">
-                                    <label>{{publicacion.CantidadComentarios}} comentario</label>
-                                </div>
-                                <div class="col-md-12" *ngIf="publicacion.CantidadComentarios >1 && publicacion.CantidadComentarios >0">
-                                    <label>{{publicacion.CantidadComentarios}} comentarios</label>
-                                </div>
-
+                    <div class="col-md-12" *ngIf="publicacion.CantidadComentarios <= 1 && publicacion.CantidadComentarios >0">
+                        <label>{{publicacion.CantidadComentarios}} comentario</label>
+                    </div>
+                    <div class="col-md-12" *ngIf="publicacion.CantidadComentarios >1 && publicacion.CantidadComentarios >0">
+                        <label>{{publicacion.CantidadComentarios}} comentarios</label>
+                    </div>
                 </div>
                 <div class="col-md-4">
             <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos <= 1 && publicacion.CantidadCompartidos >0">
@@ -259,8 +255,6 @@
             </div>
                 </div>
             </div>
-            
-
             </div>
         </div>
     </div>  

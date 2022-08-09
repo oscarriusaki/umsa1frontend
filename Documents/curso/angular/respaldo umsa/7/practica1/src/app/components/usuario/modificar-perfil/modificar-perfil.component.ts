@@ -40,19 +40,17 @@ export class ModificarPerfilComponent implements OnInit {
       duration: 2 * 1000,
     });
   }
- 
-
   actualizar(dato:any){
     this.servicio.actualizarUsuario(this.persona.uid,dato.form.value.nombre,dato.form.value.apellidoPaterno,dato.form.value.apellidoMaterno)
       .subscribe(resp =>{
         this.openSnackBar()
         this.router.navigate(['usuario/perfil'])
-        this.back();
+        // window.location.reload();
+        // this.back();
       })
   }
   back(){
     window.history.back();
     //this.router.navigate(['usuario/perfil'])
   }
-  
 }

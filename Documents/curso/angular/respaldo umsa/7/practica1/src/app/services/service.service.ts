@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +9,47 @@ import { map } from 'rxjs/operators';
 export class ServiceService {
   url:String = 'https://umsa-original-3.herokuapp.com';
   token:string = '';
+  letras: any = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+                  'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',]
+  numeros:any = ['1','2','3','4','5','6','7','8','9']
 
   constructor(private http:HttpClient) { }
   getQuery(dato:string){
     return  (`${this.url}/${dato}`)
+  }
+  letrasYnumeros(control:FormControl):any{
+    // esta mal esta funcion
+    if(control.value?.length >= 9){
+      let d=0;
+      for(let i = 0 ; i< control.value.length; i++){
+        if(this.letras.includes( control.value.subtring(i))){
+          d=1
+        }
+        if( this.numeros.includes(control.value.substring(i))){
+          d=2;
+        }
+        if(d===2){
+          i=control.value.length;
+        }
+      }
+      if(d===2){
+        return {
+          verdad:true
+        }
+      }
+      return null;
+    }
+  }
+  validarPassword(pass1:string, pass2:string){
+    return (formGroup:FormGroup) => {
+      const pass1Control = formGroup.controls[pass1];
+      const pass2Control = formGroup.controls[pass2];
+      if(pass1Control.value === pass2Control.value){
+        pass2Control.setErrors(null)
+      }else{
+        pass2Control.setErrors({errors:true})
+      }
+    }
   }
   login(correo:any, password:any){
     let parametro = this.getQuery('api/login')

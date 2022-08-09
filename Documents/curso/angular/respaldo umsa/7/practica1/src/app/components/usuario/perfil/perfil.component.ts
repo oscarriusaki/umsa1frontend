@@ -38,6 +38,7 @@ export class PerfilComponent implements OnInit {
               }
 
   ngOnInit(): void {
+
     this.mostrarUsuario();
   
   }
@@ -73,7 +74,7 @@ export class PerfilComponent implements OnInit {
     });
   }
   mostrarUsuario(){
-
+    // window.location.reload();
     this.servicio.obtenerUsuarioActual()
         .subscribe((resp:any )=>{
           if(resp.msg === 'expiro'){

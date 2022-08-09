@@ -30,13 +30,15 @@
                       'O' === de || 'o' === de ||
                       'R' === de || 'r' === de ||
                       'P' === de || 'p' === de ||
-                      'S' === de || 's' === de ||
                       'U' === de || 'u' === de ||
                       'V' === de || 'v' === de ||
                       'X' === de || 'x' === de ||
                       'Y' === de || 'y' === de ||
                       'Z' === de || 'z' === de   " class="espacio1Letrap">
             <label>  {{de|uppercase | slice:0:1}}</label>
+            </p>
+            <p *ngIf="'S' === de || 's' === de" class="espacio5Letrap">       
+            <label>  {{ de|uppercase | slice:0:1}}</label>
             </p>
             <p *ngIf="'M' === de || 'm' === de" class="espacio3Letrap">       
             <label>  {{ de|uppercase | slice:0:1}}</label>
@@ -57,7 +59,7 @@
         <small><i class="far fa-calendar-alt"></i><strong> se unió en: </strong>{{ fecha | date:'yyyy-MM-dd' }}</small> <br>
         <small><i class="fas fa-plus"></i> <strong> {{cantidadPublicacion}} </strong> publicaciones</small> <br>
         <small><i class="fas fa-heart"></i> <strong> {{cantidadLike}} </strong> likes</small> <br>
-        <small> <i class="fa-regular fa-paper-plane"></i><strong> {{cantidadCompartido}} </strong> compartidos</small>
+        <small><i class="far fa-bookmark"></i> <strong> {{cantidadCompartido}} </strong> compartidos</small>
         </label>
     </div>
     <div class="col-md-3 ml-2 mt-3">
@@ -101,6 +103,7 @@
                                                 'Z' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'z' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio1Letra">
                                         <label> {{publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
                                         </p>
+                                      
                                         <p *ngIf="'M' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'm' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio3Letra">
                                         <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
                                         </p>
