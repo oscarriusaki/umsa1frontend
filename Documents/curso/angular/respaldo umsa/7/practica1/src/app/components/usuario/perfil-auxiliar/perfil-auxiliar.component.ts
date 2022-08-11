@@ -218,4 +218,7 @@ export class PerfilAuxiliarComponent implements OnInit {
   back(){
     window.history.back();
   }
+  cambiarPassword(){
+    this.router.navigate(['usuario/cambiarPassword',this.idBuscar])
+  }
 }

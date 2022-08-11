@@ -424,3 +424,11 @@ input:focus{
     justify-content: space-around;
     flex-flow: wrap;
 }
+.cambiar{
+    color: black;
+    text-decoration: none;
+}
+.cambiar:hover{
+    color: black;
+    text-decoration: underline;
+}

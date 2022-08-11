@@ -99,7 +99,6 @@ export class ComentarioComponent implements OnInit {
     this.servicio.mostrarUnaPublicacionAvanzada(this.id)
     .subscribe((resp:any) =>{
       this.publicacion=resp.auxObj
-
       this.nombre=this.publicacion.usuario.nombre;
       this.apellidoPaterno=this.publicacion.usuario.apellidoPaterno;
       this.apellidoMaterno=this.publicacion.usuario.apellidoMaterno;

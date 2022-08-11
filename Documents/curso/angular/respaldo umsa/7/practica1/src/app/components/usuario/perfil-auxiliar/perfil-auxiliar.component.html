@@ -59,7 +59,8 @@
         <small><i class="far fa-calendar-alt"></i><strong> se unió en: </strong>{{ fecha | date:'yyyy-MM-dd' }}</small> <br>
         <small><i class="fas fa-plus"></i> <strong> {{cantidadPublicacion}} </strong> publicaciones</small> <br>
         <small><i class="fas fa-heart"></i> <strong> {{cantidadLike}} </strong> likes</small> <br>
-        <small><i class="far fa-bookmark"></i> <strong> {{cantidadCompartido}} </strong> compartidos</small>
+        <small><i class="far fa-bookmark"></i> <strong> {{cantidadCompartido}} </strong> compartidos</small><br>
+        <small *ngIf="usuarioActual11===usuarioActual33"><i class="fas fa-lock"></i> <a class="cambiar" type="submit" (click)="cambiarPassword()">  cambiar contraseña</a></small>
         </label>
     </div>
     <div class="col-md-3 ml-2 mt-3">

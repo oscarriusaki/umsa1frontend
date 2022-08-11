@@ -16,6 +16,7 @@ export class RegistrarseComponent implements OnInit {
   motivo:any;
   mensajeError2:any=''
   forma:any;
+  carga:boolean=false;
 
   constructor(private router:Router,
               private servicio:ServiceService,
@@ -52,7 +53,12 @@ export class RegistrarseComponent implements OnInit {
   get password2NoValido(){
     const pass1 = this.forma.get('password').value;
     const pass2 = this.forma.get('password2').value;
-    return (pass1 === pass2) ? false: true;
+    if(pass2.length>=1){
+      return (pass1 === pass2)? false:true
+    }else{
+      return false;
+    }
+    // return ((pass1 === pass2) || (pass2.length > 2)) ? false: true;
   }
   crearFormulario(){
     this.forma = this.fb.group({
@@ -76,8 +82,7 @@ export class RegistrarseComponent implements OnInit {
     }
     this.servicio.registrarUsuario(form.value.nombre,form.value.apellidoPaterno,form.value.apellidoMaterno,form.value.correo,form.value.password,'USER_ROL',this.motivo)
         .subscribe(resp =>{
-          console.log(resp);
-          
+          this.carga=true;
           window.location.reload()
         },(err) =>{
           this.mensajeError2=err.error.msg

@@ -5,7 +5,7 @@
                 <div class="row botonInicio" type="submit" (click)="sw=false">
                     <div class="col-md-12">
                         <i class="fas fa-plus"></i>
-                        <label style="font-weight: 400; padding-left: 20px;"> <a type="submit">Publicar una Pregunta, Consulta</a> </label>
+                        <label style="font-weight: 400; padding-left: 20px;"> <a type="submit">Publicar una Pregunta o alguna información sobre enfermedades</a> </label>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@
                                         ngModel
                                         [ngModel]="data.nombre"
                                     >
-                                <option selected hidden>{{data.nombre}}</option>
+                                <option selected hidden></option>
                                 <option value="0"> Alergia</option>
                                 <option value="1"> Ántrax</option>
                                 <option value="2"> Asma</option>
@@ -134,8 +134,8 @@
                               </select>
                             </div>
                             <div class="col-md-2" >
-                                <button *ngIf="!(tipoEnfermedad.touched || descripcion.valid && contenido.valid)" type="submit" class="borderBoton" disabled>Publicar</button>
-                                <button *ngIf=" (tipoEnfermedad.touched || contenido.valid && descripcion.valid )" type="submit" class="borderBoton2" >Publicar</button>
+                                <button *ngIf="!(tipoEnfermedad.touched || descripcion.valid || contenido.valid)" type="submit" class="borderBoton" disabled>Publicar</button>
+                                <button *ngIf=" (tipoEnfermedad.touched || contenido.valid || descripcion.valid )" type="submit" class="borderBoton2" >Publicar</button>
                             </div>
                         </div>
                     </form>
@@ -248,12 +248,12 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-            <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos <= 1 && publicacion.CantidadCompartidos >0">
-                <label>{{publicacion.CantidadCompartidos}} compartido</label>
-            </div>
-            <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos >1 && publicacion.CantidadCompartidos >0">
-                <label>{{publicacion.CantidadCompartidos}} compartidos</label>
-            </div>
+                    <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos <= 1 && publicacion.CantidadCompartidos >0">
+                        <label>{{publicacion.CantidadCompartidos}} compartido</label>
+                    </div>
+                    <div class="col-md-12" *ngIf="publicacion.CantidadCompartidos >1 && publicacion.CantidadCompartidos >0">
+                        <label>{{publicacion.CantidadCompartidos}} compartidos</label>
+                    </div>
                 </div>
             </div>
             </div>

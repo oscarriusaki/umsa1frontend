@@ -54,7 +54,7 @@
         <small><i class="fas fa-plus"></i> <strong> {{cantidadPublicacion}} </strong> publicaciones</small> <br>
         <small><i class="fa-regular fa-heart "></i> <strong> {{cantidadLike}} </strong> likes</small> <br>
         <small><i class="far fa-bookmark"></i>  <strong> {{cantidadCompartido}} </strong> compartidos</small><br>
-        <small><i class="fas fa-lock"></i> <a class="cambiar" type="submit" (click)="cambiarPassword()">  cambiar password</a></small>
+        <small><i class="fas fa-lock"></i> <a class="cambiar" type="submit" (click)="cambiarPassword()">  cambiar contraseña</a></small>
         </label>
     </div>
     <div class="col-md-3 ml-2 mt-3">
@@ -218,7 +218,7 @@
                                                 'K' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'k' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'L' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'l' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'N' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'n' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                                                'O' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'o' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+
                                                 'R' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'r' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'P' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'p' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'S' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  's' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
@@ -228,6 +228,9 @@
                                                 'Y' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'y' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'Z' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'z' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio1Letra">
                                         <label> {{publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
+                                        </p>
+                                        <p *ngIf="'O' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'o' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio5Letra">
+                                            <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
                                         </p>
                                         <p *ngIf="'M' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'm' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio3Letra">
                                         <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
@@ -345,7 +348,7 @@
                                                 'K' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'k' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'L' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'l' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'N' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'n' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                                                'O' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'o' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
+
                                                 'R' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'r' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'P' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'p' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'S' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  's' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
@@ -355,6 +358,9 @@
                                                 'Y' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'y' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'Z' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'z' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio1Letra">
                                         <label> {{publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
+                                        </p>
+                                        <p *ngIf="'O' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'o' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio5Letra">
+                                            <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
                                         </p>
                                         <p *ngIf="'M' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'm' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio3Letra">
                                         <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>

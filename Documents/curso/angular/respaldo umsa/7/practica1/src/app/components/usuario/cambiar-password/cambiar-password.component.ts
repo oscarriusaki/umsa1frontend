@@ -41,7 +41,12 @@ export class CambiarPasswordComponent implements OnInit {
   get password3NoValido(){
     const pass1 = this.forma.get('password2').value;
     const pass2 = this.forma.get('password3').value;
-    return (pass1 === pass2)? false: true;
+    // return (pass1 === pass2)? false: true;
+    if(pass2.length>1){
+      return (pass1 === pass2)? false:true
+    }else{
+      return false;
+    }
   }
   openSnackBar() {
     this._snackBar.open('Actualizado', '',{  

@@ -63,7 +63,7 @@
                             <small class="text-muted" style="font-size: 15px;color:  rgb(132, 132, 132) !important;"><label> {{tipoEnfermedad | titlecase }}</label></small> 
                         </div>
                     </div>
-                     <div class="col-md-12 mt-2">
+                    <div class="col-md-12 mt-2">
                         <div class="bordeTexto estiloContenidoC mt-1">
                              <a type="submit" class="textoDescripcion">{{descripcion | lowercase}}</a><br>
                                 <p> <strong style="font-size: 15px; font-weight: 400; color: black;">{{contenido2 | lowercase}}</strong></p>
@@ -83,10 +83,10 @@
                                 </a> 
                             </div>
                             <div class="col-md-4 mb-2" >
-                                <a *ngIf="cantidadComentarios === 0" class="colorIcono2" type="submit" >
+                                <a *ngIf="cantidadComentarios === 0" class="colorIcono2" type="submit">
                                     <i class="far fa-comment-alt"></i>
                                 </a>
-                                <a *ngIf="cantidadComentarios !== 0" class="colorIcono2" type="submit" >
+                                <a *ngIf="cantidadComentarios !== 0" class="colorIcono2" type="submit">
                                     <i class="far fa-comment-alt"></i>
                                     {{ cantidadComentarios}}
                                 </a>
@@ -232,19 +232,16 @@
                         <div class="col-md-11">
                                 <p *ngIf="editarF !== usuarioComentario.uid" class="card-text mb-1 "> 
                                     <a  type="submit" class="linea" (click)="buscarusuario(usuarioComentario.usuario)"> {{usuarioComentario.usuario.nombre  | titlecase}} {{usuarioComentario.usuario.apellidoPaterno | titlecase}} {{usuarioComentario.usuario.apellidoMaterno  | titlecase}} </a><br>
-                                        <label (click)="mensaje(usuarioComentario)"> <small class="estiloContenidoC"> {{usuarioComentario.contenido | lowercase}} </small></label>
+                                    <label (click)="mensaje(usuarioComentario)"> <small class="estiloContenidoC"> {{usuarioComentario.contenido | lowercase}} </small></label>
                                 </p>
                                 <div *ngIf="editarF === usuarioComentario.uid"  class="col">
-
                                     <form autocomplete="off" class="form-module" [formGroup]="forma" (ngSubmit)="modificarComentario(usuarioComentario)">
-                                        
                                         <input type="text"
                                                 class="modificado"
                                                 name="comentarioM"
                                                 placeholder="modificar comentario"
                                                 formControlName="con"
                                         >
-                                        
                                     </form>
                                     <small *ngIf="editarF === usuarioComentario.uid"  (click)="cancelar()"><label> <a type="submit" style="color: blue;"> cancelar</a></label></small>
                                 </div>

@@ -57,3 +57,9 @@ input::selection{
     color: white;
 }
 
+.con{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+}

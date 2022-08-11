@@ -5,8 +5,8 @@
         <form action="off" class="formulario" [formGroup]="forma" (ngSubmit)="login()">
             <div class="col-md-12 mt-3 mb-3" style="text-align: center;"> <strong style="font-size: 25px; color: rgb(46, 46, 46); text-align: center  !important;" >Iniciar Session</strong></div>
                 <label class="col-2 col-form-label"  style="color: rgb(0, 0, 0);"><small> Correo</small></label>
-                <div class="row">
-                    <div class="col-1 mt-3" style="padding-left: 25px;">
+                <div class="con">
+                    <div class="col-1 mt-3">
                             <i class="fas fa-user" style="color: rgb(0, 0, 0);"></i>
                     </div>
                     <div class="col-11">
@@ -18,10 +18,10 @@
                                 (keyup)="val()"
                                 >
                     </div> 
-                    </div>
+                </div>
                 <label class="col-2 col-form-label"  style="color: rgb(0, 0, 0);"> <small> Contraseña</small></label><br>
-                <div class="row">
-                    <div class="col-1 mt-3" style="padding-left: 25px;">
+                <div class="con">
+                    <div class="col-1 mt-3">
                         <i class="fas fa-lock" style="color: rgb(49, 49, 49);"></i>
                     </div>
                     <div class="col-11">
@@ -32,8 +32,8 @@
                                 [class.is-invalid]="passwordNoValido"
                                 (keyup)="val()"
                                 >
-                            </div>
-                 </div>
+                    </div>
+                </div>
             <span class="text-danger" *ngIf="erroe1!==''">{{erroe1}}</span>
             <span class="text-danger" *ngIf="erroe2!==''">{{erroe2}}</span>
             <small *ngIf="correoNoValido" class="text-danger">El correo no es valido</small><br *ngIf="correoNoValido">
@@ -52,5 +52,4 @@
         </form>
     </div>
     <div class="col-md-4"></div>
-    
 </div>

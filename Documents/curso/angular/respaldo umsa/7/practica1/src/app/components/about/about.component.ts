@@ -37,5 +37,7 @@ export class AboutComponent implements OnInit {
     registrarse(){
         this.router.navigate(['/registrarse']);
     }
-  
+    back(){
+      window.history.back();
+    }
 }

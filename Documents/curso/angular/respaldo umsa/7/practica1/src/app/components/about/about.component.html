@@ -5,8 +5,8 @@
         <form action="off" autocomplete="off" #form="ngForm" class="formulario" (ngSubmit)="login(form)">
             <div class="col-md-12 mt-3 mb-3" style="text-align: center;"> <strong style="font-size: 25px; color: rgb(43, 43, 43); text-align: center  !important;" >¿ Porque Quieres Unirte ?</strong></div>
                 <label class="col-2 col-form-label"  style="color: rgb(0, 0, 0);"><small>Respuesta</small></label>
-                <div class="row">
-                    <div class="col-1 mt-3" style="padding-left: 25px;">
+                <div class="con">
+                    <div class="col-1 mt-3">
                         <i class="far fa-sticky-note" style="color: rgb(0, 0, 0);"></i>
                     </div>
                     <div class="col-11">
@@ -29,6 +29,7 @@
                 <label class="col-12 col-form-label">&nbsp;</label>
                 <div class="row">
                     <button type="submit" href="#" class=" botonEstilo">Siguiente</button>
+                    <button type="submit" href="#" class=" btn btn=primary" style="border-radius: 25px;" (click)="back()">Cancelar</button>
                 </div>
                  
             </div>
