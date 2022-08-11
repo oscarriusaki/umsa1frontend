@@ -2,13 +2,13 @@
     <form autocomplete="off" (ngSubmit)="enviar(f)" #f="ngForm" class="mb-5">
         <div class="row mt-3">
         <div class="col-md-12"> <a (click)="back()" type="submit" style="color: black; padding-right: 5px;"><i class="fas fa-angle-left mb-1"></i></a> 
-        <strong style="font-size: 25px; color: rgb(102, 102, 102); margin-left: 10px;" class="mt-5">Modificar publicación</strong></div>
+        <strong style="font-size: 25px; color: rgb(102, 102, 102); margin-left: 10px;" class="mt-5"><label> Modificar publicación</label></strong></div>
         </div>
         <app-loading *ngIf="!cargar"></app-loading>
 
           <hr >  
           <div class="row">
-          <label class="espacioLabel">Pregunta</label>
+          <label class="espacioLabel">Pregunta o título de la publicación</label>
           <input class="estiloImput " 
                   placeholder="¿Cuáles es su pregunta?"
                   name="descripcion"
@@ -17,10 +17,10 @@
                   required
                   [class.is-invalid]="descripcion.invalid && descripcion.touched"
                   [ngModel]="publicacion.descripcion"
-                  > 
+                  >
           </div>
           <div class="row">
-          <label class="espacioLabel">Descripción de la pregunta</label>
+          <label class="espacioLabel">Descripción de la publicación</label>
           <br>
           <input class="estiloImput" 
                  placeholder="Ingrese la descripción"

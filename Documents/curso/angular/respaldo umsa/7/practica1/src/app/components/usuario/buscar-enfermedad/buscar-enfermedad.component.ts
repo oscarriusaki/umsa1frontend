@@ -28,7 +28,6 @@ export class BuscarEnfermedadComponent implements OnInit {
     this.cargar = false;
     this.activatedRouter.params
       .subscribe(resp =>{
-        console.log('hola mundo')
         this.parametro=resp['id'];
         this.buscarEnfermedadX(this.parametro);
         this.usuarioActual();
@@ -81,9 +80,7 @@ export class BuscarEnfermedadComponent implements OnInit {
     this.parametroBuscar = id;
     this.servicio.buscarEnfermedadX(this.parametroBuscar)
         .subscribe((resp:any) =>{
-          console.log(resp)
           this.publicaciones = resp.objAux3;
- 
         })
   }
 
@@ -114,9 +111,7 @@ export class BuscarEnfermedadComponent implements OnInit {
   usuarioActual(){
     this.servicio.usuarioActual()
       .subscribe((resp:any) =>{
-        console.log(resp)
         this.idBuscar = resp.usuario1.uid;
-        console.log(this.idBuscar)
       })
   }
   buscarusuario(usuario:any){

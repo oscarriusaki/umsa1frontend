@@ -41,20 +41,20 @@
                             [class.is-invalid]="correoNoValido"
                             >
                 </div>
-                <label class=" "  style="font-size: 13px; color:rgb(0, 0, 0);">password</label>
+                <label class=" "  style="font-size: 13px; color:rgb(0, 0, 0);">Contraseña</label>
                 <div class="col-12">
                     <input class = "form-control formEditar"
                     type="password"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                     formControlName="password"
                     [class.is-invalid]="passwordNoValido"
                     >
                 </div>
-                <label class=" "  style="font-size: 13px; color:rgb(0, 0, 0);">Ingrese nuevamente el password</label>
+                <label class=" "  style="font-size: 13px; color:rgb(0, 0, 0);">Repita la contraseña</label>
                 <div class="col-12">
                     <input type="password"
                             class="form-control formEditar"
-                            placeholder="Ingrese Nuevamente el password"
+                            placeholder="Repita la contraseña"
                             formControlName="password2"
                             [class.is-invalid]="password2NoValido"   
                             >
@@ -65,7 +65,7 @@
             <small *ngIf="password.invalid && password.touched" -->
                             <!-- class="class-form text-danger">El password debe tener mas de 9 caracteres</small>  -->
             <small *ngIf="correoNoValido" class="text-danger">El correo no es valido</small>
-            <small *ngIf="password2NoValido" class="text-danger">El password no counciden</small>
+            <small *ngIf="password2NoValido" class="text-danger">Las contraseñas no coinciden</small>
             <div class="form-group">
                 <label class="col-12 col-form-label">&nbsp;</label>
                 <div class="row">

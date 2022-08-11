@@ -152,7 +152,6 @@ export class UsuarioNuevoComponent implements OnInit {
   }
   paginacion(numb:any){
     this.salto=numb;
-    console.log('a'+`${this.salto}`+'a')
     localStorage.setItem('paginacion',this.salto);
     this.servicio.getPublicaciones(this.salto)
       .subscribe((resp:any) =>{
@@ -189,6 +188,7 @@ export class UsuarioNuevoComponent implements OnInit {
    
   }
   envia(f:NgForm){
+    console.log(f)
     if((f.form.value.descripcion === '') || 
     (f.form.value.contenido === '') || 
     (f.form.value.tipoEnfermedad.nombre === "Seleccione una opcion")||

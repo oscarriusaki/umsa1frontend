@@ -10,6 +10,7 @@ import { BuscarComponent } from './buscar/buscar.component';
 import { BuscarEnfermedadComponent } from './buscar-enfermedad/buscar-enfermedad.component';
 import { PerfilAuxiliarComponent } from './perfil-auxiliar/perfil-auxiliar.component';
 import { EditarPublicacionComponent } from './editar-publicacion/editar-publicacion.component';
+import { CambiarPasswordComponent } from './cambiar-password/cambiar-password.component';
 
 export const USUARIO_ROUTE: Routes = [
     { path: 'nuevo', component: UsuarioNuevoComponent},
@@ -23,6 +24,8 @@ export const USUARIO_ROUTE: Routes = [
     { path: 'buscarEnfermedad/:id', component: BuscarEnfermedadComponent},
     { path: 'perfilAuxiliar/:id', component: PerfilAuxiliarComponent},
     { path: 'editarPublicacion/:id', component: EditarPublicacionComponent},
+    { path: 'editarPublicacion/:id', component: EditarPublicacionComponent},
+    { path: 'cambiarPassword/:id', component: CambiarPasswordComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'nuevo'}
 ]
 

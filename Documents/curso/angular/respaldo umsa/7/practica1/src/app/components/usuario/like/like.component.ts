@@ -99,7 +99,6 @@ export class LikeComponent implements OnInit {
     this.servicio.usuarioActual()
       .subscribe((resp:any) =>{
         this.idBuscar = resp.usuario1.uid;
-        console.log(this.idBuscar)
       })
   }
   buscarusuario(usuario:any){

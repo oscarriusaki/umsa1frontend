@@ -1,6 +1,6 @@
 <div class="negro">
     <div *ngIf="sw" class="mb-3 mt-4">
-        <label><h1 style="font-weight:800; color: rgb(102, 102, 102)"> Publicar</h1></label>
+        <!-- <label><h1 style="font-weight:800; color: rgb(102, 102, 102)"> Publicar</h1></label> -->
             <div class="container">
                 <div class="row botonInicio" type="submit" (click)="sw=false">
                     <div class="col-md-12">
@@ -50,20 +50,21 @@
                     </p>
                 </div>
             <div class="col-md-8">
-                    <form autocomplete="off" (ngSubmit)="envia(f)" #f="ngForm" class="m-2">
-                        <label><small style="color: rgb(95, 95, 95);font-size: 10px;">Ingrese una pregunta</small></label>
+                    <form autocomplete="off" (ngSubmit)="envia(f)" #f="ngForm" class="m-1">
+                        <!-- <br> -->
+                        <label><small style="color: rgb(95, 95, 95);font-size: 12px;">Ingrese una pregunta o título de la publicación</small></label>
                         <input class="estiloImput" 
                                #descripcion="ngModel"
                                type="text"
                                name="descripcion"
-                               placeholder="¿Cuáles es su pregunta?"
+                               placeholder="Pregunta o tíutlo"
                                ngModel
                                required
                                minlength="3"
                                [class.is-invalid]="descripcion.invalid && descripcion.touched"
                                > 
                                <br>
-                        <label> <small style="color: rgb(95, 95, 95);;font-size: 10px;">Descripción de la pregunta</small></label>
+                        <label> <small style="color: rgb(95, 95, 95);;font-size: 12px;">Descripción de la publicación</small></label>
                         <input class="estiloImput mb-2" 
                                 placeholder="Descripción"
                                 name="contenido"
@@ -73,7 +74,7 @@
                                 [class.is-invalid]="contenido.invalid && contenido.touched"
                                 > 
                      <div class="row">
-                        <label  style="color: rgb(95, 95, 95);font-size: 10px;"><small>Elija una opción</small></label>
+                        <label  style="color: rgb(95, 95, 95);font-size: 12px;"><small>Elija una opción</small></label>
                          <div class="col-md-10">
                               <select class="formEditar" 
                                         aria-label="Default select  example"

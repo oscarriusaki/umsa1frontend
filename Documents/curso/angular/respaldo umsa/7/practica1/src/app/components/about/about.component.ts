@@ -28,6 +28,7 @@ export class AboutComponent implements OnInit {
   
     login(form:NgForm){
       if(form.invalid){
+        
         return ;
       }
       // this.servicio.login(form.form.value.email,form.form.value.password)

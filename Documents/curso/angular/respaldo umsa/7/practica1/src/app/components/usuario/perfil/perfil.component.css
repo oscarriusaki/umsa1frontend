@@ -38,14 +38,14 @@ p {
     font-size: 50px;
 }
 .espacio1Letrap{
-    padding-left: 25px;
+    padding-left: 30px;
     margin-top:2px;
     padding-top: 10px;  /* SE QUEDA.//////////////////////////////................................ */
     font-size: 50px;
 }
  
 .espacio5Letrap{
-    padding-left: 30px;
+    padding-left: 25px;
     margin-top:2px;
     padding-top: 10px;  /* SE QUEDA.//////////////////////////////................................ */
     font-size: 50px;
@@ -148,6 +148,12 @@ input:focus{
     font-size: 50px;
 }
 .espacio1Letra{
+    padding-left: 5px;
+    margin-top:0px;
+    margin-left: 2px;  
+    font-size: 22px;
+}
+.espacio5Letra{
     padding-left: 3px;
     margin-top:0px;
     margin-left: 2px;  
@@ -413,4 +419,12 @@ input:focus{
 .relleno{
     border-radius: 5px;
     /* border: 1px solid black; */
+}
+.cambiar{
+    color: black;
+    text-decoration: none;
+}
+.cambiar:hover{
+    color: black;
+    text-decoration: underline;
 }

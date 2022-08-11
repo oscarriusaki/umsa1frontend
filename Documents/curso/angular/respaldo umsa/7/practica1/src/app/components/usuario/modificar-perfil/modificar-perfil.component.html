@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<form autocomplete="off" *ngIf="loading" (ngSubmit)="actualizar(f)" #f="ngForm" class="bordeTexto2" >
+<form autocomplete="off" *ngIf="loading" [formGroup]="forma"(ngSubmit)="actualizar()" class="bordeTexto2" >
     <div class="row">
         <div class="col-md-4">
             <div class="col-md-1 mt-3">
@@ -21,13 +21,8 @@
                     <input type="text" 
                            class="formEditar" 
                            placeholder="Nombre" 
-                           #nombre="ngModel"
-                           [ngModel]="usuario.nombre"
-                           ngModel
-                           name="nombre"
-                           required
-                           [class.is-invalid]="nombre.invalid && nombre.touched"
-                           minlength="3"
+                           formControlName="nombre"
+                           [class.is-invalid]="nombreNoValido"
                            >
                 </div>
             </div>
@@ -37,13 +32,8 @@
                     <input type="text" 
                            class="formEditar" 
                            placeholder="Apellido Paterno"
-                           name="apellidoPaterno"
-                           #apellidoPaterno="ngModel"
-                           [ngModel]="usuario.apellidoPaterno"
-                           required
-                           ngModel
-                           [class.is-invalid]="apellidoPaterno.invalid && apellidoPaterno.touched"
-                           minlength="3"
+                           formControlName="apellidoPaterno"
+                           [class.is-invalid]="apellidoPaternoNoValido"
                            >
                 </div>
             </div>
@@ -53,16 +43,66 @@
                     <input type="text" 
                            class="formEditar" 
                            placeholder="Apellido Materno" 
-                           name="apellidoMaterno"
-                           #apellidoMaterno="ngModel"
-                           [ngModel]="usuario.apellidoMaterno"
-                           ngModel
-                           required
-                           minlength="3"
-                           [class.is-invalid]="apellidoMaterno.invalid && apellidoMaterno.touched"
+                           formControlName="apellidoMaterno"
+                           [class.is-invalid]="apellidoMaternoNoValido"
                     >
                 </div>
             </div>
+            <!-- <div class="row mb-2">
+                <label class="espacioLabel">Contraseña</label>
+                <div class="col-11">
+                    <input *ngIf="tipo"
+                            class="formEditar"
+                            type="text"
+                            placeholder="Contraseña"
+                            formControlName="password1"
+                            [class.is-invalid]="passwordNoValido"
+                            >
+                    <input *ngIf="!tipo"
+                            class="formEditar"
+                            type="password"
+                            placeholder="Contraseña"
+                            formControlName="password1"
+                            [class.is-invalid]="passwordNoValido"
+                            >
+                    
+                </div>
+                <div class="col-1 mt-3" >
+                    <a *ngIf = "!tipo" style="color: black;" type="submit" (click)="mostrarPassword()">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <a *ngIf = "tipo" style="color: black;" type="submit" (click)="mostrarPassword()">
+                        <i class="fa-solid fa-eye-slash"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label class="espacioLabel">Repita contraseña</label>
+                <div class="col-11">
+                    <input  *ngIf="tipo2"
+                            class="formEditar"
+                            type="text"  
+                            placeholder="Repita contraseña"
+                            formControlName="password2"
+                            [class.is-invalid]="password2NoValido"
+                            >
+                    <input  *ngIf="!tipo2"
+                            class="formEditar"
+                            type="password"  
+                            placeholder="Repita contraseña"
+                            formControlName="password2"
+                            [class.is-invalid]="password2NoValido"
+                            >
+                </div>
+                <div class="col-1 mt-3" >
+                    <a *ngIf = "!tipo2" style="color: black;" type="submit" (click)="mostrarPassword2()">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                    <a *ngIf = "tipo2" style="color: black;" type="submit" (click)="mostrarPassword2()">
+                        <i class="fa-solid fa-eye-slash"></i>
+                    </a>
+                </div>
+            </div> -->
             <div class="row mb-1">
             </div>
         </div>

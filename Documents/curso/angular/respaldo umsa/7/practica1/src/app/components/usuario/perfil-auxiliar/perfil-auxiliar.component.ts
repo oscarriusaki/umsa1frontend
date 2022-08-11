@@ -178,14 +178,12 @@ export class PerfilAuxiliarComponent implements OnInit {
     this.servicio.obtenerUsuarioActual1(id)
       .subscribe((resp:any) =>{
         this.usuarioActual33=resp.usuarioExiste.uid;
-        console.log(resp);
       })
   }
   usuarioActual2(){
     this.servicio.obtenerUsuarioActual()
       .subscribe((resp:any) =>{
         this.usuarioActual11=resp.usuario1.uid;
-        console.log(resp);
       })
   }
   buscarusuario(usuario:any){

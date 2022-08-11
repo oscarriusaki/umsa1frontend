@@ -35,6 +35,7 @@ import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { PerfilAuxiliarComponent } from './components/usuario/perfil-auxiliar/perfil-auxiliar.component';
 import { ObjArrayPipe } from './pipe/obj-array.pipe';
+import { CambiarPasswordComponent } from './components/usuario/cambiar-password/cambiar-password.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { ObjArrayPipe } from './pipe/obj-array.pipe';
     PublicarComponent,
     PerfilComponent,
     PerfilAuxiliarComponent,
-    ObjArrayPipe
+    ObjArrayPipe,
+    CambiarPasswordComponent
   ],
   imports: [
     BrowserModule,

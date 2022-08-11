@@ -162,22 +162,22 @@ export class PerfilComponent implements OnInit {
   borrar(dato:any){
     this.servicio.eliminarPublicar(dato.uid)
       .subscribe(resp =>{
-        // console.log(resp,'eliminado');
         this.buscarLikeUsuarioX();
           this.buscarCompartidosUsuarioX();
           this.publicacionesUsuarioX();
           this.openSnackBar4();
-          // window.location.reload();
       })
   }
   usuarioActual(){
     this.servicio.usuarioActual()
       .subscribe((resp:any) =>{
         this.idBuscar=resp.usuario1.uid;
-        console.log(this.usuarioActual)
       })
   }
   buscarusuario(usuario:any){
     this.router.navigate(['usuario/perfilAuxiliar',usuario._id+'']);
+  }
+  cambiarPassword(){
+    this.router.navigate(['usuario/cambiarPassword',this.idBuscar])
   }
 }

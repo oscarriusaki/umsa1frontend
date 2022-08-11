@@ -9,36 +9,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ServiceService {
   url:String = 'https://umsa-original-3.herokuapp.com';
   token:string = '';
-  letras: any = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
-                  'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',]
-  numeros:any = ['1','2','3','4','5','6','7','8','9']
 
   constructor(private http:HttpClient) { }
+  
   getQuery(dato:string){
     return  (`${this.url}/${dato}`)
-  }
-  letrasYnumeros(control:FormControl):any{
-    // esta mal esta funcion
-    if(control.value?.length >= 9){
-      let d=0;
-      for(let i = 0 ; i< control.value.length; i++){
-        if(this.letras.includes( control.value.subtring(i))){
-          d=1
-        }
-        if( this.numeros.includes(control.value.substring(i))){
-          d=2;
-        }
-        if(d===2){
-          i=control.value.length;
-        }
-      }
-      if(d===2){
-        return {
-          verdad:true
-        }
-      }
-      return null;
-    }
   }
   validarPassword(pass1:string, pass2:string){
     return (formGroup:FormGroup) => {
@@ -139,9 +114,8 @@ export class ServiceService {
     return this.http.put(parametro,{
       "descripcion":descripcion,
       "contenido":contenido,
-      "tipoEnfermedad":tipoEnfermedad
+      "tipoEnfermedad":tipoEnfermedad,
     },{headers})
-
   }
   eliminarPublicar(id:any){
     let datoF=localStorage.getItem('token');
@@ -177,7 +151,6 @@ export class ServiceService {
     return this.http.get(parametro);
   }
   likePublicacion(id:any){
-    // 622670d988090a48b8516fc6
     let datoF=localStorage.getItem('token');
     const headers = new HttpHeaders({
       'x-token':datoF+''
@@ -249,13 +222,14 @@ export class ServiceService {
     const parametro = this.getQuery(`api/buscar/buscarPorTipoEnfermedad/${enfermedad}`);//.................
     return this.http.get(parametro,{headers});
   }
-  actualizarUsuario(id:any,nombre:any,apellidoPaterno:any,apellidoMaterno:any){
+  actualizarUsuario(id:any,nombre:any,apellidoPaterno:any,apellidoMaterno:any, password:any){
     const parametro = this.getQuery(`api/user/${id}`)
     return this.http.put(parametro,
       {
         "nombre":nombre,
         "apellidoPaterno":apellidoPaterno,
         "apellidoMaterno":apellidoMaterno,
+        "password":password,
       })
     }
     mostrarPublicacionX(id:any){
@@ -372,5 +346,15 @@ export class ServiceService {
       })
       const parametro = this.getQuery(`api/buscar/mostrarPublicacionesDelUsuarioX1/${id}`)
       return this.http.get(parametro,{headers})
+    }
+    actualizarPassword(p1:any, p2:any){
+      let datoF=localStorage.getItem('token');
+      const headers = new HttpHeaders({
+        "x-token":datoF+''
+      })
+      const parametro = this.getQuery(`api/buscar/actualizarPassword/${p1}`)
+      return this.http.put(parametro,{
+        "password":p2,
+      },{headers});
     }
 }

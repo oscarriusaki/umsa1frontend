@@ -21,8 +21,8 @@
                     'K' === de || 'k' === de ||
                     'L' === de || 'l' === de ||
                     'N' === de || 'n' === de ||
-                    'O' === de || 'o' === de ||
                     'R' === de || 'r' === de ||
+                    'S' === de || 's' === de ||
                     'P' === de || 'p' === de ||
                     'U' === de || 'u' === de ||
                     'V' === de || 'v' === de ||
@@ -31,7 +31,7 @@
                     'Z' === de || 'z' === de   " class="espacio1Letrap">
         <label>  {{de|uppercase | slice:0:1}}</label>
         </p>
-        <p *ngIf="'S' === de || 's' === de " class="espacio5Letrap">       
+        <p *ngIf="'O' === de || 'o' === de " class="espacio5Letrap">       
         <label>  {{ de|uppercase | slice:0:1}}</label>
         </p>
         <p *ngIf="'M' === de || 'm' === de " class="espacio3Letrap">       
@@ -50,14 +50,17 @@
     <div class="col-md-7 estacioCostado mt-3">
         <label>
          <h1 style="font-weight: 500;  color: rgb(56, 55, 55);">{{nombre| titlecase}}  {{apellidoPaterno| titlecase }} {{apellidoMaterno| titlecase }}</h1>
-        <small><i class="far fa-calendar-alt"></i><strong> se unió en: </strong>{{ fecha | date:'yyyy-MM-dd' }}</small> <br>
+        <small><i class="far fa-calendar-alt"></i> <strong> se unió en: </strong>{{ fecha | date:'yyyy-MM-dd' }}</small> <br>
         <small><i class="fas fa-plus"></i> <strong> {{cantidadPublicacion}} </strong> publicaciones</small> <br>
-        <small><i class="fas fa-heart"></i> <strong> {{cantidadLike}} </strong> likes</small> <br>
-        <small><i class="far fa-bookmark"></i> <strong> {{cantidadCompartido}} </strong> compartidos</small>
+        <small><i class="fa-regular fa-heart "></i> <strong> {{cantidadLike}} </strong> likes</small> <br>
+        <small><i class="far fa-bookmark"></i>  <strong> {{cantidadCompartido}} </strong> compartidos</small><br>
+        <small><i class="fas fa-lock"></i> <a class="cambiar" type="submit" (click)="cambiarPassword()">  cambiar password</a></small>
         </label>
     </div>
     <div class="col-md-3 ml-2 mt-3">
      <button type="button" class="btn bordeBoton" (click)="editarPerfil()"> <small style="font-size:10px ;"> Editar perfil</small></button>  
+     <!-- <button type="button" class="btn bordeBoton" (click)="editarPerfil()"> <small style="font-size:10px ;"> Cambiar Password</small></button>   -->
+
     </div>
     </div>
     </div>
@@ -66,18 +69,17 @@
         <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
             <mat-tab label="Publicaciones">
             <hr style="background-color: rgb(158, 158, 158);">
-
             <div class="con2">
                 <app-loading *ngIf="!cargarContenido1"></app-loading>
             </div>
-        <div *ngIf="cargarContenido1">
-            <div *ngIf="cantidadPublicacion === 0" >
-                <div class="alert alert-primary" *ngIf="cantidadPublicacion===0">Ningun Publicacion</div>
+            <div *ngIf="cargarContenido1">
+                <div *ngIf="cantidadPublicacion === 0">
+                    <div class="alert alert-primary" *ngIf="cantidadPublicacion===0">Ningun Publicacion</div>
+                </div>
             </div>
-        </div>
 <div class="bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones;let i=index" >
     <div class="con">
-            <div class="col-md-2 estiloPerfil4" >
+            <div class="col-md-2 estiloPerfil4">
                 <p *ngIf="
                         'A' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'a' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                         'B' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'b' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
@@ -90,7 +92,6 @@
                         'K' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'k' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                         'L' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'l' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                         'N' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'n' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                        'O' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'o' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                         'R' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'r' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                         'P' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'p' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                         'S' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  's' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
@@ -101,8 +102,11 @@
                         'Z' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'z' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio1Letra">
                 <label> {{publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
                 </p>
-                <p *ngIf="'M' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'm' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio3Letra">
+                <p *ngIf="'O' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'o' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio5Letra">
                 <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
+                </p>
+                <p *ngIf="'M' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'm' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio3Letra">
+                    <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
                 </p>
                 <p *ngIf="
                             'I' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'i' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||

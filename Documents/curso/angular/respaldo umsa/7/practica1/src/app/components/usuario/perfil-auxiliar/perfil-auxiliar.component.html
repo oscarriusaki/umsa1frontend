@@ -27,7 +27,7 @@
                       'K' === de || 'k' === de ||
                       'L' === de || 'l' === de ||
                       'N' === de || 'n' === de ||
-                      'O' === de || 'o' === de ||
+
                       'R' === de || 'r' === de ||
                       'P' === de || 'p' === de ||
                       'U' === de || 'u' === de ||
@@ -37,7 +37,7 @@
                       'Z' === de || 'z' === de   " class="espacio1Letrap">
             <label>  {{de|uppercase | slice:0:1}}</label>
             </p>
-            <p *ngIf="'S' === de || 's' === de" class="espacio5Letrap">       
+            <p *ngIf="'O' === de || 'o' === de" class="espacio5Letrap">       
             <label>  {{ de|uppercase | slice:0:1}}</label>
             </p>
             <p *ngIf="'M' === de || 'm' === de" class="espacio3Letrap">       
@@ -92,7 +92,6 @@
                                                 'K' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'k' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'L' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'l' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'N' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'n' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
-                                                'O' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'o' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'R' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'r' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'P' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  'p' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
                                                 'S' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||  's' === publicacion.usuario.nombre.charAt(0).toUpperCase() ||
@@ -104,6 +103,9 @@
                                         <label> {{publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
                                         </p>
                                       
+                                        <p *ngIf="'O' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'o' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio5Letra">
+                                        <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
+                                        </p>
                                         <p *ngIf="'M' === publicacion.usuario.nombre.charAt(0).toUpperCase() || 'm' === publicacion.usuario.nombre.charAt(0).toUpperCase()" class="espacio3Letra">
                                         <label> {{ publicacion.usuario.nombre|uppercase | slice:0:1}}</label>
                                         </p>

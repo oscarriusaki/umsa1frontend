@@ -87,7 +87,6 @@ export class UsuarioComponent {
       })
   }
   contarEnfermeades(){
-    console.log('ENFERMEDADES')
     this.servicio.contarEnfermedades()
         .subscribe((resp:any) =>{
           this.enfermeades=resp.data;
