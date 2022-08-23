@@ -73,8 +73,8 @@ export class ModificarPerfilComponent implements OnInit {
   crearFormulario(){
     this.forma = this.fb.group({
       nombre: ['', [ Validators.required, Validators.minLength(2) ]],
-      apellidoPaterno: ['', [ Validators.required, Validators.minLength(2) ]],
-      apellidoMaterno: ['', [ Validators.required, Validators.minLength(2) ]],
+      apellidoPaterno: ['', [ Validators.required, Validators.minLength(0) ]],
+      apellidoMaterno: ['', [ Validators.required, Validators.minLength(0) ]],
       password1: ['', [ Validators.required, Validators.minLength(2) ]],
       password2: ['', [ Validators.required, Validators.minLength(2) ]]
     }, {

@@ -14,7 +14,7 @@ export class CapitalizadoPipe implements PipeTransform {
     let anio=s.getFullYear();
     let mes=s.getMonth()+1;
     let dia=s.getDate();
-    let hora=s.getHours();
+  /*   let hora=s.getHours();
     let minuto=s.getMinutes();
     let segundo=s.getMinutes();
     let anio2=this.fechaActual.getFullYear();
@@ -22,9 +22,9 @@ export class CapitalizadoPipe implements PipeTransform {
     let dia2=this.fechaActual.getDate();
     let hora2=this.fechaActual.getHours()-4;
     let minuto2=this.fechaActual.getMinutes()+4;
-    let segundo2=this.fechaActual.getSeconds();
-    
-    if(minuto < 0){
+    let segundo2=this.fechaActual.getSeconds(); */
+    parametro = anio + '/' + mes + '/' + dia;
+/*     if(minuto < 0){
       minuto = Number(minuto) * (-1);
     }
     if(minuto2 < 0){
@@ -95,7 +95,7 @@ export class CapitalizadoPipe implements PipeTransform {
       }else{
         parametro=dia2+`/`+mes2+`/`+anio;
       }
-    }
+    } */
     return parametro;
   }
 }

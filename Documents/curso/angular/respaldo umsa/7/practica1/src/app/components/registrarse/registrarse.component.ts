@@ -16,7 +16,7 @@ export class RegistrarseComponent implements OnInit {
   motivo:any;
   mensajeError2:any=''
   forma:any;
-  carga:boolean=false;
+  // carga:boolean=true;
 
   constructor(private router:Router,
               private servicio:ServiceService,
@@ -53,7 +53,7 @@ export class RegistrarseComponent implements OnInit {
   get password2NoValido(){
     const pass1 = this.forma.get('password').value;
     const pass2 = this.forma.get('password2').value;
-    if(pass2.length>=1){
+    if(pass2.length>1){
       return (pass1 === pass2)? false:true
     }else{
       return false;
@@ -63,8 +63,8 @@ export class RegistrarseComponent implements OnInit {
   crearFormulario(){
     this.forma = this.fb.group({
       nombre:['', [Validators.required, Validators.minLength(2)]], 
-      apellidoPaterno:['', [Validators.required, Validators.minLength(3)]],
-      apellidoMaterno:['', [Validators.required, Validators.minLength(3)]],
+      apellidoPaterno:['', [Validators.required, Validators.minLength(0)]],
+      apellidoMaterno:['', [Validators.required, Validators.minLength(0)]],
       correo:['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       password:['',  [Validators.required, Validators.minLength(9)]],
       password2:['', [Validators.required, Validators.minLength(9)]]
@@ -73,7 +73,7 @@ export class RegistrarseComponent implements OnInit {
     })
   }
   registrar(form:NgForm){
-    console.log(form)
+    // this.carga = false;
     if(form.invalid){
       Object.values(this.forma.controls).forEach((control:any) => {
         control.markAsTouched();
@@ -82,7 +82,7 @@ export class RegistrarseComponent implements OnInit {
     }
     this.servicio.registrarUsuario(form.value.nombre,form.value.apellidoPaterno,form.value.apellidoMaterno,form.value.correo,form.value.password,'USER_ROL',this.motivo)
         .subscribe(resp =>{
-          this.carga=true;
+          // this.carga=true;
           window.location.reload()
         },(err) =>{
           this.mensajeError2=err.error.msg

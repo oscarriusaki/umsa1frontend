@@ -74,7 +74,7 @@
             </div>
             <div *ngIf="cargarContenido1">
                 <div *ngIf="cantidadPublicacion === 0">
-                    <div class="alert alert-primary" *ngIf="cantidadPublicacion===0">Ningun Publicacion</div>
+                    <div class="alert alert-primary" *ngIf="cantidadPublicacion===0">Ninguna Publicacion</div>
                 </div>
             </div>
 <div class="bordeTexto2 mb-1" *ngFor="let publicacion of publicaciones;let i=index" >
@@ -156,7 +156,7 @@
         <div class="col-md-12">
             <p class="mt-2 estiloUno">
                 <a class="estiloDesripcion" type="submit" (click)="comentar(publicacion)"> {{publicacion.descripcion | lowercase}} </a> <br>
-                {{publicacion.contenido | lowercase}} 
+                {{publicacion.contenido | lowercase | textoLargo}} 
             </p>
         </div>
     </div>  
@@ -284,7 +284,7 @@
                                 <div class="col-md-12">
                                     <p class="mt-2 estiloUno">
                                         <a class="estiloDesripcion" type="submit" (click)="comentar(publicacion)"> {{publicacion.descripcion | lowercase}} </a> <br>
-                                        {{publicacion.contenido | lowercase}} 
+                                        {{publicacion.contenido | lowercase | textoLargo}} 
                                     </p>
                                 </div>
                             </div>  
@@ -414,7 +414,7 @@
                                 <div class="col-md-12">
                                     <p class="mt-2 estiloUno">
                                         <a class="estiloDesripcion" type="submit" (click)="comentar(publicacion)"> {{publicacion.descripcion | lowercase}} </a> <br>
-                                        {{publicacion.contenido | lowercase}} 
+                                        {{publicacion.contenido | lowercase | textoLargo}} 
                                     </p>
                                 </div>
                             </div>  

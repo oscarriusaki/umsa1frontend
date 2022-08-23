@@ -19,7 +19,7 @@ export class TextoCortoPipe implements PipeTransform {
         
       const p = data.join(' ')
       if(p.length >= 60){
-        return p.substring(0,55)+'...';
+        return p.substring(0,60)+'...';
       }else{
         return p;
       }  

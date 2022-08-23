@@ -90,47 +90,52 @@
                                 <option value="3"> Autismo</option>
                                 <option value="4"> Artritis</option>
                                 <option value="5"> Cáncer</option>
-                                <option value="6"> Clamidia</option>
-                                <option value="7"> Culebrilla (herpes zóster)</option>
-                                <option value="8"> Déficit de atención e hiperactividad</option>
-                                <option value="9"> Diabetes</option>
-                                <option value="10"> Ébola</option>
-                                <option value="11">Embarazo y ETS</option>
-                                <option value="12">Enfermedades de transmisión sexual (ETS)</option>
-                                <option value="13">Enfermedad inflamatoria pélvica (EIP)</option>
-                                <option value="14">Enfermedad pulmonar obstructiva crónica</option>
-                                <option value="15">Epilepsia</option>
-                                <option value="16">Escarlatina</option>
-                                <option value="17">Estreptococo del grupo B</option>
-                                <option value="18">Gonorrhea</option>
-                                <option value="19">Haemophilus influenzae tipo b (Hib)</option>
-                                <option value="20">Hemofilia</option>
-                                <option value="21">Herpes genital</option>
-                                <option value="22">Infeccíon genital por VPH</option>
-                                <option value="23">Influenza (gripe)</option>
-                                <option value="24">La Salud Mental de los Niños (Children’s Mental Health)</option>
-                                <option value="25">Listeria (Listeriosis)</option>
-                                <option value="26">Meningitis</option>
-                                <option value="27">Neumonía</option>
-                                <option value="28">Paperas</option>
-                                <option value="29">Poliomielitis</option>
-                                <option value="30">Rabia</option>
-                                <option value="31">Reumatismo</option>
-                                <option value="32">Rotavirus</option>
-                                <option value="33">Shigella – Shigellosis</option>
-                                <option value="34">Sífilis</option>
-                                <option value="35">Silicosis</option>
-                                <option value="36">Síndrome alcohólico fetal</option>
-                                <option value="37">Síndrome de fatiga crónica (SFC)</option>
-                                <option value="38">Síndrome de Tourette</option>
-                                <option value="39">Tabaquismo</option>
-                                <option value="40">Tosferina</option>
-                                <option value="41">Tricomoniasis</option>
-                                <option value="42">Tuberculosis (TB)</option>
-                                <option value="43">Vaginosis bacteriana</option>
-                                <option value="44">VIH/Sida</option>
-                                <option value="45">Zika</option>
-                                <option value="46">#otro</option>
+                                <option value="6"> Colesterol</option>
+                                <option value="7"> Clamidia</option>
+                                <option value="8"> Culebrilla (herpes zóster)</option>
+                                <option value="9"> Déficit de atención e hiperactividad</option>
+                                <option value="10"> Diabetes</option>
+                                <option value="11"> Ébola</option>
+                                <option value="12"> ELA (Esclerosis Lateral Amiotrófica)</option>
+                                <option value="13">Embarazo y ETS</option>
+                                <option value="14">Enfermedades de transmisión sexual (ETS)</option>
+                                <option value="15">Enfermedad inflamatoria pélvica (EIP)</option>
+                                <option value="16">Enfermedad pulmonar obstructiva crónica</option>
+                                <option value="17">Epilepsia</option>
+                                <option value="18">Escarlatina</option>
+                                <option value="19">Estreptococo del grupo B</option>
+                                <option value="20">Gonorrhea</option>
+                                <option value="21">Haemophilus influenzae tipo b (Hib)</option>
+                                <option value="22">Hemofilia</option>
+                                <option value="23">Herpes genital</option>
+                                <option value="24">Hipertensión</option>
+                                <option value="25">Infeccíon genital por VPH</option>
+                                <option value="26">Influenza (gripe)</option>
+                                <option value="27">La Salud Mental de los Niños (Children’s Mental Health)</option>
+                                <option value="28">Listeria (Listeriosis)</option>
+                                <option value="29">Meningitis</option>
+                                <option value="30">Migraña</option>
+                                <option value="31">Neumonía</option>
+                                <option value="32">Paperas</option>
+                                <option value="33">Parkinson</option>
+                                <option value="34">Poliomielitis</option>
+                                <option value="35">Rabia</option>
+                                <option value="36">Reumatismo</option>
+                                <option value="37">Rotavirus</option>
+                                <option value="38">Shigella – Shigellosis</option>
+                                <option value="39">Sífilis</option>
+                                <option value="40">Silicosis</option>
+                                <option value="41">Síndrome alcohólico fetal</option>
+                                <option value="42">Síndrome de fatiga crónica (SFC)</option>
+                                <option value="43">Síndrome de Tourette</option>
+                                <option value="44">Tabaquismo</option>
+                                <option value="45">Tosferina</option>
+                                <option value="46">Tricomoniasis</option>
+                                <option value="47">Tuberculosis (TB)</option>
+                                <option value="48">Vaginosis bacteriana</option>
+                                <option value="49">VIH/Sida</option>
+                                <option value="50">Zika</option>
+                                <option value="51">#otro</option>
                               </select>
                             </div>
                             <div class="col-md-2" >
@@ -226,7 +231,7 @@
                 <div class="col-md-12">
                     <p class="mt-2 estiloUno">
                         <a class="estiloDesripcion" type="submit" (click)="comentar(publicacion)"> {{publicacion.descripcion | lowercase}} </a> <br>
-                        {{publicacion.contenido | lowercase}} 
+                        {{publicacion.contenido | lowercase | textoLargo}} 
                     </p>
                 </div>
             </div>  

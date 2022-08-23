@@ -18,8 +18,8 @@ export class TextoLargoPipe implements PipeTransform {
         }
         
       const p = data.join(' ')
-      if(p.length >= 200){
-        return p.substring(0,130)+'...';
+      if(p.length >= 300){
+        return p.substring(0,230)+'...';
       }else{
         return p;
       }  

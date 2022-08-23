@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     this.desabilitar = false;
   }
   get correoNoValido(){
-    return this.forma.get('correo').invalid && this.forma.get('correo').touched && this.forma.get('correo').value.length>1;
+    return this.forma.get('correo').invalid && this.forma.get('correo').touched && this.forma.get('correo').value.length>7;
   }
   get passwordNoValido(){
     return this.forma.get('password').invalid && this.forma.get('password').touched && this.forma.get('password').value.length>3;

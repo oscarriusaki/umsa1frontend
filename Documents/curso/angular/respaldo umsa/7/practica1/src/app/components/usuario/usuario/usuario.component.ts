@@ -68,11 +68,18 @@ export class UsuarioComponent {
     '#OTRO':0,
   };
 
+  existeToken:boolean =false;
+
   constructor(private servicio:ServiceService,
               private router:Router){
     this.contarEnfermeades(); 
   }
   ngOnInit(): void {
+    if(localStorage.getItem('token'))
+      this.existeToken = true;
+
+
+
     this.servicio.obtenerUsuarioActual()
       .subscribe((resp:any) =>{
         if(resp.msg === 'expiro'){
