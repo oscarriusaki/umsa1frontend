@@ -21,13 +21,20 @@ export class BuscarEnfermedadComponent implements OnInit {
               private servicio:ServiceService,
               private router:Router,
               private _snackBar:MatSnackBar) {
+      this.servicio.validarToken()
+          .subscribe((resp:any) => {
+            if(resp.msg === 'expiro'){
+                this.router.navigate(['usuario']);
+            }
+          })
       this.mostrar();
-    }
+  }
     
   mostrar(){
     this.cargar = false;
     this.activatedRouter.params
       .subscribe(resp =>{
+        console.log(resp,'MOSTRAR');
         this.parametro=resp['id'];
         this.buscarEnfermedadX(this.parametro);
         this.usuarioActual();

@@ -38,15 +38,21 @@ export class PerfilAuxiliarComponent implements OnInit {
               private router:Router,
               private _snackBar:MatSnackBar,
               private activatedRoute:ActivatedRoute) { 
-                this.publicaciones=0;
-                this.activatedRoute.params
-                    .subscribe(resp =>{
-                      console.log(resp)
-                      this.idBuscar=resp['id'];
-                      console.log(this.idBuscar,'idBuscar')
-                    })
-              }
+  this.publicaciones=0;
+  this.activatedRoute.params
+      .subscribe(resp =>{
+        console.log(resp)
+        this.idBuscar=resp['id'];
+        console.log(this.idBuscar,'idBuscar')
+      })
+  }
   ngOnInit(): void {
+    this.servicio.validarToken()
+    .subscribe((resp:any) => {
+      if(resp.msg === 'expiro'){
+          this.router.navigate(['usuario']);
+      }
+    })
     this.mostrarUsuario(); 
   }
   openSnackBar2(dato:any) {

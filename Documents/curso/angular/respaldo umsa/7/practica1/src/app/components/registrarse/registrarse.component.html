@@ -4,7 +4,7 @@
 
         <form action="off" autocomplete="off" class="formulario" [formGroup]="forma"(ngSubmit)="registrar(forma)">
             <div class="col-md-12 mt-3 mb-3" style="text-align: center;"> <strong style="font-size: 25px; color: rgb(29, 29, 29); text-align: center  !important;" >Registrar</strong></div>
-                <label class= "" style="font-size: 13px; color:rgb(0, 0, 0);">nombre</label>
+                <label class= "" style="font-size: 13px; color:rgb(0, 0, 0);">Nombre</label>
             
                 <div class="col-12">
                     <input class="form-control formEditar"
@@ -39,6 +39,7 @@
                             placeholder="Correo"
                             formControlName="correo"
                             [class.is-invalid]="correoNoValido"
+                            (keyup)="reset()"
                             >
                 </div>
                 <label class=" "  style="font-size: 13px; color:rgb(0, 0, 0);">Contraseña</label>
@@ -59,6 +60,7 @@
                             [class.is-invalid]="password2NoValido"   
                             >
                 </div>
+                <span class="col-8 text-danger" *ngIf="mensajeError2!==''">{{mensajeError2}}</span>
             <!-- <span class="col-8 text-danger" *ngIf="mensajeError2!==''">{{mensajeError2}}</span>
             <small *ngIf="email.invalid && email.touched"
                             class="class-form text-danger">El correo no es valido</small> <br>

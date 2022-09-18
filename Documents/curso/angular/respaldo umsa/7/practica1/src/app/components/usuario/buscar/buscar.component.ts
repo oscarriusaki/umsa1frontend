@@ -21,7 +21,13 @@ export class BuscarComponent implements OnInit {
               private activatedRoute:ActivatedRoute,
               private router:Router,
               private _snackBar:MatSnackBar) { 
-    this.mostrar()
+    this.servicio.validarToken()
+      .subscribe((resp:any) => {
+        if(resp.msg === 'expiro'){
+            this.router.navigate(['usuario']);
+        }
+    })
+    this.mostrar();
   }  
   ngOnInit(): void {
   }

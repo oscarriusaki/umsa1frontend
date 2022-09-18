@@ -222,14 +222,14 @@ export class ServiceService {
     const parametro = this.getQuery(`api/buscar/buscarPorTipoEnfermedad/${enfermedad}`);//.................
     return this.http.get(parametro,{headers});
   }
-  actualizarUsuario(id:any,nombre:any,apellidoPaterno:any,apellidoMaterno:any, password:any){
+  actualizarUsuario(id:any,nombre:any,apellidoPaterno:any,apellidoMaterno:any){
     const parametro = this.getQuery(`api/user/${id}`)
     return this.http.put(parametro,
       {
         "nombre":nombre,
         "apellidoPaterno":apellidoPaterno,
         "apellidoMaterno":apellidoMaterno,
-        "password":password,
+        // "password":password,
       })
     }
     mostrarPublicacionX(id:any){
@@ -356,5 +356,13 @@ export class ServiceService {
       return this.http.put(parametro,{
         "password":p2,
       },{headers});
+    }
+    validarToken(){
+      let datoF=localStorage.getItem('token');
+      const headers = new HttpHeaders({
+        "x-token":datoF+''
+      })
+      const parametro = this.getQuery(`api/buscar/validarToken/0`)
+      return this.http.get(parametro,{headers});
     }
 }

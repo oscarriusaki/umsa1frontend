@@ -77,19 +77,25 @@ export class EditarPublicacionComponent implements OnInit {
   constructor(private router:Router,
               private activateRoute:ActivatedRoute,
               private servicio:ServiceService,
-              private _snackBar:MatSnackBar  ) {
-                this.activateRoute.params
-                    .subscribe(resp =>{
-                      this.parametro=resp['id']
-                    })
-                    this.servicio.mostrarPublicacionX(this.parametro)
-                      .subscribe((resp :any)=>{
-                        this.publicacion.descripcion=resp.usuario.descripcion.substring(0,1)+resp.usuario.descripcion.substring(1).toLowerCase();;
-                        this.publicacion.contenido=resp.usuario.contenido.substring(0,1)+resp.usuario.contenido.substring(1).toLowerCase();;
-                        this.publicacion.tipoEnfermedad=resp.usuario.tipoEnfermedad.substring(0,1)+resp.usuario.tipoEnfermedad.substring(1).toLowerCase();
-                        this.cargar = true;
-                      })
-               }
+              private _snackBar:MatSnackBar ) {
+  this.servicio.validarToken()
+  .subscribe((resp:any) => {
+    if(resp.msg === 'expiro'){
+        this.router.navigate(['usuario']);
+    }
+  })
+  this.activateRoute.params
+        .subscribe(resp =>{
+          this.parametro=resp['id']
+        })
+        this.servicio.mostrarPublicacionX(this.parametro)
+          .subscribe((resp :any)=>{
+            this.publicacion.descripcion=resp.usuario.descripcion.substring(0,1)+resp.usuario.descripcion.substring(1).toLowerCase();;
+            this.publicacion.contenido=resp.usuario.contenido.substring(0,1)+resp.usuario.contenido.substring(1).toLowerCase();;
+            this.publicacion.tipoEnfermedad=resp.usuario.tipoEnfermedad.substring(0,1)+resp.usuario.tipoEnfermedad.substring(1).toLowerCase();
+            this.cargar = true;
+          })
+  }
   ngOnInit(): void {
   }
   openSnackBar() {

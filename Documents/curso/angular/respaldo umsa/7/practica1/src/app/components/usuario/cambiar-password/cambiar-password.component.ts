@@ -25,10 +25,16 @@ export class CambiarPasswordComponent implements OnInit {
               private servicio:ServiceService,
               private _snackBar:MatSnackBar,
               private router:Router) {
+    this.servicio.validarToken()
+    .subscribe((resp:any) => {
+      if(resp.msg === 'expiro'){
+          this.router.navigate(['usuario']);
+      }
+    })
     this.generarFormulario();
     this.activatedRoute.params.subscribe(resp => {
       console.log(resp);
-    })
+    });
   }
   ngOnInit(): void {
   }

@@ -47,6 +47,12 @@ export class ComentarioComponent implements OnInit {
               private router:Router,
               private _snackBar:MatSnackBar,
               private formBuilder:FormBuilder) {
+                this.servicio.validarToken()
+                .subscribe((resp:any) => {
+                  if(resp.msg === 'expiro'){
+                      this.router.navigate(['usuario']);
+                  }
+                })
     this.activatedRoute.params
         .subscribe((resp:any )=>{
           this.id=resp.id

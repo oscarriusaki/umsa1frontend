@@ -24,6 +24,7 @@
                            formControlName="nombre"
                            [class.is-invalid]="nombreNoValido"
                            >
+                    <small *ngIf="nombreNoValido" class="text-danger">Nombre no valido</small>
                 </div>
             </div>
             <div class="row mb-3">
@@ -35,6 +36,7 @@
                            formControlName="apellidoPaterno"
                            [class.is-invalid]="apellidoPaternoNoValido"
                            >
+                    <small *ngIf="apellidoPaternoNoValido" class="text-danger">Apellido Paterno No Valido</small>
                 </div>
             </div>
             <div class="row mb-2">
@@ -46,6 +48,7 @@
                            formControlName="apellidoMaterno"
                            [class.is-invalid]="apellidoMaternoNoValido"
                     >
+                    <small *ngIf="apellidoMaternoNoValido" class="text-danger">Apellido materno no valido</small>
                 </div>
             </div>
             <!-- <div class="row mb-2">

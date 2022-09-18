@@ -15,8 +15,7 @@ export class ModificarPerfilComponent implements OnInit {
     "nombre":"",
     "apellidoPaterno":"",
     "apellidoMaterno":"",
-    "uid":"",
-    "password":""
+    "uid":""
   }
   persona:any;
   loading:boolean = false;
@@ -28,6 +27,12 @@ export class ModificarPerfilComponent implements OnInit {
               private _snackBar: MatSnackBar,
               private router:Router,
               private fb:FormBuilder) {
+    this.servicio.validarToken()
+    .subscribe((resp:any) => {
+      if(resp.msg === 'expiro'){
+          this.router.navigate(['usuario']);
+      }
+    })
     this.crearFormulario();
     this.servicio.obtenerUsuarioActual()
        .subscribe((resp:any) =>{
@@ -37,7 +42,6 @@ export class ModificarPerfilComponent implements OnInit {
          this.usuario.apellidoPaterno=this.persona.apellidoPaterno;
          this.usuario.apellidoMaterno=this.persona.apellidoMaterno;
          this.usuario.uid=this.persona.uid;
-         this.usuario.password = this.persona.password;
          this.loading=true;
          this.inicializarValores();
         })
@@ -49,8 +53,6 @@ export class ModificarPerfilComponent implements OnInit {
       nombre: this.usuario.nombre,
       apellidoPaterno: this.usuario.apellidoPaterno,
       apellidoMaterno: this.usuario.apellidoMaterno,
-      password1: this.usuario.password,
-      password2: this.usuario.password
     })
   }
   get nombreNoValido(){
@@ -62,23 +64,12 @@ export class ModificarPerfilComponent implements OnInit {
   get apellidoMaternoNoValido(){
     return this.forma.get('apellidoMaterno').invalid && this.forma.get('apellidoMaterno').touched;
   }
-  get passwordNoValido(){
-    return this.forma.get('password1').invalid && this.forma.get('password1').touched;
-  }
-  get password2NoValido(){
-    const pass1 = this.forma.get('password1').value;
-    const pass2 = this.forma.get('password2').value;
-    return (pass1 === pass2)? false: true;
-  }
+ 
   crearFormulario(){
     this.forma = this.fb.group({
       nombre: ['', [ Validators.required, Validators.minLength(2) ]],
-      apellidoPaterno: ['', [ Validators.required, Validators.minLength(0) ]],
-      apellidoMaterno: ['', [ Validators.required, Validators.minLength(0) ]],
-      password1: ['', [ Validators.required, Validators.minLength(2) ]],
-      password2: ['', [ Validators.required, Validators.minLength(2) ]]
-    }, {
-      validators: this.servicio.validarPassword('password1','password2')
+      apellidoPaterno: ['', [ Validators.required, Validators.minLength(2) ]],
+      apellidoMaterno: ['', [ Validators.required, Validators.minLength(2) ]],
     })
   }
 
@@ -96,7 +87,14 @@ export class ModificarPerfilComponent implements OnInit {
     this.tipo2=!this.tipo2;
   }
   actualizar(){
-    this.servicio.actualizarUsuario(this.persona.uid,this.forma.value.nombre,this.forma.value.apellidoPaterno,this.forma.value.apellidoMaterno, this.forma.value.password)
+    console.log(this.forma)
+    if(this.forma.invalid){
+      Object.values(this.forma.controls).forEach((control:any) => {
+        control.markAsTouched();
+      })
+      return ;
+    }
+    this.servicio.actualizarUsuario(this.persona.uid,this.forma.value.nombre,this.forma.value.apellidoPaterno,this.forma.value.apellidoMaterno)
       .subscribe(resp =>{
         this.openSnackBar()
         this.router.navigate(['usuario/perfil'])

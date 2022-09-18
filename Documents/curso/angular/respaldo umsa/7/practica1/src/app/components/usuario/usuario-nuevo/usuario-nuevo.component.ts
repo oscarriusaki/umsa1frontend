@@ -89,6 +89,12 @@ export class UsuarioNuevoComponent implements OnInit {
               private fb:FormBuilder) { }
               
   ngOnInit(): void {
+    this.servicio.validarToken()
+    .subscribe((resp:any) => {
+      if(resp.msg === 'expiro'){
+          this.router.navigate(['usuario']);
+      }
+    })
     this.servicio.obtenerUsuarioActual()
       .subscribe((resp:any) =>{
         this.de=resp.usuario1.nombre.toUpperCase().charAt(0);

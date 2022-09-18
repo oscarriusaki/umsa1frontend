@@ -16,6 +16,7 @@ export class RegistrarseComponent implements OnInit {
   motivo:any;
   mensajeError2:any=''
   forma:any;
+  veri:boolean=true
   // carga:boolean=true;
 
   constructor(private router:Router,
@@ -83,8 +84,10 @@ export class RegistrarseComponent implements OnInit {
     this.servicio.registrarUsuario(form.value.nombre,form.value.apellidoPaterno,form.value.apellidoMaterno,form.value.correo,form.value.password,'USER_ROL',this.motivo)
         .subscribe(resp =>{
           // this.carga=true;
+          console.log(resp)
           window.location.reload()
         },(err) =>{
+          console.log(err);
           this.mensajeError2=err.error.msg
         })
     if(localStorage.getItem('token')){
@@ -94,5 +97,8 @@ export class RegistrarseComponent implements OnInit {
   login(){
     this.router.navigate(['/login'])    
   }
-
+  reset(){
+    this.mensajeError2=''
+    this.veri=false
+  }
 }

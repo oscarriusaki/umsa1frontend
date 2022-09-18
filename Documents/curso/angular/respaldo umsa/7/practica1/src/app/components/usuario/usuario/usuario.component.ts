@@ -78,18 +78,18 @@ export class UsuarioComponent {
     if(localStorage.getItem('token'))
       this.existeToken = true;
 
-
-
     this.servicio.obtenerUsuarioActual()
       .subscribe((resp:any) =>{
         if(resp.msg === 'expiro'){
           localStorage.clear();
           window.location.reload();
           this.cargado=false;
+          this.existeToken = false;
         }else{
           this.publicacion=resp; 
           this.de=resp.usuario1.nombre.toUpperCase().charAt(0);
           this.cargado=true;
+          this.existeToken = true;
         }
       })
   }

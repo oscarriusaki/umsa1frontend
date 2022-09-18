@@ -38,7 +38,13 @@ export class PerfilComponent implements OnInit {
               }
 
   ngOnInit(): void {
-
+    
+    this.servicio.validarToken()
+    .subscribe((resp:any) => {
+      if(resp.msg === 'expiro'){
+          this.router.navigate(['usuario']);
+      }
+    })
     this.mostrarUsuario();
   
   }

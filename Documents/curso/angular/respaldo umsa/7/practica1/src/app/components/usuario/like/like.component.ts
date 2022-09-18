@@ -21,6 +21,12 @@ export class LikeComponent implements OnInit {
               private _snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
+    this.servicio.validarToken()
+    .subscribe((resp:any) => {
+      if(resp.msg === 'expiro'){
+          this.router.navigate(['usuario']);
+      }
+    })
     this.mostrar();
     this.usuarioActual();
   }
