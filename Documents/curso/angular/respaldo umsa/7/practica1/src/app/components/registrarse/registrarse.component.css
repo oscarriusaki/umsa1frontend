@@ -3,6 +3,7 @@
 }
 .letra{
     text-decoration: underline;
+    color: black;
 }
 .formulario{
     background-color: rgb(255, 255, 255);

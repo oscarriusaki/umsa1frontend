@@ -20,6 +20,7 @@ export class PublicarComponent implements OnInit {
     'Asma',
     'Autismo',
     'Artritis',
+    'Anemia',
     'Cáncer',
     'Clamidia',
     'Culebrilla (herpes zóster)',
